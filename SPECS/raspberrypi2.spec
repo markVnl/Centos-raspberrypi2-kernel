@@ -10,7 +10,7 @@
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        4.14.103
+Version:        4.14.104
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -33,6 +33,9 @@ Patch2:         patch-4.14.99-100.xz
 Patch3:         patch-4.14.100-101.xz
 Patch4:         patch-4.14.101-102.xz
 Patch5:         patch-4.14.102-103.xz
+Patch6:         patch-4.14.103-104.xz
+
+Patch100:       raspberrypi-upstream.patch
 
 %description
 Specific kernel and bootcode for Raspberry Pi
@@ -90,6 +93,9 @@ including the kernel bootloader.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
+
+%patch100 -p1
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm2709_defconfig
 
@@ -176,10 +182,10 @@ cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays/README /boot/ov
 #/usr/sbin/dracut /boot/initramfs-%{version}-%{release}.img %{version}-%{release}
 
 %postun kernel
-cp $(ls -1 /boot/kernel-*-*|tail -1) /boot/kernel7.img
-cp $(ls -1d /usr/share/%{name}-kernel/*-*/|tail -1)/boot/*.dtb /boot/
-cp $(ls -1d /usr/share/%{name}-kernel/*-*/|tail -1)/boot/overlays/*.dtb* /boot/overlays/
-cp $(ls -1d /usr/share/%{name}-kernel/*-*/|tail -1)/boot/overlays/README /boot/overlays/
+cp $(ls -1 /boot/kernel-*-*|sort -V|tail -1) /boot/kernel7.img
+cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/*.dtb /boot/
+cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/*.dtb* /boot/overlays/
+cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README /boot/overlays/
 
 %files kernel-devel
 %defattr(-,root,root)
@@ -199,6 +205,10 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|tail -1)/boot/overlays/README /boot/o
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Sun Mar  2 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.104-v1.el7
+- Rebase to LTS 4.14.104
+- Fix postun script (https://lists.centos.org/pipermail/arm-dev/2019-March/003748.html)
+
 * Sun Feb 24 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.103-v1.el7
 - Rebase to LTS 4.14.103
 - Add README to /boot/overlays to fix userspace tool

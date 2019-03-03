@@ -1,0 +1,207 @@
+From 35edb61a12847fbd800281e3b8226aac14c85706 Mon Sep 17 00:00:00 2001
+From: Lukas Wunner <lukas@wunner.de>
+Date: Wed, 16 Jan 2019 12:22:32 +0100
+Subject: [PATCH] bcm2835-mmc: Fix DMA channel leak
+
+The BCM2835 MMC host driver requests a DMA channel on probe but neglects
+to release the channel in the probe error path and on driver unbind.
+
+I'm seeing this happen on every boot of the Compute Module 3: On first
+driver probe, DMA channel 2 is allocated and then leaked with a "could
+not get clk, deferring probe" message. On second driver probe, channel 4
+is allocated.
+
+Fix it.
+
+Signed-off-by: Lukas Wunner <lukas@wunner.de>
+Cc: Frank Pavlic <f.pavlic@kunbus.de>
+---
+ drivers/mmc/host/bcm2835-mmc.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/mmc/host/bcm2835-mmc.c b/drivers/mmc/host/bcm2835-mmc.c
+index b7f5fd96ecb6c..6c37fb0b57135 100644
+--- a/drivers/mmc/host/bcm2835-mmc.c
++++ b/drivers/mmc/host/bcm2835-mmc.c
+@@ -1505,6 +1505,8 @@ static int bcm2835_mmc_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ err:
++	if (host->dma_chan_rxtx)
++		dma_release_channel(host->dma_chan_rxtx);
+ 	mmc_free_host(mmc);
+ 
+ 	return ret;
+@@ -1550,6 +1552,9 @@ static int bcm2835_mmc_remove(struct platform_device *pdev)
+ 
+ 	tasklet_kill(&host->finish_tasklet);
+ 
++	if (host->dma_chan_rxtx)
++		dma_release_channel(host->dma_chan_rxtx);
++
+ 	mmc_free_host(host->mmc);
+ 	platform_set_drvdata(pdev, NULL);
+ 
+From c2d680f8bc195dd8456bc191178de27a178199d7 Mon Sep 17 00:00:00 2001
+From: Lukas Wunner <lukas@wunner.de>
+Date: Sat, 19 Jan 2019 08:06:48 +0100
+Subject: [PATCH] bcm2835-mmc: Fix struct mmc_host leak on probe
+
+The BCM2835 MMC host driver requests the bus address of the host's
+register map on probe.  If that fails, the driver leaks the struct
+mmc_host allocated earlier.
+
+Fix it.
+
+Signed-off-by: Lukas Wunner <lukas@wunner.de>
+Cc: Frank Pavlic <f.pavlic@kunbus.de>
+---
+ drivers/mmc/host/bcm2835-mmc.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/mmc/host/bcm2835-mmc.c b/drivers/mmc/host/bcm2835-mmc.c
+index 6c37fb0b57135..64abe5d6aec1a 100644
+--- a/drivers/mmc/host/bcm2835-mmc.c
++++ b/drivers/mmc/host/bcm2835-mmc.c
+@@ -1441,7 +1441,8 @@ static int bcm2835_mmc_probe(struct platform_device *pdev)
+ 	addr = of_get_address(node, 0, NULL, NULL);
+ 	if (!addr) {
+ 		dev_err(dev, "could not get DMA-register address\n");
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto err;
+ 	}
+ 	host->bus_addr = be32_to_cpup(addr);
+ 	pr_debug(" - ioaddr %lx, iomem->start %lx, bus_addr %lx\n",
+From c60ad3359c42bbc20c02fbb61bd4f7f2a8b2e360 Mon Sep 17 00:00:00 2001
+From: Lukas Wunner <lukas@wunner.de>
+Date: Sat, 19 Jan 2019 09:00:26 +0100
+Subject: [PATCH] bcm2835-mmc: Fix duplicate free_irq() on remove
+
+The BCM2835 MMC host driver requests its interrupt as a device-managed
+resource, so the interrupt is automatically freed after the driver is
+unbound.
+
+However on driver unbind, bcm2835_mmc_remove() frees the interrupt
+explicitly to avoid invocation of the interrupt handler after driver
+structures have been torn down.
+
+The interrupt is thus freed twice, leading to a WARN splat in
+__free_irq().  Fix by not requesting the interrupt as a device-managed
+resource.
+
+Signed-off-by: Lukas Wunner <lukas@wunner.de>
+Cc: Frank Pavlic <f.pavlic@kunbus.de>
+---
+ drivers/mmc/host/bcm2835-mmc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/mmc/host/bcm2835-mmc.c b/drivers/mmc/host/bcm2835-mmc.c
+index 64abe5d6aec1a..9a3654d1836c4 100644
+--- a/drivers/mmc/host/bcm2835-mmc.c
++++ b/drivers/mmc/host/bcm2835-mmc.c
+@@ -1391,9 +1391,9 @@ static int bcm2835_mmc_add_host(struct bcm2835_host *host)
+ 	init_waitqueue_head(&host->buf_ready_int);
+ 
+ 	bcm2835_mmc_init(host, 0);
+-	ret = devm_request_threaded_irq(dev, host->irq, bcm2835_mmc_irq,
+-					bcm2835_mmc_thread_irq, IRQF_SHARED,
+-					mmc_hostname(mmc), host);
++	ret = request_threaded_irq(host->irq, bcm2835_mmc_irq,
++				   bcm2835_mmc_thread_irq, IRQF_SHARED,
++				   mmc_hostname(mmc), host);
+ 	if (ret) {
+ 		dev_err(dev, "Failed to request IRQ %d: %d\n", host->irq, ret);
+ 		goto untasklet;
+From f7837b0daf0e9ef899da0271391c91bdfe488fb6 Mon Sep 17 00:00:00 2001
+From: Lukas Wunner <lukas@wunner.de>
+Date: Tue, 22 Jan 2019 12:29:45 +0100
+Subject: [PATCH] bcm2835-mmc: Handle mmc_add_host() errors
+
+The BCM2835 MMC host driver calls mmc_add_host() but doesn't check its
+return value.  Errors occurring in that function are therefore not
+handled.  Fix it.
+
+Signed-off-by: Lukas Wunner <lukas@wunner.de>
+Cc: Frank Pavlic <f.pavlic@kunbus.de>
+---
+ drivers/mmc/host/bcm2835-mmc.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/mmc/host/bcm2835-mmc.c b/drivers/mmc/host/bcm2835-mmc.c
+index 9a3654d1836c4..b9f7b6d45999e 100644
+--- a/drivers/mmc/host/bcm2835-mmc.c
++++ b/drivers/mmc/host/bcm2835-mmc.c
+@@ -1400,10 +1400,16 @@ static int bcm2835_mmc_add_host(struct bcm2835_host *host)
+ 	}
+ 
+ 	mmiowb();
+-	mmc_add_host(mmc);
++	ret = mmc_add_host(mmc);
++	if (ret) {
++		dev_err(dev, "could not add MMC host\n");
++		goto free_irq;
++	}
+ 
+ 	return 0;
+ 
++free_irq:
++	free_irq(host->irq, host);
+ untasklet:
+ 	tasklet_kill(&host->finish_tasklet);
+ 
+From d4c5c9d8d0dc5c344655e31046a558372f0e50c6 Mon Sep 17 00:00:00 2001
+From: Lukas Wunner <lukas@wunner.de>
+Date: Sat, 19 Jan 2019 08:42:40 +0100
+Subject: [PATCH] bcm2835-mmc: Deduplicate reset of driver data on remove
+
+The BCM2835 MMC host driver sets the device's driver data pointer to
+NULL on ->remove() even though the driver core subsequently does the
+same in __device_release_driver().  Drop the duplicate assignment.
+
+Signed-off-by: Lukas Wunner <lukas@wunner.de>
+Cc: Frank Pavlic <f.pavlic@kunbus.de>
+---
+ drivers/mmc/host/bcm2835-mmc.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/drivers/mmc/host/bcm2835-mmc.c b/drivers/mmc/host/bcm2835-mmc.c
+index b9f7b6d45999e..98a2d807b6acb 100644
+--- a/drivers/mmc/host/bcm2835-mmc.c
++++ b/drivers/mmc/host/bcm2835-mmc.c
+@@ -1563,7 +1563,6 @@ static int bcm2835_mmc_remove(struct platform_device *pdev)
+ 		dma_release_channel(host->dma_chan_rxtx);
+ 
+ 	mmc_free_host(host->mmc);
+-	platform_set_drvdata(pdev, NULL);
+ 
+ 	return 0;
+ }
+From 877656cd145497db7c09a7de06ea85db98bd72a3 Mon Sep 17 00:00:00 2001
+From: Phil Elwell <phil@raspberrypi.org>
+Date: Mon, 18 Feb 2019 15:43:30 +0000
+Subject: [PATCH] Revert "brcmfmac: Mute expected startup 'errors'"
+
+This reverts commit 34eba9138ccf8d84552ab9dae37d8f348640e663.
+
+Upstream patch 26e537884a ("brcmfmac: Do not complain about country code "00")
+fixes the same issue, so drop this downstream patch.
+
+Signed-off-by: Phil Elwell <phil@raspberrypi.org>
+---
+ drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c
+index 2b671d03387b9..48733c5f343da 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c
+@@ -6890,8 +6890,6 @@ static void brcmf_cfg80211_reg_notifier(struct wiphy *wiphy,
+ 	/* ignore non-ISO3166 country codes */
+ 	for (i = 0; i < 2; i++)
+ 		if (req->alpha2[i] < 'A' || req->alpha2[i] > 'Z') {
+-			if (req->alpha2[0] == '0' && req->alpha2[1] == '0')
+-				return;
+ 			brcmf_err("not an ISO3166 code (0x%02x 0x%02x)\n",
+ 				  req->alpha2[0], req->alpha2[1]);
+ 			return;
