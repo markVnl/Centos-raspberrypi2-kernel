@@ -174,7 +174,7 @@ popd
 %doc /boot/COPYING.linux
 
 
-%post kernel
+%posttrans kernel
 cp /boot/kernel-%{version}-%{release}.img /boot/kernel7.img
 cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/*.dtb /boot/
 cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays/*.dtb* /boot/overlays/
