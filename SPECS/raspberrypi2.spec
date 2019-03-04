@@ -182,10 +182,12 @@ cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays/README /boot/ov
 #/usr/sbin/dracut /boot/initramfs-%{version}-%{release}.img %{version}-%{release}
 
 %postun kernel
+if [ ! -f /boot/kernel7.img ] || [ $(uname -r) = "%{version}-%{release}" ];then
 cp $(ls -1 /boot/kernel-*-*|sort -V|tail -1) /boot/kernel7.img
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/*.dtb /boot/
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/*.dtb* /boot/overlays/
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README /boot/overlays/
+fi
 
 %files kernel-devel
 %defattr(-,root,root)
