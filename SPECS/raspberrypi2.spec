@@ -49,6 +49,7 @@ input and output, etc.
 Group:          System Environment/Kernel
 Summary:        Development package for building kernel modules to match the kernel
 Provides:       kernel-devel = %{version}-%{release}
+Provides:       kernel-devel-uname-r = %{version}-%{release}
 
 %description kernel-devel
 This package provides kernel headers and makefiles sufficient to build modules
@@ -189,6 +190,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Tue Mar 13 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.19.27-v7.1.el7
+- readded kernel-devel-uname-r, fixed back in 4.14.58
+
 * Sat Mar 09 2019 Jacco Ligthart <jacco@redsleeve.org> - 4.19.27-v7.1.el7
 - update to version 4.19.27
 - added 'sort -V' to the scripts
