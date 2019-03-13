@@ -1,23 +1,21 @@
-%global commit_firmware_long  83977fe3b6ef54c1d29c83b0a778d330f523441f
-%global commit_firmware_short  %(c=%{commit_firmware_long}; echo ${c:0:7})
-#wget https://github.com/raspberrypi/firmware/tarball/%{commit_firmware_long}
-%global commit_linux_long  5d63a4595d32a8505590d5fea5c4ec1ca79fd49d
-%global commit_linux_short  %(c=%{commit_linux_long}; echo ${c:0:7})
-#wget https://github.com/raspberrypi/linux/tarball/%{commit_linux_long}
+%global commit_firmware_long  fd15e0700e45d9b7db83e30696aba299b9f2f31d
+#%global commit_firmware_short %(c=%{commit_firmware_long}; echo ${c:0:7})
+%global commit_linux_long 089ae6dda1d91d39f21e223a6413d552be798bce
+#%global commit_linux_short %(c=%{commit_linux_long}; echo ${c:0:7})
 
 %define Arch arm
 %define local_version v7
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        4.14.104
+Version:        4.19.27
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
 License:        GPLv2
 URL:            https://github.com/raspberrypi/linux
-Source0:        https://github.com/raspberrypi/linux/tarball/%{commit_linux_long}
-Source1:        https://github.com/raspberrypi/firmware/tarball/%{commit_firmware_long}
+Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long}.tar.gz
+Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
 BuildRequires: gcc, binutils, redhat-rpm-config, hmaccalc
@@ -25,17 +23,10 @@ BuildRequires: net-tools, hostname, bc
 BuildRequires: elfutils-devel zlib-devel binutils-devel newt-devel python-devel perl(ExtUtils::Embed) bison flex xz-devel
 BuildRequires: audit-libs-devel
 BuildRequires: pciutils-devel gettext ncurses-devel
+BuildRequires: openssl-devel
 
 # Compile with SELinux but disable per default
 Patch0:         bcm2709_selinux_config.patch
-Patch1:         patch-4.14.98-99.xz
-Patch2:         patch-4.14.99-100.xz
-Patch3:         patch-4.14.100-101.xz
-Patch4:         patch-4.14.101-102.xz
-Patch5:         patch-4.14.102-103.xz
-Patch6:         patch-4.14.103-104.xz
-
-Patch100:       raspberrypi-upstream.patch
 
 %description
 Specific kernel and bootcode for Raspberry Pi
@@ -58,7 +49,6 @@ input and output, etc.
 Group:          System Environment/Kernel
 Summary:        Development package for building kernel modules to match the kernel
 Provides:       kernel-devel = %{version}-%{release}
-Provides:       kernel-devel-uname-r = %{version}-%{release}
 
 %description kernel-devel
 This package provides kernel headers and makefiles sufficient to build modules
@@ -86,33 +76,26 @@ including the kernel bootloader.
 
 
 %prep
-%setup -q -n raspberrypi-linux-%{commit_linux_short}
+%setup -q -n linux-%{commit_linux_long}
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-
-%patch100 -p1
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm2709_defconfig
 
 %build
 export KERNEL=kernel7
 make bcm2709_defconfig
-make -j4 zImage modules dtbs
+make %{?_smp_mflags} zImage modules dtbs
 
 %install
 # kernel
 mkdir -p %{buildroot}/boot/overlays/
 mkdir -p %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays
-cp -p -v COPYING %{buildroot}/boot/COPYING.linux
+cp -p -v COPYING %{buildroot}/boot/COPYING.linux-4.19
 cp -p -v arch/%{Arch}/boot/dts/*.dtb %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot
 cp -p -v arch/%{Arch}/boot/dts/overlays/*.dtb* %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays
 cp -p -v arch/%{Arch}/boot/dts/overlays/README %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays
-scripts/mkknlimg arch/%{Arch}/boot/zImage %{buildroot}/boot/kernel-%{version}-%{release}.img
+#scripts/mkknlimg arch/%{Arch}/boot/zImage %{buildroot}/boot/kernel-%{version}-%{release}.img
+cp -p -v arch/%{Arch}/boot/zImage %{buildroot}/boot/kernel-%{version}-%{release}.img
 make INSTALL_MOD_PATH=%{buildroot} modules_install
 
 # kernel-devel
@@ -154,11 +137,11 @@ ln -T -s build %{buildroot}/lib/modules/%{version}-%{release}/source --force
 # firmware
 #   precompiled GPU firmware and bootloader
 pushd %{buildroot}
-tar -xf %{_sourcedir}/%{commit_firmware_long} \
-    raspberrypi-firmware-%{commit_firmware_short}/boot/start* \
-    raspberrypi-firmware-%{commit_firmware_short}/boot/fixup* \
-    raspberrypi-firmware-%{commit_firmware_short}/boot/LICENCE.broadcom \
-    raspberrypi-firmware-%{commit_firmware_short}/boot/bootcode.bin \
+tar -xf %{_sourcedir}/%{commit_firmware_long}.tar.gz \
+    firmware-%{commit_firmware_long}/boot/start* \
+    firmware-%{commit_firmware_long}/boot/fixup* \
+    firmware-%{commit_firmware_long}/boot/LICENCE.broadcom \
+    firmware-%{commit_firmware_long}/boot/bootcode.bin \
     --strip-components=1
 popd
 
@@ -171,7 +154,7 @@ popd
 /boot/overlays/
 /usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays/*
 %attr(0755,root,root) /boot/kernel-%{version}-%{release}.img
-%doc /boot/COPYING.linux
+%doc /boot/COPYING.linux-4.19
 
 
 %posttrans kernel
@@ -186,6 +169,7 @@ cp $(ls -1 /boot/kernel-*-*|sort -V|tail -1) /boot/kernel7.img
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/*.dtb /boot/
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/*.dtb* /boot/overlays/
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README /boot/overlays/
+
 
 %files kernel-devel
 %defattr(-,root,root)
@@ -205,90 +189,86 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
-* Sun Mar  2 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.104-v1.el7
-- Rebase to LTS 4.14.104
-- Fix postun script (https://lists.centos.org/pipermail/arm-dev/2019-March/003748.html)
+* Sat Mar 09 2019 Jacco Ligthart <jacco@redsleeve.org> - 4.19.27-v7.1.el7
+- update to version 4.19.27
+- added 'sort -V' to the scripts
+- changed download location from 'tarball' to 'archive'
+- moves from 'post' script to 'posttrans'
+- moved 'COPYING.linux' to 'COPYING.linux-4.19'
+- added 'README' to the overlays dir
 
-* Sun Feb 24 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.103-v1.el7
-- Rebase to LTS 4.14.103
-- Add README to /boot/overlays to fix userspace tool
+* Thu Dec 20 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.14.89-v7.1.el7
+- update to version 4.14.89
 
-* Fri Feb 15 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.101-v1.el7
-- Rebase to LTS 4.14.101
+* Wed Oct 10 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.14.74-v7.1.el7
+- update to version 4.14.74
 
-* Thu Jan 17 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.94-v1.el7
-- Rebase to LTS 4.14.94
+* Fri Aug 10 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.14.61-v7.1.el7
+- update to version 4.14.61
 
-* Sat Dec 29 2018 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.91-v1.el7
-- Rebase to LTS 4.14.91
+* Fri Jun 15 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.14.49-v7.1.el7
+- update to version 4.14.49
 
-* Wed Nov 21 2018 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.82-v1.el7
-- Rebase to LTS 4.14.82
+* Thu May 24 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.14.42-v7.1.el7
+- update to version 4.14.42
+- stop makeing the kernel-firmware subpackage
 
-* Sat Oct 20 2018 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.78-v1.el7
-- Rebase to LTS 4.14.78
+* Fri Mar 16 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.9.80-v7.2.el7
+- update to latest git for raspberry pi 3 B+ support
 
-* Thu Oct 18 2018 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.77-v1.el7
-- Rebase to LTS 4.14.77
+* Wed Feb 28 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.9.80-v7.1.el7
+- update to version 4.9.80, probably the last in the 4.9 series 
 
-* Wed Sep 19 2018 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.71-v1.el7
-- Rebase to LTS 4.14.71
+* Sat Jan 27 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.9.78-v7.1.el7
+- update to version 4.9.78
 
-* Mon Aug 20 2018 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.65-v1.el7
-- updated to 4.14.65
+* Sun Dec 17 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.69-v7.1.el7
+- update to version 4.9.69
 
-* Tue Aug  7 2018 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.61-v1.el7
-- updated to 4.14.61
+* Mon Nov 27 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.65-v7.1.el7
+- update to version 4.9.65
 
-* Mon Jul 30 2018 Pablo Greco <pablo@fliagreco.com.ar> - 4.14.58-v1.el7
-- updated to 4.14.58
-- added kernel-devel-uname-r
+* Sun Oct 29 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.59-v7.1.el7
+- update to version 4.9.59
 
-* Thu Jun 28 2018 Fabian Arrotin <arrfab@centos.org> - 4.14.52-v1.el7
-- updated to 4.14.52 (fixes CVE-2018-5803)
+* Mon Oct 02 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.52-v7.1.el7
+- update to version 4.9.52
 
-* Sat May 26 2018 Fabian Arrotin <arrfab@centos.org> - 4.14.43-v1.el7
-- updated to 4.14.43
+* Thu Aug 17 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.43-v7.1.el7
+- update to version 4.9.43
 
-* Sun Mar 18 2018 Fabian Arrotin <arrfab@centos.org> - 4.14.27-v1.el7
-- Bumped to 4.14.x LTS branch (used now by rpi foundation too)
+* Sat Jul 22 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.39-v7.1.el7
+- update to version 4.9.39
 
-* Thu Mar 15 2018 Fabian Arrotin <arrfab@centos.org> - 4.9.80-v1.el7
-- updated to 4.9.80 LTS
-- initial DTS support for rpi3 model B 
+* Sat Jul 01 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.35-v7.1.el7
+- update to version 4.9.35
 
-* Tue Jan 9 2018 Fabian Arrotin <arrfab@centos.org> - 4.9.75-v1.el7
-- updated to 4.9.75 LTS 
+* Mon Jun 19 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.33-v7.1.el7
+- update to version 4.9.33
 
-* Tue Dec 19 2017 Fabian Arrotin <arrfab@centos.org> - 4.9.70-v1.el7
-- updated to 4.9.70 (fixes CVE-2017-1000407 , CVE-2017-0861) 
+* Mon Jun 05 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.30-v7.1.el7
+- update to version 4.9.30
 
-* Thu Nov 23 2017 Fabian Arrotin <arrfab@centos.org> - 4.9.63-v1.el7
-- updated to 4.9.64
+* Fri May 12 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.27-v7.1.el7
+- update to version 4.9.27
 
-* Thu Sep 14 2017 Fabian Arrotin <arrfab@centos.org> - 4.9.50-v1.el7
-- updated to 4.9.50 (fixes CVE-2017-1000250)
+* Wed Apr 19 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.23-v7.1.el7
+- update to version 4.9.23
 
-* Tue Aug 8 2017 Fabian Arrotin <arrfab@centos.org> - 4.9.40-v1.el7
-- updated to 4.9.40
+* Thu Mar 30 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.19-v7.1.el7
+- update to version 4.9.19
 
-* Tue Jun 6 2017 Fabian Arrotin <arrfab@centos.org> - 4.9.30-v1.el7
-- updated to 4.9.30 (LTS)
+* Wed Mar 15 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.14-v7.1.el7
+- update tp version 4.9.14
 
-* Mon Feb 27 2017 Fabian Arrotin <arrfab@centos.org> - 4.9.13-v1.el7
-- update to 4.9.13 (include dccp fix, even if not in rpi config)
+* Mon Feb 27 2017 Jacco Ligthart <jacco@redsleeve.org> - 4.9.13-v7.1.el7
+- update to version 4.9.13
 
-* Sat Feb 25 2017 Fabian Arrotin <arrfab@centos.org> - 4.9.12-v1.el7
-- rebase to LTS 4.9.x (to follow rpi foundation)
+* Sat Dec 24 2016 Jacco Ligthart <jacco@redsleeve.org> - 4.4.39-v7.1.el7
+- update to version 4.4.39
 
-* Thu Feb 23 2017 Fabian Arrotin <arrfab@centos.org> - 4.4.50-v7.1.el7
-- update to 4.4.50
-
-* Fri Jan 13 2017 Fabian Arrotin <arrfab@centos.org> - 4.4.41-v7.1.el7
-- update to upstream version 4.4.41
-
-* Mon Nov 21 2016 Fabian Arrotin <arrfab@centos.org> - 4.4.33-v7.1.el7
-- update to upstream version 4.4.33
+* Wed Nov 16 2016 Jacco Ligthart <jacco@redsleeve.org> - 4.4.32-v7.1.el7
+- update to version 4.4.32
 
 * Fri Oct 21 2016 Jacco Ligthart <jacco@redsleeve.org> - 4.4.26-v7.1.el7
 - update to version 4.4.26 which includes a fix for CVE-2016-5195
