@@ -1,6 +1,6 @@
 %global commit_firmware_long  fd15e0700e45d9b7db83e30696aba299b9f2f31d
 #%global commit_firmware_short %(c=%{commit_firmware_long}; echo ${c:0:7})
-%global commit_linux_long 089ae6dda1d91d39f21e223a6413d552be798bce
+%global commit_linux_long 414511a0cc482de90eec5791b7015b2c2d99408e
 #%global commit_linux_short %(c=%{commit_linux_long}; echo ${c:0:7})
 
 %define Arch arm
@@ -8,7 +8,7 @@
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        4.19.27
+Version:        4.19.28
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -190,8 +190,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
-* Tue Mar 13 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.19.27-v7.1.el7
+* Tue Mar 13 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.19.28-v7.1.el7
 - readded kernel-devel-uname-r, fixed back in 4.14.58
+- Update to version 4.19.28
 
 * Sat Mar 09 2019 Jacco Ligthart <jacco@redsleeve.org> - 4.19.27-v7.1.el7
 - update to version 4.19.27
