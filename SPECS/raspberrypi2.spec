@@ -217,7 +217,7 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 - update to latest git for raspberry pi 3 B+ support
 
 * Wed Feb 28 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.9.80-v7.1.el7
-- update to version 4.9.80, probably the last in the 4.9 series 
+- update to version 4.9.80, probably the last in the 4.9 series
 
 * Sat Jan 27 2018 Jacco Ligthart <jacco@redsleeve.org> - 4.9.78-v7.1.el7
 - update to version 4.9.78
@@ -293,7 +293,7 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 
 * Thu Jul 7 2016 Fabian Arrotin <arrfab@centos.org>
 - upgrade to kernel 4.4.14
-- Moved some *dtb* files to /usr/share/raspberrypi2-kernel/boot/ 
+- Moved some *dtb* files to /usr/share/raspberrypi2-kernel/boot/
 - Using %post to put those in /boot/*
 - generating initramfs in %post
 
@@ -317,7 +317,7 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 * Thu Jan 21 2016 Fabian Arrotin <arrfab@centos.org>
 - updated to 4.1.15
 
-* Thu Nov 26 2015 Fabian Arrotin <arrfab@centos.org> 
+* Thu Nov 26 2015 Fabian Arrotin <arrfab@centos.org>
 - Added %{?dist} rpm macro in the name
 
 * Sat Oct 24 2015 Jacco Ligthart <jacco@redsleeve.org>
