@@ -190,7 +190,7 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
-* Tue Mar 13 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.19.28-v7.1.el7
+* Wed Mar 13 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.19.28-v7.1.el7
 - readded kernel-devel-uname-r, fixed back in 4.14.58
 - Update to version 4.19.28
 
