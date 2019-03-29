@@ -202,6 +202,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Fri Mar 29 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.19.32-v7.1.el7
+- Update to version 4.19.32
+
 * Sat Mar 16 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.19.29-v7.1.el7
 - Update to version 4.19.29
 
