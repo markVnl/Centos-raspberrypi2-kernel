@@ -54,6 +54,10 @@ Group:          System Environment/Kernel
 Summary:        Development package for building kernel modules to match the kernel
 Provides:       kernel-devel = %{version}-%{release}
 Provides:       kernel-devel-uname-r = %{version}-%{release}
+Autoreq:        no
+Requires(pre):  findutils
+Requires:       findutils
+Requires:       perl-interpreter
 
 %description kernel-devel
 This package provides kernel headers and makefiles sufficient to build modules
