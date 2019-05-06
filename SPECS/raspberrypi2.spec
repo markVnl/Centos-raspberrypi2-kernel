@@ -8,7 +8,7 @@
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        4.19.39
+Version:        4.19.40
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -18,6 +18,7 @@ Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long
 Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
 Patch38:        patch-4.19.37-38.xz
 Patch39:        patch-4.19.38-39.xz
+Patch40:        patch-4.19.39-40.xz
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
 BuildRequires: gcc, binutils, redhat-rpm-config, hmaccalc
@@ -88,6 +89,7 @@ including the kernel bootloader.
 
 %patch38 -p1
 %patch39 -p1
+%patch40 -p1
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm2709_defconfig
@@ -200,6 +202,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Mon May  6 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.19.40-v7.1.el7
+- Update to version v4.19.40
+
 * Sat May  4 2019 Pablo Greco <pablo@fliagreco.com.ar> - 4.19.39-v7.1.el7
 - Update to version 4.19.39
 
