@@ -8,7 +8,7 @@
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        4.19.51
+Version:        4.19.52
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -18,6 +18,7 @@ Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long
 Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
 
 Patch51:        patch-4.19.50-51.mod.xz
+Patch52:        patch-4.19.51-52.xz
 
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
@@ -88,6 +89,7 @@ including the kernel bootloader.
 %patch0 -p1
 
 %patch51 -p1
+%patch52 -p1
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm2709_defconfig
@@ -200,6 +202,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Mon Jun 17 2019 Pablo Greco <pgreco@centosproject.org> - 4.19.52-v7.1.el7
+- Update to version v4.19.52
+
 * Sat Jun 15 2019 Pablo Greco <pgreco@centosproject.org> - 4.19.51-v7.1.el7
 - Update to version v4.19.51
 
