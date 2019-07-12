@@ -3,8 +3,17 @@
 %global commit_linux_long 9590e9aa6b1bc7a5946d6dae8c217bbde806133c
 #%global commit_linux_short %(c=%{commit_linux_long}; echo ${c:0:7})
 
+%bcond_with rpi4
+
 %define Arch arm
+%if %{with rpi4}
+%define local_version v7l
+%define bcmmodel 2711
+%define ksuffix 4
+%else
 %define local_version v7
+%define bcmmodel 2709
+%endif
 %define extra_version 1
 
 Name:           raspberrypi2
@@ -30,25 +39,26 @@ BuildRequires: openssl-devel
 
 # Compile with SELinux but disable per default
 Patch0:         bcm2709_selinux_config.patch
+Patch1:         bcm2711_selinux_config.patch
 
 %description
 Specific kernel and bootcode for Raspberry Pi
 
-%package kernel
+%package kernel%{?ksuffix}
 Group:          System Environment/Kernel
 Summary:        The Linux kernel
 Provides:       kernel = %{version}-%{release}
 Requires:	coreutils
 #Requires:	dracut
 
-%description kernel
+%description kernel%{?ksuffix}
 The kernel package contains the Linux kernel (vmlinuz), the core of any
 Linux operating system.  The kernel handles the basic functions
 of the operating system: memory allocation, process allocation, device
 input and output, etc.
 
 
-%package kernel-devel
+%package kernel%{?ksuffix}-devel
 Group:          System Environment/Kernel
 Summary:        Development package for building kernel modules to match the kernel
 Provides:       kernel-devel = %{version}-%{release}
@@ -58,7 +68,7 @@ Requires(pre):  findutils
 Requires:       findutils
 Requires:       perl-interpreter
 
-%description kernel-devel
+%description kernel%{?ksuffix}-devel
 This package provides kernel headers and makefiles sufficient to build modules
 against the kernel package.
 
@@ -86,15 +96,16 @@ including the kernel bootloader.
 %prep
 %setup -q -n linux-%{commit_linux_long}
 %patch0 -p1
+%patch1 -p1
 
 %patch56 -p1
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
-perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm2709_defconfig
+perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
 
 %build
 export KERNEL=kernel7
-make bcm2709_defconfig
+make bcm%{bcmmodel}_defconfig
 make %{?_smp_mflags} zImage modules dtbs
 
 %install
@@ -133,8 +144,8 @@ rm -f %{buildroot}$DevelDir/scripts/*.o
 rm -f %{buildroot}$DevelDir/scripts/*/*.o
 cp -a --parents arch/%{Arch}/include %{buildroot}$DevelDir
 # include the machine specific headers for ARM variants, if available.
-if [ -d arch/%{Arch}/mach-bcm2709/include ]; then
-  cp -a --parents arch/%{Arch}/mach-bcm2709/include %{buildroot}$DevelDir
+if [ -d arch/%{Arch}/mach-bcm%{bcmmodel}/include ]; then
+  cp -a --parents arch/%{Arch}/mach-bcm%{bcmmodel}/include %{buildroot}$DevelDir
 fi
 cp include/generated/uapi/linux/version.h %{buildroot}$DevelDir/include/linux
 touch -r %{buildroot}$DevelDir/Makefile %{buildroot}$DevelDir/include/linux/version.h
@@ -156,7 +167,7 @@ tar -xf %{_sourcedir}/%{commit_firmware_long}.tar.gz \
     --strip-components=1
 popd
 
-%files kernel
+%files kernel%{?ksuffix}
 %defattr(-,root,root,-)
 /lib/modules/%{version}-%{release}
 /usr/share/%{name}-kernel/%{version}-%{release}
@@ -168,21 +179,21 @@ popd
 %doc /boot/COPYING.linux-4.19
 
 
-%posttrans kernel
+%posttrans kernel%{?ksuffix}
 cp /boot/kernel-%{version}-%{release}.img /boot/kernel7.img
 cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/*.dtb /boot/
 cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays/*.dtb* /boot/overlays/
 cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays/README /boot/overlays/
 #/usr/sbin/dracut /boot/initramfs-%{version}-%{release}.img %{version}-%{release}
 
-%postun kernel
+%postun kernel%{?ksuffix}
 cp $(ls -1 /boot/kernel-*-*|sort -V|tail -1) /boot/kernel7.img
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/*.dtb /boot/
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/*.dtb* /boot/overlays/
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README /boot/overlays/
 
 
-%files kernel-devel
+%files kernel%{?ksuffix}-devel
 %defattr(-,root,root)
 /usr/src/kernels/%{version}-%{release}
 
@@ -200,6 +211,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Sat Jul 27 2019 Pablo Greco <pgreco@centosproject.org>
+- Conditional to build kernel for rpi4
+
 * Tue Jun 25 2019 Pablo Greco <pgreco@centosproject.org> - 4.19.56-v7.1.el7
 - Update to version v4.19.56
 
