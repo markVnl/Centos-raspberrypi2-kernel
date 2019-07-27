@@ -1,6 +1,6 @@
-%global commit_firmware_long 8319f6a0e729ec0f09b677122cc3b5c1a29f0bfd
+%global commit_firmware_long 56e23d83c456bf36eb798fcd7c7271675e082f1b
 #%global commit_firmware_short %(c=%{commit_firmware_long}; echo ${c:0:7})
-%global commit_linux_long 9590e9aa6b1bc7a5946d6dae8c217bbde806133c
+%global commit_linux_long 20565c94ca877a099a3c9c5fa39a0380f3d16491
 #%global commit_linux_short %(c=%{commit_linux_long}; echo ${c:0:7})
 
 %bcond_with rpi4
@@ -17,7 +17,7 @@
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        4.19.56
+Version:        4.19.61
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -26,7 +26,7 @@ URL:            https://github.com/raspberrypi/linux
 Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long}.tar.gz
 Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
 
-Patch56:        patch-4.19.55-56.xz
+Patch61:        patch-4.19.60-61.xz
 
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
@@ -98,7 +98,7 @@ including the kernel bootloader.
 %patch0 -p1
 %patch1 -p1
 
-%patch56 -p1
+%patch61 -p1
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
@@ -211,8 +211,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
-* Sat Jul 27 2019 Pablo Greco <pgreco@centosproject.org>
+* Sat Jul 27 2019 Pablo Greco <pgreco@centosproject.org> - 4.19.61-v7.1.el7
 - Conditional to build kernel for rpi4
+- Update to version v4.19.61
 
 * Tue Jun 25 2019 Pablo Greco <pgreco@centosproject.org> - 4.19.56-v7.1.el7
 - Update to version v4.19.56
