@@ -3,7 +3,7 @@
 %global commit_linux_long 20565c94ca877a099a3c9c5fa39a0380f3d16491
 #%global commit_linux_short %(c=%{commit_linux_long}; echo ${c:0:7})
 
-%bcond_with rpi4
+%bcond_without rpi4
 
 %define Arch arm
 %if %{with rpi4}
