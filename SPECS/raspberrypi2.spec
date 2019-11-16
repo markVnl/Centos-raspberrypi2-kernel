@@ -3,13 +3,27 @@
 %global commit_linux_long 3c235dcfe80a7c7ba360219e4a3ecb256f294376
 #%global commit_linux_short %(c=%{commit_linux_long}; echo ${c:0:7})
 
-ExclusiveArch: armv7hl
+ExclusiveArch: aarch64 armv7hl
 
-%bcond_with rpi4
 
+%ifarch aarch64
+%define Arch arm64
+%define build_image Image
+%define armtarget 8
+%define with_rpi4 1
+%else
 %define Arch arm
+%define build_image zImage
+%define armtarget 7
+%bcond_with rpi4
+%endif
+
 %if %{with rpi4}
+%ifarch aarch64
+%define local_version v8
+%else
 %define local_version v7l
+%endif
 %define bcmmodel 2711
 %define ksuffix 4
 %else
@@ -106,20 +120,24 @@ perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
 
 %build
-export KERNEL=kernel7
+export KERNEL=kernel%{armtarget}
 make bcm%{bcmmodel}_defconfig
-make %{?_smp_mflags} zImage modules dtbs
+make %{?_smp_mflags} %{build_image} modules dtbs
 
 %install
 # kernel
 mkdir -p %{buildroot}/boot/overlays/
 mkdir -p %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays
 cp -p -v COPYING %{buildroot}/boot/COPYING.linux-4.19
+%ifarch aarch64
+cp -p -v arch/%{Arch}/boot/dts/broadcom/*.dtb %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot
+%else
 cp -p -v arch/%{Arch}/boot/dts/*.dtb %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot
+%endif
 cp -p -v arch/%{Arch}/boot/dts/overlays/*.dtb* %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays
 cp -p -v arch/%{Arch}/boot/dts/overlays/README %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays
 #scripts/mkknlimg arch/%{Arch}/boot/zImage %{buildroot}/boot/kernel-%{version}-%{release}.img
-cp -p -v arch/%{Arch}/boot/zImage %{buildroot}/boot/kernel-%{version}-%{release}.img
+cp -p -v arch/%{Arch}/boot/%{build_image} %{buildroot}/boot/kernel-%{version}-%{release}.img
 make INSTALL_MOD_PATH=%{buildroot} modules_install
 
 # kernel-devel
@@ -182,14 +200,14 @@ popd
 
 
 %posttrans kernel%{?ksuffix}
-cp /boot/kernel-%{version}-%{release}.img /boot/kernel7.img
+cp /boot/kernel-%{version}-%{release}.img /boot/kernel%{armtarget}.img
 cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/*.dtb /boot/
 cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays/*.dtb* /boot/overlays/
 cp /usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays/README /boot/overlays/
 #/usr/sbin/dracut /boot/initramfs-%{version}-%{release}.img %{version}-%{release}
 
 %postun kernel%{?ksuffix}
-cp $(ls -1 /boot/kernel-*-*|sort -V|tail -1) /boot/kernel7.img
+cp $(ls -1 /boot/kernel-*-*|sort -V|tail -1) /boot/kernel%{armtarget}.img
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/*.dtb /boot/
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/*.dtb* /boot/overlays/
 cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README /boot/overlays/
@@ -215,6 +233,7 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %changelog
 * Sat Nov 16 2019 Pablo Greco <pgreco@centosproject.org> - 4.19.84-v7.1.el7
 - Update to version v4.19.84
+- Build for aarch64
 
 * Tue Sep 10 2019 Pablo Greco <pgreco@centosproject.org> - 4.19.72-v7.1.el7
 - Update to version v4.19.72
