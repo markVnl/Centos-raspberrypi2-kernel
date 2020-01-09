@@ -114,7 +114,7 @@ including the kernel bootloader.
 %patch0 -p1
 %patch1 -p1
 
-%patch84 -p1
+%patch94 -p1
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
