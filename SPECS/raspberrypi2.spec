@@ -1,6 +1,6 @@
-%global commit_firmware_long b9f83b14a8f8ea11e4cc509da037d05836efa00f
+%global commit_firmware_long dc5622560a2589a417007156b75db71f52b60d80
 #%global commit_firmware_short %(c=%{commit_firmware_long}; echo ${c:0:7})
-%global commit_linux_long 3c235dcfe80a7c7ba360219e4a3ecb256f294376
+%global commit_linux_long c8e1eab18bf4cb273431d6d7076355e6d251c5ca
 #%global commit_linux_short %(c=%{commit_linux_long}; echo ${c:0:7})
 
 ExclusiveArch: aarch64 armv7hl
@@ -33,7 +33,7 @@ ExclusiveArch: aarch64 armv7hl
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        4.19.84
+Version:        4.19.94
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -42,7 +42,7 @@ URL:            https://github.com/raspberrypi/linux
 Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long}.tar.gz
 Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
 
-Patch84:        patch-4.19.83-84.xz
+Patch94:        patch-4.19.93-94.xz
 
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
@@ -231,6 +231,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Thu Jan  9 2020 Pablo Greco <pgreco@centosproject.org> - 4.19.94-v7.1.el7
+- Update to version v4.19.94
+
 * Sat Nov 16 2019 Pablo Greco <pgreco@centosproject.org> - 4.19.84-v7.1.el7
 - Update to version v4.19.84
 - Build for aarch64
