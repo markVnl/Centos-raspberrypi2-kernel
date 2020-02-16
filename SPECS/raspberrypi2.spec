@@ -5,6 +5,7 @@
 
 ExclusiveArch: aarch64 armv7hl
 
+%undefine _debugsource_packages
 
 %ifarch aarch64
 %define Arch arm64
@@ -49,7 +50,7 @@ BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
 BuildRequires: gcc, binutils, redhat-rpm-config, hmaccalc
 BuildRequires: net-tools, hostname, bc
-BuildRequires: elfutils-devel zlib-devel binutils-devel newt-devel python-devel perl(ExtUtils::Embed) bison flex xz-devel
+BuildRequires: elfutils-devel zlib-devel binutils-devel newt-devel python3-devel perl(ExtUtils::Embed) bison flex xz-devel
 BuildRequires: audit-libs-devel
 BuildRequires: pciutils-devel gettext ncurses-devel
 BuildRequires: openssl-devel
@@ -104,6 +105,9 @@ against the kernel package.
 Summary:        GPU firmware for the Raspberry Pi computer
 License:        Redistributable, with restrictions; see LICENSE.broadcom
 Obsoletes:      grub, grubby, efibootmgr
+%if 0%{?rhel} >= 8
+Provides:        grubby
+%endif
 
 %description firmware
 This package contains the GPU firmware for the Raspberry Pi BCM2835 SOC
@@ -120,6 +124,19 @@ including the kernel bootloader.
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
+
+%if 0%{?rhel} >= 8
+# Mangle /usr/bin/python shebangs to /usr/bin/python3
+# Mangle all Python shebangs to be Python 3 explicitly
+# -p preserves timestamps
+# -n prevents creating ~backup files
+# -i specifies the interpreter for the shebang
+pathfix.py -pni "%{__python3} %{py3_shbang_opts}" scripts/
+pathfix.py -pni "%{__python3} %{py3_shbang_opts}" scripts/diffconfig
+pathfix.py -pni "%{__python3} %{py3_shbang_opts}" scripts/bloat-o-meter
+pathfix.py -pni "%{__python3} %{py3_shbang_opts}" scripts/show_delta
+pathfix.py -pni "%{__python3} %{py3_shbang_opts}" tools/ tools/perf/scripts/python/*.py tools/kvm/kvm_stat/kvm_stat
+%endif
 
 %build
 export KERNEL=kernel%{armtarget}
@@ -235,6 +252,7 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %changelog
 * Sat Feb 15 2020 Pablo Greco <pgreco@centosproject.org> - 4.19.104-v7.1.el7
 - Update to version v4.19.104
+- Support building in CentOS8
 
 * Thu Jan  9 2020 Pablo Greco <pgreco@centosproject.org> - 4.19.94-v7.1.el7
 - Update to version v4.19.94
