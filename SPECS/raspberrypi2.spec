@@ -34,7 +34,7 @@ ExclusiveArch: aarch64 armv7hl
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        4.19.109
+Version:        4.19.110
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -44,6 +44,7 @@ Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long
 Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
 
 Patch109:       patch-4.19.108-109.xz
+Patch110:       patch-4.19.109-110.xz
 
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
@@ -119,6 +120,7 @@ including the kernel bootloader.
 %patch1 -p1
 
 %patch109 -p1
+%patch110 -p1
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
@@ -248,8 +250,11 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Mon Mar 16 2020 Pablo Greco <pgreco@centosproject.org> - 4.19.110-v7.1.el7
+- Update to version v4.19.110
+
 * Sat Mar 14 2020 Pablo Greco <pgreco@centosproject.org> - 4.19.109-v7.1.el7
-- Update to version v4.19.104
+- Update to version v4.19.109
 - Add team network driver
 
 * Sat Feb 15 2020 Pablo Greco <pgreco@centosproject.org> - 4.19.104-v7.1.el7
