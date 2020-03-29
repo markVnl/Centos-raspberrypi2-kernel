@@ -1,7 +1,5 @@
 %global commit_firmware_long 9e2193537c48abf8225e02e15e319a209cca558a
-#%global commit_firmware_short %(c=%{commit_firmware_long}; echo ${c:0:7})
-%global commit_linux_long 2fab54c74bf956951e61c6d4fe473995e8d07010
-#%global commit_linux_short %(c=%{commit_linux_long}; echo ${c:0:7})
+%global commit_linux_long d89b3f22cf7b6bba8081f6d16c9087019fdcf586
 
 ExclusiveArch: aarch64 armv7hl
 
@@ -34,7 +32,7 @@ ExclusiveArch: aarch64 armv7hl
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        4.19.110
+Version:        5.4.24
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -43,8 +41,6 @@ URL:            https://github.com/raspberrypi/linux
 Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long}.tar.gz
 Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
 
-Patch109:       patch-4.19.108-109.xz
-Patch110:       patch-4.19.109-110.xz
 
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
@@ -119,8 +115,6 @@ including the kernel bootloader.
 %patch0 -p1
 %patch1 -p1
 
-%patch109 -p1
-%patch110 -p1
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
@@ -147,7 +141,7 @@ make %{?_smp_mflags} %{build_image} modules dtbs
 # kernel
 mkdir -p %{buildroot}/boot/overlays/
 mkdir -p %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays
-cp -p -v COPYING %{buildroot}/boot/COPYING.linux-4.19
+cp -p -v COPYING %{buildroot}/boot/COPYING.linux-5.4
 %ifarch aarch64
 cp -p -v arch/%{Arch}/boot/dts/broadcom/*.dtb %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot
 %else
@@ -215,7 +209,7 @@ popd
 /boot/overlays/
 /usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays/*
 %attr(0755,root,root) /boot/kernel-%{version}-%{release}.img
-%doc /boot/COPYING.linux-4.19
+%doc /boot/COPYING.linux-5.4
 
 
 %posttrans kernel%{?ksuffix}
@@ -250,6 +244,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Mon Mar 16 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.24
+- Update to version v5.4.24
+
 * Mon Mar 16 2020 Pablo Greco <pgreco@centosproject.org> - 4.19.110-v7.1.el7
 - Update to version v4.19.110
 

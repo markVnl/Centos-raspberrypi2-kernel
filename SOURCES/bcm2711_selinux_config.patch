@@ -1,6 +1,6 @@
-diff -aurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defconfig
---- a/arch/arm/configs/bcm2711_defconfig	2019-06-25 09:04:03.000000000 +0000
-+++ b/arch/arm/configs/bcm2711_defconfig	2019-07-12 23:19:32.386788624 +0000
+diff -Naurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defconfig
+--- a/arch/arm/configs/bcm2711_defconfig	2020-03-20 11:43:40.000000000 +0000
++++ b/arch/arm/configs/bcm2711_defconfig	2020-03-20 16:49:57.845295276 +0000
 @@ -2,6 +2,7 @@ CONFIG_LOCALVERSION="-v7l"
  # CONFIG_LOCALVERSION_AUTO is not set
  CONFIG_SYSVIPC=y
@@ -9,7 +9,7 @@ diff -aurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defco
  CONFIG_GENERIC_IRQ_DEBUGFS=y
  CONFIG_NO_HZ=y
  CONFIG_HIGH_RES_TIMERS=y
-@@ -130,6 +131,7 @@ CONFIG_IPV6_SUBTREES=y
+@@ -121,6 +122,7 @@ CONFIG_IPV6_SUBTREES=y
  CONFIG_IPV6_MROUTE=y
  CONFIG_IPV6_MROUTE_MULTIPLE_TABLES=y
  CONFIG_IPV6_PIMSM_V2=y
@@ -17,15 +17,15 @@ diff -aurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defco
  CONFIG_NETFILTER=y
  CONFIG_NF_CONNTRACK=m
  CONFIG_NF_CONNTRACK_ZONES=y
-@@ -177,6 +179,7 @@ CONFIG_NFT_FIB_NETDEV=m
- CONFIG_NF_FLOW_TABLE_INET=m
- CONFIG_NF_FLOW_TABLE=m
+@@ -138,6 +140,7 @@ CONFIG_NF_CONNTRACK_SIP=m
+ CONFIG_NF_CONNTRACK_TFTP=m
+ CONFIG_NF_CT_NETLINK=m
  CONFIG_NETFILTER_XT_SET=m
 +CONFIG_NETFILTER_XT_TARGET_AUDIT=m
  CONFIG_NETFILTER_XT_TARGET_CHECKSUM=m
  CONFIG_NETFILTER_XT_TARGET_CLASSIFY=m
  CONFIG_NETFILTER_XT_TARGET_CONNMARK=m
-@@ -288,6 +291,7 @@ CONFIG_IP_NF_TARGET_CLUSTERIP=m
+@@ -241,6 +244,7 @@ CONFIG_IP_NF_TARGET_CLUSTERIP=m
  CONFIG_IP_NF_TARGET_ECN=m
  CONFIG_IP_NF_TARGET_TTL=m
  CONFIG_IP_NF_RAW=m
@@ -33,7 +33,7 @@ diff -aurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defco
  CONFIG_IP_NF_ARPTABLES=m
  CONFIG_IP_NF_ARPFILTER=m
  CONFIG_IP_NF_ARP_MANGLE=m
-@@ -313,6 +317,7 @@ CONFIG_IP6_NF_FILTER=m
+@@ -259,6 +263,7 @@ CONFIG_IP6_NF_FILTER=m
  CONFIG_IP6_NF_TARGET_REJECT=m
  CONFIG_IP6_NF_MANGLE=m
  CONFIG_IP6_NF_RAW=m
@@ -41,7 +41,7 @@ diff -aurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defco
  CONFIG_IP6_NF_NAT=m
  CONFIG_IP6_NF_TARGET_MASQUERADE=m
  CONFIG_IP6_NF_TARGET_NPT=m
-@@ -1388,6 +1393,7 @@ CONFIG_BTRFS_FS_POSIX_ACL=y
+@@ -1322,6 +1327,7 @@ CONFIG_BTRFS_FS_POSIX_ACL=y
  CONFIG_NILFS2_FS=m
  CONFIG_F2FS_FS=y
  CONFIG_FANOTIFY=y
@@ -49,7 +49,7 @@ diff -aurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defco
  CONFIG_QFMT_V1=m
  CONFIG_QFMT_V2=m
  CONFIG_AUTOFS4_FS=y
-@@ -1430,6 +1436,7 @@ CONFIG_NFS_FSCACHE=y
+@@ -1364,6 +1370,7 @@ CONFIG_NFS_FSCACHE=y
  CONFIG_NFSD=m
  CONFIG_NFSD_V3_ACL=y
  CONFIG_NFSD_V4=y
@@ -57,7 +57,7 @@ diff -aurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defco
  CONFIG_CIFS=m
  CONFIG_CIFS_WEAK_PW_HASH=y
  CONFIG_CIFS_UPCALL=y
-@@ -1479,6 +1486,13 @@ CONFIG_NLS_ISO8859_15=m
+@@ -1412,6 +1419,13 @@ CONFIG_NLS_ISO8859_15=m
  CONFIG_NLS_KOI8_R=m
  CONFIG_NLS_KOI8_U=m
  CONFIG_DLM=m
@@ -71,7 +71,7 @@ diff -aurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defco
  CONFIG_CRYPTO_USER=m
  CONFIG_CRYPTO_XCBC=m
  CONFIG_CRYPTO_TGR192=m
-@@ -1505,3 +1519,9 @@ CONFIG_FUNCTION_PROFILER=y
+@@ -1440,3 +1454,9 @@ CONFIG_FUNCTION_PROFILER=y
  CONFIG_KGDB=y
  CONFIG_KGDB_KDB=y
  CONFIG_KDB_KEYBOARD=y
@@ -81,10 +81,10 @@ diff -aurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defco
 +CONFIG_NET_TEAM_MODE_LOADBALANCE=m
 +CONFIG_NET_TEAM_MODE_RANDOM=m
 +CONFIG_NET_TEAM_MODE_ROUNDROBIN=m
-diff -aurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_defconfig
---- a/arch/arm64/configs/bcm2711_defconfig	2019-11-16 13:47:33.867996642 +0000
-+++ b/arch/arm64/configs/bcm2711_defconfig	2019-11-16 13:55:19.882362227 +0000
-@@ -2,6 +2,7 @@ CONFIG_LOCALVERSION=
+diff -Naurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_defconfig
+--- a/arch/arm64/configs/bcm2711_defconfig	2020-03-20 11:43:40.000000000 +0000
++++ b/arch/arm64/configs/bcm2711_defconfig	2020-03-20 16:44:49.430793984 +0000
+@@ -2,6 +2,7 @@ CONFIG_LOCALVERSION="-v8"
  # CONFIG_LOCALVERSION_AUTO is not set
  CONFIG_SYSVIPC=y
  CONFIG_POSIX_MQUEUE=y
@@ -92,7 +92,7 @@ diff -aurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_d
  CONFIG_GENERIC_IRQ_DEBUGFS=y
  CONFIG_NO_HZ=y
  CONFIG_HIGH_RES_TIMERS=y
-@@ -126,6 +127,7 @@ CONFIG_IPV6_SUBTREES=y
+@@ -120,6 +121,7 @@ CONFIG_IPV6_SUBTREES=y
  CONFIG_IPV6_MROUTE=y
  CONFIG_IPV6_MROUTE_MULTIPLE_TABLES=y
  CONFIG_IPV6_PIMSM_V2=y
@@ -100,7 +100,7 @@ diff -aurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_d
  CONFIG_NETFILTER=y
  CONFIG_NF_CONNTRACK=m
  CONFIG_NF_CONNTRACK_ZONES=y
-@@ -173,6 +175,7 @@ CONFIG_NFT_FIB_NETDEV=m
+@@ -167,6 +169,7 @@ CONFIG_NFT_FIB_NETDEV=m
  CONFIG_NF_FLOW_TABLE_INET=m
  CONFIG_NF_FLOW_TABLE=m
  CONFIG_NETFILTER_XT_SET=m
@@ -108,7 +108,7 @@ diff -aurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_d
  CONFIG_NETFILTER_XT_TARGET_CHECKSUM=m
  CONFIG_NETFILTER_XT_TARGET_CLASSIFY=m
  CONFIG_NETFILTER_XT_TARGET_CONNMARK=m
-@@ -284,6 +287,7 @@ CONFIG_IP_NF_TARGET_CLUSTERIP=m
+@@ -274,6 +277,7 @@ CONFIG_IP_NF_TARGET_CLUSTERIP=m
  CONFIG_IP_NF_TARGET_ECN=m
  CONFIG_IP_NF_TARGET_TTL=m
  CONFIG_IP_NF_RAW=m
@@ -116,7 +116,7 @@ diff -aurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_d
  CONFIG_IP_NF_ARPTABLES=m
  CONFIG_IP_NF_ARPFILTER=m
  CONFIG_IP_NF_ARP_MANGLE=m
-@@ -309,6 +313,7 @@ CONFIG_IP6_NF_FILTER=m
+@@ -295,6 +299,7 @@ CONFIG_IP6_NF_FILTER=m
  CONFIG_IP6_NF_TARGET_REJECT=m
  CONFIG_IP6_NF_MANGLE=m
  CONFIG_IP6_NF_RAW=m
@@ -124,7 +124,7 @@ diff -aurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_d
  CONFIG_IP6_NF_NAT=m
  CONFIG_IP6_NF_TARGET_MASQUERADE=m
  CONFIG_IP6_NF_TARGET_NPT=m
-@@ -1381,6 +1386,7 @@ CONFIG_BTRFS_FS_POSIX_ACL=y
+@@ -1353,6 +1358,7 @@ CONFIG_BTRFS_FS_POSIX_ACL=y
  CONFIG_NILFS2_FS=m
  CONFIG_F2FS_FS=y
  CONFIG_FANOTIFY=y
@@ -132,7 +132,7 @@ diff -aurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_d
  CONFIG_QFMT_V1=m
  CONFIG_QFMT_V2=m
  CONFIG_AUTOFS4_FS=y
-@@ -1423,6 +1429,7 @@ CONFIG_NFS_FSCACHE=y
+@@ -1395,6 +1401,7 @@ CONFIG_NFS_FSCACHE=y
  CONFIG_NFSD=m
  CONFIG_NFSD_V3_ACL=y
  CONFIG_NFSD_V4=y
@@ -140,7 +140,7 @@ diff -aurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_d
  CONFIG_CIFS=m
  CONFIG_CIFS_WEAK_PW_HASH=y
  CONFIG_CIFS_UPCALL=y
-@@ -1472,6 +1479,13 @@ CONFIG_NLS_ISO8859_15=m
+@@ -1443,6 +1450,13 @@ CONFIG_NLS_ISO8859_15=m
  CONFIG_NLS_KOI8_R=m
  CONFIG_NLS_KOI8_U=m
  CONFIG_DLM=m
@@ -154,7 +154,7 @@ diff -aurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_d
  CONFIG_CRYPTO_USER=m
  CONFIG_CRYPTO_XCBC=m
  CONFIG_CRYPTO_TGR192=m
-@@ -1497,3 +1511,9 @@ CONFIG_FUNCTION_PROFILER=y
+@@ -1470,3 +1484,9 @@ CONFIG_FUNCTION_PROFILER=y
  CONFIG_KGDB=y
  CONFIG_KGDB_KDB=y
  CONFIG_KDB_KEYBOARD=y
