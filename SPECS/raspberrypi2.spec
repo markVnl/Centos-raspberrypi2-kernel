@@ -1,5 +1,5 @@
 %global commit_firmware_long 9e2193537c48abf8225e02e15e319a209cca558a
-%global commit_linux_long d89b3f22cf7b6bba8081f6d16c9087019fdcf586
+%global commit_linux_long 67d4589da4940159e2ded20e4bf5fa90b370b4c3
 
 ExclusiveArch: aarch64 armv7hl
 
@@ -32,7 +32,7 @@ ExclusiveArch: aarch64 armv7hl
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        5.4.24
+Version:        5.4.28
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -244,6 +244,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Sun Mar 29 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.28
+- Update to version v5.4.28
+
 * Mon Mar 16 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.24
 - Update to version v5.4.24
 
