@@ -1,5 +1,5 @@
-%global commit_firmware_long 9e2193537c48abf8225e02e15e319a209cca558a
-%global commit_linux_long 67d4589da4940159e2ded20e4bf5fa90b370b4c3
+%global commit_firmware_long 7eff9f6774bb43bfd61e749a0b45ffddc98c2311
+%global commit_linux_long a5eaf73c42b06af4e8ec52755fdfa1cad05a4ac8
 
 ExclusiveArch: aarch64 armv7hl
 
@@ -32,7 +32,7 @@ ExclusiveArch: aarch64 armv7hl
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        5.4.28
+Version:        5.4.38
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -41,6 +41,7 @@ URL:            https://github.com/raspberrypi/linux
 Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long}.tar.gz
 Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
 
+Patch54038:     patch-centos-5.4.35-38.xz
 
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
@@ -115,6 +116,7 @@ including the kernel bootloader.
 %patch0 -p1
 %patch1 -p1
 
+%patch54038 -p1
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
@@ -244,6 +246,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Sun May  3 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.38
+- Update to version v5.4.38
+
 * Sun Mar 29 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.28
 - Update to version v5.4.28
 
