@@ -32,7 +32,7 @@ ExclusiveArch: aarch64 armv7hl
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        5.4.38
+Version:        5.4.42
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
