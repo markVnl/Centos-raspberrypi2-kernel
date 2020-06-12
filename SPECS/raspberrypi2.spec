@@ -171,6 +171,9 @@ fi
 if [ -f arch/%{Arch}/*lds ]; then
   cp -a arch/%{Arch}/*lds %{buildroot}$DevelDir/arch/%{_arch}/ || :
 fi
+if [ -f arch/%{Arch}/kernel/module.lds ]; then
+  cp -a --parents arch/%{Arch}/kernel/module.lds %{buildroot}$DevelDir/
+fi
 rm -f %{buildroot}$DevelDir/scripts/*.o
 rm -f %{buildroot}$DevelDir/scripts/*/*.o
 cp -a --parents arch/%{Arch}/include %{buildroot}$DevelDir
