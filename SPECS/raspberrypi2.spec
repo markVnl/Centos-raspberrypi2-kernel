@@ -1,5 +1,5 @@
-%global commit_firmware_long 2b76cfc6f57d4943144b9ceb5b57d3d455d6a8fd
-%global commit_linux_long ddf7285e0f880a993395a373e91339956de60f54
+%global commit_firmware_long 542aceb30364db3ce87d532ea90451f46bbb84e9
+%global commit_linux_long 0fe13a5838b20d5078c46ef4f132f02aa3a06641
 
 ExclusiveArch: aarch64 armv7hl
 
@@ -32,7 +32,7 @@ ExclusiveArch: aarch64 armv7hl
 %define extra_version 1
 
 Name:           raspberrypi2
-Version:        5.4.49
+Version:        5.4.53
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
@@ -40,6 +40,11 @@ License:        GPLv2
 URL:            https://github.com/raspberrypi/linux
 Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long}.tar.gz
 Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
+
+#cherry picked to avoid patch conflicts
+Patch1000:      aac47fd9e07926faf1b89a27b2f671e1f4f794e6.patch
+Patch54052:     patch-5.4.51-52.xz
+Patch54053:     patch-5.4.52-53.xz
 
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
@@ -53,6 +58,9 @@ BuildRequires: openssl-devel
 # Compile with SELinux but disable per default
 Patch0:         bcm2709_selinux_config.patch
 Patch1:         bcm2711_selinux_config.patch
+
+#Wireguard
+Patch800: wireguard.patch
 
 %description
 Specific kernel and bootcode for Raspberry Pi
@@ -111,8 +119,14 @@ including the kernel bootloader.
 
 %prep
 %setup -q -n linux-%{commit_linux_long}
+%patch1000 -p1
 %patch0 -p1
 %patch1 -p1
+
+%patch54052 -p1
+%patch54053 -p1
+
+%patch800 -p1
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
@@ -245,6 +259,10 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Sun Jul 26 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.53
+- Update to version v5.4.53
+- Add Wireguard support
+
 * Sat Jun 27 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.49
 - Update to version v5.4.49
 

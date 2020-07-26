@@ -1,0 +1,73 @@
+From aac47fd9e07926faf1b89a27b2f671e1f4f794e6 Mon Sep 17 00:00:00 2001
+From: iamdavidcz <iamdavid@iamdavid.cz>
+Date: Thu, 23 Jul 2020 23:10:22 +0200
+Subject: [PATCH] add CONFIG_CRYPTO_USER_API_HASH=m
+
+---
+ arch/arm/configs/bcm2709_defconfig   | 1 +
+ arch/arm/configs/bcm2711_defconfig   | 1 +
+ arch/arm/configs/bcmrpi_defconfig    | 1 +
+ arch/arm64/configs/bcm2711_defconfig | 1 +
+ arch/arm64/configs/bcmrpi3_defconfig | 1 +
+ 5 files changed, 5 insertions(+)
+
+diff --git a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defconfig
+index e087265da2462..5eaa8be6b458c 100644
+--- a/arch/arm/configs/bcm2709_defconfig
++++ b/arch/arm/configs/bcm2709_defconfig
+@@ -1443,6 +1443,7 @@ CONFIG_CRYPTO_WP512=m
+ CONFIG_CRYPTO_CAST5=m
+ CONFIG_CRYPTO_DES=y
+ CONFIG_CRYPTO_LZ4=m
++CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ # CONFIG_CRYPTO_HW is not set
+ CONFIG_CRC_ITU_T=y
+diff --git a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defconfig
+index 9aeb3aa1a618c..8f261cec85c30 100644
+--- a/arch/arm/configs/bcm2711_defconfig
++++ b/arch/arm/configs/bcm2711_defconfig
+@@ -1482,6 +1482,7 @@ CONFIG_CRYPTO_WP512=m
+ CONFIG_CRYPTO_CAST5=m
+ CONFIG_CRYPTO_DES=y
+ CONFIG_CRYPTO_LZ4=m
++CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ # CONFIG_CRYPTO_HW is not set
+ CONFIG_CRC_ITU_T=y
+diff --git a/arch/arm/configs/bcmrpi_defconfig b/arch/arm/configs/bcmrpi_defconfig
+index 18e7506a25314..e593c41ba6464 100644
+--- a/arch/arm/configs/bcmrpi_defconfig
++++ b/arch/arm/configs/bcmrpi_defconfig
+@@ -1452,6 +1452,7 @@ CONFIG_CRYPTO_WP512=m
+ CONFIG_CRYPTO_CAST5=m
+ CONFIG_CRYPTO_DES=y
+ CONFIG_CRYPTO_LZ4=m
++CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ # CONFIG_CRYPTO_HW is not set
+ CONFIG_CRC_ITU_T=y
+diff --git a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_defconfig
+index e8eee3446fc08..e9eb3a88cbbe4 100644
+--- a/arch/arm64/configs/bcm2711_defconfig
++++ b/arch/arm64/configs/bcm2711_defconfig
+@@ -1474,6 +1474,7 @@ CONFIG_CRYPTO_WP512=m
+ CONFIG_CRYPTO_CAST5=m
+ CONFIG_CRYPTO_DES=y
+ CONFIG_CRYPTO_LZ4=m
++CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ # CONFIG_CRYPTO_HW is not set
+ CONFIG_CRC_ITU_T=y
+diff --git a/arch/arm64/configs/bcmrpi3_defconfig b/arch/arm64/configs/bcmrpi3_defconfig
+index 04128417383a9..05459f731972a 100644
+--- a/arch/arm64/configs/bcmrpi3_defconfig
++++ b/arch/arm64/configs/bcmrpi3_defconfig
+@@ -1317,6 +1317,7 @@ CONFIG_CRYPTO_WP512=m
+ CONFIG_CRYPTO_CAST5=m
+ CONFIG_CRYPTO_DES=y
+ CONFIG_CRYPTO_LZ4=m
++CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ CONFIG_CRC_ITU_T=y
+ CONFIG_LIBCRC32C=y
