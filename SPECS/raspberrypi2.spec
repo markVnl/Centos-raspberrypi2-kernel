@@ -101,7 +101,7 @@ Summary:        GPU firmware for the Raspberry Pi computer
 License:        Redistributable, with restrictions; see LICENSE.broadcom
 Obsoletes:      grub, grubby, efibootmgr
 %if 0%{?rhel} >= 8
-Provides:        grubby
+Provides:        grubby=8.40-10
 %endif
 
 %description firmware
