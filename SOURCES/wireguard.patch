@@ -1,7 +1,7 @@
-From d5f9669c68f4d484fd9e035cff5f909413b10ccb Mon Sep 17 00:00:00 2001
+From 8778630384d761ce052c8b2f2cc4e6e0a34e7808 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:07 +0100
-Subject: [PATCH 001/100] crypto: lib - tidy up lib/crypto Kconfig and Makefile
+Subject: [PATCH 001/102] crypto: lib - tidy up lib/crypto Kconfig and Makefile
 
 commit 746b2e024c67aa605ac12d135cd7085a49cf9dc4 upstream.
 
@@ -121,10 +121,10 @@ index cbe0b6a6450d..63de4cb3fcf8 100644
 2.18.2
 
 
-From df871ee7dba8582ca3b6f414ae9b615df113ac99 Mon Sep 17 00:00:00 2001
+From 209066a1844c5b0a5591670d785869afa383fab2 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:08 +0100
-Subject: [PATCH 002/100] crypto: chacha - move existing library code into
+Subject: [PATCH 002/102] crypto: chacha - move existing library code into
  lib/crypto
 
 commit 5fb8ef25803ef33e2eb60b626435828b937bed75 upstream.
@@ -648,10 +648,10 @@ index 000000000000..dabc3accae05
 2.18.2
 
 
-From 23aa6c8d945743ff123207351ee2a27612c6486f Mon Sep 17 00:00:00 2001
+From 45f0fe575e0d1ccab9c9d594e65f575d0873bf05 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:09 +0100
-Subject: [PATCH 003/100] crypto: x86/chacha - depend on generic chacha library
+Subject: [PATCH 003/102] crypto: x86/chacha - depend on generic chacha library
  instead of crypto driver
 
 commit 28e8d89b1ce8d2e7badfb5f69971dd635acb8863 upstream.
@@ -849,10 +849,10 @@ index f29bf10c0462..564a3f7b40b8 100644
 2.18.2
 
 
-From eae0a3dc41f16fa4829ea9fe4b5520402a54d0eb Mon Sep 17 00:00:00 2001
+From 1900060b30098b6963f5ae0dd969e9c94bce7bd1 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:10 +0100
-Subject: [PATCH 004/100] crypto: x86/chacha - expose SIMD ChaCha routine as
+Subject: [PATCH 004/102] crypto: x86/chacha - expose SIMD ChaCha routine as
  library function
 
 commit 84e03fa39fbe95a5567d43bff458c6d3b3a23ad1 upstream.
@@ -1065,10 +1065,10 @@ index 5c662f8fecac..2676f4fbd4c1 100644
 2.18.2
 
 
-From 00be77bf975db1c79b616faa27f89a1625c8a8f8 Mon Sep 17 00:00:00 2001
+From 89f503c29b4483551193b266ddc1e549bf6ee33d Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:11 +0100
-Subject: [PATCH 005/100] crypto: arm64/chacha - depend on generic chacha
+Subject: [PATCH 005/102] crypto: arm64/chacha - depend on generic chacha
  library instead of crypto driver
 
 commit c77da4867cbb7841177275dbb250f5c09679fae4 upstream.
@@ -1202,10 +1202,10 @@ index d4cc61bfe79d..cae2cb92eca8 100644
 2.18.2
 
 
-From 9612659d26c1a94ab65d28c6e95e8efabc44555c Mon Sep 17 00:00:00 2001
+From 65c6eef97112e0e3e33371216d951a63169f188d Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:12 +0100
-Subject: [PATCH 006/100] crypto: arm64/chacha - expose arm64 ChaCha routine as
+Subject: [PATCH 006/102] crypto: arm64/chacha - expose arm64 ChaCha routine as
  library function
 
 commit b3aad5bad26a01a4bd8c49a5c5f52aec665f3b7c upstream.
@@ -1348,10 +1348,10 @@ index cae2cb92eca8..46cd4297761c 100644
 2.18.2
 
 
-From eb04a17f747282ec72b45430b18595e44ace9fac Mon Sep 17 00:00:00 2001
+From fd9d18994aa3e5d605aa244a7397fcc406136b30 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:13 +0100
-Subject: [PATCH 007/100] crypto: arm/chacha - import Eric Biggers's scalar
+Subject: [PATCH 007/102] crypto: arm/chacha - import Eric Biggers's scalar
  accelerated ChaCha code
 
 commit 29621d099f9c642b22a69dc8e7e20c108473a392 upstream.
@@ -1835,10 +1835,10 @@ index 000000000000..2140319b64a0
 2.18.2
 
 
-From 6240a7104c8ec4bf92a7c5b7554f2f504f6c8bfe Mon Sep 17 00:00:00 2001
+From b905cc8204606eab7ef7915d154012653307b10d Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:14 +0100
-Subject: [PATCH 008/100] crypto: arm/chacha - remove dependency on generic
+Subject: [PATCH 008/102] crypto: arm/chacha - remove dependency on generic
  ChaCha driver
 
 commit b36d8c09e710c71f6a9690b6586fea2d1c9e1e27 upstream.
@@ -2544,10 +2544,10 @@ index 46cd4297761c..b08029d7bde6 100644
 2.18.2
 
 
-From d3944704ef3870fb15fc8801ef9a71f00b34babd Mon Sep 17 00:00:00 2001
+From a76e3299dbec67c13ad08417d107b0635e314328 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:15 +0100
-Subject: [PATCH 009/100] crypto: arm/chacha - expose ARM ChaCha routine as
+Subject: [PATCH 009/102] crypto: arm/chacha - expose ARM ChaCha routine as
  library function
 
 commit a44a3430d71bad4ee56788a59fff099b291ea54c upstream.
@@ -2660,10 +2660,10 @@ index eb40efb3eb34..3f0c057aa050 100644
 2.18.2
 
 
-From f2718bb79f639d39f1f2ec04b6746ed5e8e70af9 Mon Sep 17 00:00:00 2001
+From 89e33ebf324d8371d40d0e1a44f0177c35c27d4b Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:16 +0100
-Subject: [PATCH 010/100] crypto: mips/chacha - import 32r2 ChaCha code from
+Subject: [PATCH 010/102] crypto: mips/chacha - import 32r2 ChaCha code from
  Zinc
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -3119,10 +3119,10 @@ index 000000000000..a81e02db95e7
 2.18.2
 
 
-From a171197a29c587a90f42392a3e23afc7b790576b Mon Sep 17 00:00:00 2001
+From 3b756386ffec40b38f9c2041ecee10be54f68787 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:17 +0100
-Subject: [PATCH 011/100] crypto: mips/chacha - wire up accelerated 32r2 code
+Subject: [PATCH 011/102] crypto: mips/chacha - wire up accelerated 32r2 code
  from Zinc
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -3694,10 +3694,10 @@ index 649dc564f242..6b5e14cee475 100644
 2.18.2
 
 
-From b455a56d1c9035f7ca22428941755ec376189d14 Mon Sep 17 00:00:00 2001
+From 8048e91cccb933bb1c61acc78cb506c97b3ca362 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:18 +0100
-Subject: [PATCH 012/100] crypto: chacha - unexport chacha_generic routines
+Subject: [PATCH 012/102] crypto: chacha - unexport chacha_generic routines
 
 commit 22cf705360707ced15f9fe5423938f313c7df536 upstream.
 
@@ -3817,10 +3817,10 @@ index c0e40b245431..aa5d4a16aac5 100644
 2.18.2
 
 
-From 015fca1be79e9f688c936524100503689d100f8c Mon Sep 17 00:00:00 2001
+From 202a09d95a174ee44947871aa86c43d9de8f8d0d Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:19 +0100
-Subject: [PATCH 013/100] crypto: poly1305 - move core routines into a separate
+Subject: [PATCH 013/102] crypto: poly1305 - move core routines into a separate
  library
 
 commit 48ea8c6ebc96bc0990e12ee1c43d0832c23576bb upstream.
@@ -4493,10 +4493,10 @@ index 000000000000..f019a57dbc1b
 2.18.2
 
 
-From 67f694baa2784551f3a5b0402fa53b17feed3009 Mon Sep 17 00:00:00 2001
+From 3450230c482c7d4b8ca9fe2d54fef00949fbb865 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:20 +0100
-Subject: [PATCH 014/100] crypto: x86/poly1305 - unify Poly1305 state struct
+Subject: [PATCH 014/102] crypto: x86/poly1305 - unify Poly1305 state struct
  with generic code
 
 commit ad8f5b88383ea685f2b8df2a12ee3e08089a1287 upstream.
@@ -4756,10 +4756,10 @@ index f5a4319c2a1f..36b5886cb50c 100644
 2.18.2
 
 
-From 355c32dc47fefdec66a4e6cb58ce5501d70d3a42 Mon Sep 17 00:00:00 2001
+From ef73d7ae12b39e76235baba9a178452c7d7269d5 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:21 +0100
-Subject: [PATCH 015/100] crypto: poly1305 - expose init/update/final library
+Subject: [PATCH 015/102] crypto: poly1305 - expose init/update/final library
  interface
 
 commit a1d93064094cc5e24d64e35cf093e7191d0c9344 upstream.
@@ -4993,10 +4993,10 @@ index f019a57dbc1b..32ec293c65ae 100644
 2.18.2
 
 
-From 7998253646414533f2b58947258628dd83cd380b Mon Sep 17 00:00:00 2001
+From 4fc756a627a983a5c13bb0e110d36e1413c9440c Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:22 +0100
-Subject: [PATCH 016/100] crypto: x86/poly1305 - depend on generic library not
+Subject: [PATCH 016/102] crypto: x86/poly1305 - depend on generic library not
  generic shash
 
 commit 1b2c6a5120489d41c8ea3b8dacd0b4586289b158 upstream.
@@ -5222,10 +5222,10 @@ index 04fa269e5534..479b0cab2a1a 100644
 2.18.2
 
 
-From 42b7d909e3dc65ee679c5820954fddc02a89b250 Mon Sep 17 00:00:00 2001
+From 51def5ed5363a5e6c8702f15676627f602e5bfdf Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:23 +0100
-Subject: [PATCH 017/100] crypto: x86/poly1305 - expose existing driver as
+Subject: [PATCH 017/102] crypto: x86/poly1305 - expose existing driver as
  poly1305 library
 
 commit f0e89bcfbb894e5844cd1bbf6b3cf7c63cb0f5ac upstream.
@@ -5396,10 +5396,10 @@ index a731ea36bd5c..181754615f73 100644
 2.18.2
 
 
-From 3cd3c9e240bf2bf8b2ea277f8fa06e08017bfbce Mon Sep 17 00:00:00 2001
+From e63ea0f203d049885a4f8a295464c8020b078a02 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:24 +0100
-Subject: [PATCH 018/100] crypto: arm64/poly1305 - incorporate
+Subject: [PATCH 018/102] crypto: arm64/poly1305 - incorporate
  OpenSSL/CRYPTOGAMS NEON implementation
 
 commit f569ca16475155013525686d0f73bc379c67e635 upstream.
@@ -7498,10 +7498,10 @@ index 181754615f73..9923445e8225 100644
 2.18.2
 
 
-From 37bfaa5edd51c66438932ea842ac026313fa7104 Mon Sep 17 00:00:00 2001
+From 008d72f98e0ad5fe960b7a09ecdbdb05580d27b3 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:25 +0100
-Subject: [PATCH 019/100] crypto: arm/poly1305 - incorporate OpenSSL/CRYPTOGAMS
+Subject: [PATCH 019/102] crypto: arm/poly1305 - incorporate OpenSSL/CRYPTOGAMS
  NEON implementation
 
 commit a6b803b3ddc793d6db0c16f12fc12d30d20fa9cc upstream.
@@ -10293,10 +10293,10 @@ index 9923445e8225..9bd15b227e78 100644
 2.18.2
 
 
-From d6a1701488249634f8dd62a3757dfe6119d2acf0 Mon Sep 17 00:00:00 2001
+From ee02d59c4f5254a73ae059b17e5d9ea4a8642028 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:26 +0100
-Subject: [PATCH 020/100] crypto: mips/poly1305 - incorporate
+Subject: [PATCH 020/102] crypto: mips/poly1305 - incorporate
  OpenSSL/CRYPTOGAMS optimized implementation
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -11872,10 +11872,10 @@ index 9bd15b227e78..d15ec5382986 100644
 2.18.2
 
 
-From 8f7e17a4015605a94c6c26c1bec0f22b8490a8e3 Mon Sep 17 00:00:00 2001
+From c8abcf8e1b1c0d95f497451174fa98aa28daf975 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:28 +0100
-Subject: [PATCH 021/100] crypto: blake2s - generic C library implementation
+Subject: [PATCH 021/102] crypto: blake2s - generic C library implementation
  and selftest
 
 commit 66d7fb94e4ffe5acc589e0b2b4710aecc1f07a28 upstream.
@@ -12992,10 +12992,10 @@ index 000000000000..41025a30c524
 2.18.2
 
 
-From 9d6b3f8f7dd184396b6dff0fb80d53f631b81dfe Mon Sep 17 00:00:00 2001
+From 8b81229bc1d0c4376d083c3573e7ea72b1b18976 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:29 +0100
-Subject: [PATCH 022/100] crypto: testmgr - add test cases for Blake2s
+Subject: [PATCH 022/102] crypto: testmgr - add test cases for Blake2s
 
 commit 17e1df67023a5c9ccaeb5de8bf5b88f63127ecf7 upstream.
 
@@ -13322,10 +13322,10 @@ index ef7d21f39d4a..102fcad54966 100644
 2.18.2
 
 
-From ae1e1578754f22af47a32fde440803ad6f4c96d2 Mon Sep 17 00:00:00 2001
+From 232dcec39c2068e2d9177d24aa61cd8648f54305 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:30 +0100
-Subject: [PATCH 023/100] crypto: blake2s - implement generic shash driver
+Subject: [PATCH 023/102] crypto: blake2s - implement generic shash driver
 
 commit 7f9b0880925f1f9d7d59504ea0892d2ae9cfc233 upstream.
 
@@ -13580,10 +13580,10 @@ index 941693effc7d..74ff77032e52 100644
 2.18.2
 
 
-From 5d9e7e09d015f1cc5d3ae6d1e4553f11ef79dca1 Mon Sep 17 00:00:00 2001
+From 8416cc48644e8ee0778547c8cbc151fb5ead51eb Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:31 +0100
-Subject: [PATCH 024/100] crypto: blake2s - x86_64 SIMD implementation
+Subject: [PATCH 024/102] crypto: blake2s - x86_64 SIMD implementation
 
 commit ed0356eda153f6a95649e11feb7b07083caf9e20 upstream.
 
@@ -14151,10 +14151,10 @@ index 81c8a4059afc..8fd3954bf64c 100644
 2.18.2
 
 
-From 854d7c4e760cb5841345ca2b90a451dedf784deb Mon Sep 17 00:00:00 2001
+From f3b459801854bd2c9624e05401f892108b005200 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:32 +0100
-Subject: [PATCH 025/100] crypto: curve25519 - generic C library
+Subject: [PATCH 025/102] crypto: curve25519 - generic C library
  implementations
 
 commit 0ed42a6f431e930b2e8fae21955406e09fe75d70 upstream.
@@ -16021,10 +16021,10 @@ index 000000000000..0106bebe6900
 2.18.2
 
 
-From b85ad2b88fc06d997f8f142222d9f8159cd5d2a2 Mon Sep 17 00:00:00 2001
+From b17de7636a4c58d8e985c1e08a3f56a750d89430 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:33 +0100
-Subject: [PATCH 026/100] crypto: curve25519 - add kpp selftest
+Subject: [PATCH 026/102] crypto: curve25519 - add kpp selftest
 
 commit f613457a7af085728297bef71233c37faf3c01b1 upstream.
 
@@ -17297,10 +17297,10 @@ index 102fcad54966..5d132ae996b4 100644
 2.18.2
 
 
-From 19e6bba9e31ff0202097c57d184ba73eebf01980 Mon Sep 17 00:00:00 2001
+From c20147b70d73e2fb5a7656997c7583964e4d7b81 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:34 +0100
-Subject: [PATCH 027/100] crypto: curve25519 - implement generic KPP driver
+Subject: [PATCH 027/102] crypto: curve25519 - implement generic KPP driver
 
 commit ee772cb641135739c1530647391d5a04c39db192 upstream.
 
@@ -17444,10 +17444,10 @@ index 000000000000..bd88fd571393
 2.18.2
 
 
-From 9564b9cc289e700a1cbdf08d1ab3f81ae442db9f Mon Sep 17 00:00:00 2001
+From 1520c383f9ed860c6afa73609b3e3dadbe45a7d9 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:35 +0100
-Subject: [PATCH 028/100] crypto: lib/curve25519 - work around Clang stack
+Subject: [PATCH 028/102] crypto: lib/curve25519 - work around Clang stack
  spilling issue
 
 commit 660bb8e1f833ea63185fe80fde847e3e42f18e3b upstream.
@@ -17525,10 +17525,10 @@ index 1c455207341d..2fde0ec33dbd 100644
 2.18.2
 
 
-From 02e323f7bc2dc013b79e8cb4d742c8f827598824 Mon Sep 17 00:00:00 2001
+From f8549a26f577e7ea963560f92fd8aca6a6fc8670 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:36 +0100
-Subject: [PATCH 029/100] crypto: curve25519 - x86_64 library and KPP
+Subject: [PATCH 029/102] crypto: curve25519 - x86_64 library and KPP
  implementations
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -20073,10 +20073,10 @@ index a3fc859830c1..b8b738bcc312 100644
 2.18.2
 
 
-From ef199be33340e0c41e7ae3bae7e90821fdff04dc Mon Sep 17 00:00:00 2001
+From 76729db2ce00b84c5738f9ab7e9ccd72729a9479 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:37 +0100
-Subject: [PATCH 030/100] crypto: arm/curve25519 - import Bernstein and
+Subject: [PATCH 030/102] crypto: arm/curve25519 - import Bernstein and
  Schwabe's Curve25519 ARM implementation
 
 commit f0fb006b604f98e2309a30f34ef455ac734f7c1c upstream.
@@ -22215,10 +22215,10 @@ index 000000000000..f33b85fef382
 2.18.2
 
 
-From 69668393c502f10dbd39d1c89f312b3bdce30763 Mon Sep 17 00:00:00 2001
+From 82d4da04035fce31f3ac94f9c67ae544787ac562 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:38 +0100
-Subject: [PATCH 031/100] crypto: arm/curve25519 - wire up NEON implementation
+Subject: [PATCH 031/102] crypto: arm/curve25519 - wire up NEON implementation
 
 commit d8f1308a025fc7e00414194ed742d5f05a21e13c upstream.
 
@@ -23286,10 +23286,10 @@ index 000000000000..2e9e12d2f642
 2.18.2
 
 
-From 3c53ca73117d858f90c1a41d8e78a6b5d569d2e6 Mon Sep 17 00:00:00 2001
+From 80ae5baadedd8e9abf750daab65444c44e2a60d1 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:39 +0100
-Subject: [PATCH 032/100] crypto: chacha20poly1305 - import construction and
+Subject: [PATCH 032/102] crypto: chacha20poly1305 - import construction and
  selftest from Zinc
 
 commit ed20078b7e3331e82828be357147af6a3282e4ce upstream.
@@ -30980,10 +30980,10 @@ index 000000000000..c12ddbe9eb92
 2.18.2
 
 
-From 265dc97191fdbe6f8bc4ea513b07ff27cc1885ad Mon Sep 17 00:00:00 2001
+From 0438989198bb5541aea5dfcd33736a9211e930b6 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:40 +0100
-Subject: [PATCH 033/100] crypto: lib/chacha20poly1305 - reimplement
+Subject: [PATCH 033/102] crypto: lib/chacha20poly1305 - reimplement
  crypt_from_sg() routine
 
 commit d95312a3ccc0cd544d374be2fc45aeaa803e5fd9 upstream.
@@ -31285,10 +31285,10 @@ index c12ddbe9eb92..821e5cc9b14e 100644
 2.18.2
 
 
-From d43d24b8f78fd3653105b3c7fccaf48406459faf Mon Sep 17 00:00:00 2001
+From 36146ca92431d588fac6d067c06556c9f2898cd7 Mon Sep 17 00:00:00 2001
 From: Eric Biggers <ebiggers@google.com>
 Date: Sun, 17 Nov 2019 23:21:29 -0800
-Subject: [PATCH 034/100] crypto: chacha_generic - remove unnecessary setkey()
+Subject: [PATCH 034/102] crypto: chacha_generic - remove unnecessary setkey()
  functions
 
 commit 2043323a799a660bc84bbee404cf7a2617ec6157 upstream.
@@ -31359,10 +31359,10 @@ index c1b147318393..8beea79ab117 100644
 2.18.2
 
 
-From a34dfabc1996f2c4cbcd1357e42af15c7cb212ea Mon Sep 17 00:00:00 2001
+From 666afd130a006818f81862fb9478a79391081a3b Mon Sep 17 00:00:00 2001
 From: Eric Biggers <ebiggers@google.com>
 Date: Sun, 17 Nov 2019 23:21:58 -0800
-Subject: [PATCH 035/100] crypto: x86/chacha - only unregister algorithms if
+Subject: [PATCH 035/102] crypto: x86/chacha - only unregister algorithms if
  registered
 
 commit b62755aed3a3f5ca9edd2718339ccea3b6bbbe57 upstream.
@@ -31397,10 +31397,10 @@ index b391e13a9e41..a94e30b6f941 100644
 2.18.2
 
 
-From cca80e2b0611bf97f9bfad1148c6cb301dde2aec Mon Sep 17 00:00:00 2001
+From 22aa44bb07b38a0f1de8586ac11c698da2379a03 Mon Sep 17 00:00:00 2001
 From: Eric Biggers <ebiggers@google.com>
 Date: Sun, 17 Nov 2019 23:22:16 -0800
-Subject: [PATCH 036/100] crypto: lib/chacha20poly1305 - use chacha20_crypt()
+Subject: [PATCH 036/102] crypto: lib/chacha20poly1305 - use chacha20_crypt()
 
 commit 413808b71e6204b0cc1eeaa77960f7c3cd381d33 upstream.
 
@@ -31486,10 +31486,10 @@ index 821e5cc9b14e..6d83cafebc69 100644
 2.18.2
 
 
-From f2be36196660d017639e2f1ac064665e3aa9cda4 Mon Sep 17 00:00:00 2001
+From 26654690b2e8d2a08b8cf51c41075a2fca6fef39 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 25 Nov 2019 11:31:12 +0100
-Subject: [PATCH 037/100] crypto: arch - conditionalize crypto api in arch glue
+Subject: [PATCH 037/102] crypto: arch - conditionalize crypto api in arch glue
  for lib code
 
 commit 8394bfec51e0e565556101bcc4e2fe7551104cd8 upstream.
@@ -31787,10 +31787,10 @@ index 370cd88068ec..0cc4537e6617 100644
 2.18.2
 
 
-From 59949ef5e1e03dbbe4cfc235b2f1ae4f7f84b90a Mon Sep 17 00:00:00 2001
+From 59fe107a2044939247de58d1d9294584e46462fa Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Valdis=20Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>
 Date: Thu, 5 Dec 2019 20:58:36 -0500
-Subject: [PATCH 038/100] crypto: chacha - fix warning message in header file
+Subject: [PATCH 038/102] crypto: chacha - fix warning message in header file
 
 commit 579d705cd64e44f3fcda1a6cfd5f37468a5ddf63 upstream.
 
@@ -31828,10 +31828,10 @@ index aa5d4a16aac5..b085dc1ac151 100644
 2.18.2
 
 
-From 543a947c79372b975b492c5e8706503a79a9831c Mon Sep 17 00:00:00 2001
+From 8ec749d01cf688aee3054d342a07bbf3de103989 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 11 Dec 2019 10:26:39 +0100
-Subject: [PATCH 039/100] crypto: arm/curve25519 - add arch-specific key
+Subject: [PATCH 039/102] crypto: arm/curve25519 - add arch-specific key
  generation function
 
 commit 84faa307249b341f6ad8de3e1869d77a65e26669 upstream.
@@ -31872,10 +31872,10 @@ index f3f42cf3b893..776ae07e0469 100644
 2.18.2
 
 
-From 7b55c4f9819e6791a6b881b2cf8880e947adfe8d Mon Sep 17 00:00:00 2001
+From cc753590e7c166ab7bd05e77d493d8c07138e802 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 16 Dec 2019 19:53:26 +0100
-Subject: [PATCH 040/100] crypto: lib/curve25519 - re-add selftests
+Subject: [PATCH 040/102] crypto: lib/curve25519 - re-add selftests
 
 commit aa127963f1cab2b93c74c9b128a84610203fb674 upstream.
 
@@ -33270,10 +33270,10 @@ index 0106bebe6900..c03ccdb99434 100644
 2.18.2
 
 
-From 773a55c545ad6cb457b4eac8d71d68e695ec0ac4 Mon Sep 17 00:00:00 2001
+From 7c6ead9004462ba14187f6b17931019f71464b1e Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 5 Jan 2020 22:40:46 -0500
-Subject: [PATCH 041/100] crypto: poly1305 - add new 32 and 64-bit generic
+Subject: [PATCH 041/102] crypto: poly1305 - add new 32 and 64-bit generic
  versions
 
 commit 1c08a104360f3e18f4ee6346c21cc3923efb952e upstream.
@@ -34465,10 +34465,10 @@ index 32ec293c65ae..9d2d14df0fee 100644
 2.18.2
 
 
-From c416a98eb307de061d222f9db53651c9b0eb0964 Mon Sep 17 00:00:00 2001
+From 497457d1568e24430c7946470141811202c3fa38 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 5 Jan 2020 22:40:47 -0500
-Subject: [PATCH 042/100] crypto: x86/poly1305 - import unmodified cryptogams
+Subject: [PATCH 042/102] crypto: x86/poly1305 - import unmodified cryptogams
  implementation
 
 commit 0896ca2a0cb6127e8a129f1f2a680d49b6b0f65c upstream.
@@ -38655,10 +38655,10 @@ index 000000000000..342ad7f18aa7
 2.18.2
 
 
-From cc9daa3df108633221ac63d297bb8cd45057d3eb Mon Sep 17 00:00:00 2001
+From 698790f98cbcce58f5aa39c5c513c8cda43abd98 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 5 Jan 2020 22:40:48 -0500
-Subject: [PATCH 043/100] crypto: x86/poly1305 - wire up faster implementations
+Subject: [PATCH 043/102] crypto: x86/poly1305 - wire up faster implementations
  for kernel
 
 commit d7d7b853566254648df59f7ea27ea05952a6cfa8 upstream.
@@ -41592,10 +41592,10 @@ index 0b2c4fce26d9..14c032de276e 100644
 2.18.2
 
 
-From 35dd657ae5c12cfd9ff4322040b3a8f2ae079f96 Mon Sep 17 00:00:00 2001
+From 0440c094fe88d834255c5bb6c0c3063e5d5d8a5d Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 5 Jan 2020 22:40:49 -0500
-Subject: [PATCH 044/100] crypto: {arm,arm64,mips}/poly1305 - remove redundant
+Subject: [PATCH 044/102] crypto: {arm,arm64,mips}/poly1305 - remove redundant
  non-reduction from emit
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -41773,10 +41773,10 @@ index b37d29cf5d0a..fc881b46d911 100644
 2.18.2
 
 
-From 10debe0a7c7c0cfbd09cd459ffed05c68f21a31b Mon Sep 17 00:00:00 2001
+From b811e759edf1a00c880fd81911e464a19092af1a Mon Sep 17 00:00:00 2001
 From: Herbert Xu <herbert@gondor.apana.org.au>
 Date: Wed, 8 Jan 2020 12:37:35 +0800
-Subject: [PATCH 045/100] crypto: curve25519 - Fix selftest build error
+Subject: [PATCH 045/102] crypto: curve25519 - Fix selftest build error
 
 commit a8bdf2c42ee4d1ee42af1f3601f85de94e70a421 upstream.
 
@@ -41886,10 +41886,10 @@ index c03ccdb99434..288a62cd29b2 100644
 2.18.2
 
 
-From e82348f61b5731bae5b1d97cb6f3aefd4a6d6b95 Mon Sep 17 00:00:00 2001
+From e252a7bbd574e3f5d0ce35c139500d280f45cde9 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 16 Jan 2020 18:23:55 +0100
-Subject: [PATCH 046/100] crypto: x86/poly1305 - fix .gitignore typo
+Subject: [PATCH 046/102] crypto: x86/poly1305 - fix .gitignore typo
 
 commit 1f6868995326cc82102049e349d8dbd116bdb656 upstream.
 
@@ -41915,10 +41915,10 @@ index c406ea6571fa..30be0400a439 100644
 2.18.2
 
 
-From 50ab09a1e41c36049b0b4d194ac3998b6e98bf09 Mon Sep 17 00:00:00 2001
+From 49c45bd0d17029d7f0eeb5c72e2509e316e408bc Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 16 Jan 2020 21:26:34 +0100
-Subject: [PATCH 047/100] crypto: chacha20poly1305 - add back missing test
+Subject: [PATCH 047/102] crypto: chacha20poly1305 - add back missing test
  vectors and test chunking
 
 commit 72c7943792c9e7788ddd182337bcf8f650cf56f5 upstream.
@@ -43779,10 +43779,10 @@ index 465de46dbdef..c391a91364e9 100644
 2.18.2
 
 
-From 1cb521f8391f1fa9eaaf55c56d9ecdc97030f5d9 Mon Sep 17 00:00:00 2001
+From 17478e7046844d5a665c2d166229be3814a36921 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 17 Jan 2020 11:42:22 +0100
-Subject: [PATCH 048/100] crypto: x86/poly1305 - emit does base conversion
+Subject: [PATCH 048/102] crypto: x86/poly1305 - emit does base conversion
  itself
 
 commit f9e7fe32a792726186301423ff63a465d63386e1 upstream.
@@ -43822,10 +43822,10 @@ index 657363588e0c..79bb58737d52 100644
 2.18.2
 
 
-From 286fdbb5f1330fe73266f14df8398eac1c6db2d3 Mon Sep 17 00:00:00 2001
+From 562fd82f6954cad0744b5613a781ae926c913b2d Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 17 Jan 2020 17:43:18 +0100
-Subject: [PATCH 049/100] crypto: arm/chacha - fix build failured when kernel
+Subject: [PATCH 049/102] crypto: arm/chacha - fix build failured when kernel
  mode NEON is disabled
 
 commit 0bc81767c5bd9d005fae1099fb39eb3688370cb1 upstream.
@@ -43886,10 +43886,10 @@ index 7bdf8823066d..893692ed12b7 100644
 2.18.2
 
 
-From 0754cc145e417709e9be36785aeac0c4c4d5d5c1 Mon Sep 17 00:00:00 2001
+From b037bb06b0e8cef9db0572eb947a365d10d47a26 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 17 Jan 2020 12:01:36 +0100
-Subject: [PATCH 050/100] crypto: Kconfig - allow tests to be disabled when
+Subject: [PATCH 050/102] crypto: Kconfig - allow tests to be disabled when
  manager is disabled
 
 commit 2343d1529aff8b552589f622c23932035ed7a05d upstream.
@@ -43932,10 +43932,10 @@ index b8b738bcc312..8fcf630471dc 100644
 2.18.2
 
 
-From 6de0d949776ff25dda2069b744db5e011e33056c Mon Sep 17 00:00:00 2001
+From 2a257f05f1ca068024df70c092855fc7d3b0a764 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 6 Feb 2020 12:42:01 +0100
-Subject: [PATCH 051/100] crypto: chacha20poly1305 - prevent integer overflow
+Subject: [PATCH 051/102] crypto: chacha20poly1305 - prevent integer overflow
  on large input
 
 commit c9cc0517bba9f0213f1e55172feceb99e5512daf upstream.
@@ -43978,10 +43978,10 @@ index 6d83cafebc69..ad0699ce702f 100644
 2.18.2
 
 
-From 214f482df388cc9b22d443813acfb8eeebb9b7c6 Mon Sep 17 00:00:00 2001
+From 64699e667b888145a48404c43089e0dddc365aaa Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 1 Mar 2020 22:52:35 +0800
-Subject: [PATCH 052/100] crypto: x86/curve25519 - support assemblers with no
+Subject: [PATCH 052/102] crypto: x86/curve25519 - support assemblers with no
  adx support
 
 commit 1579f1bc3b753d17a44de3457d5c6f4a5b14c752 upstream.
@@ -44072,10 +44072,10 @@ index 4e6dc840b159..9ecb3c1f0f15 100644
 2.18.2
 
 
-From 232561dc8a8eb5139d8124cf5011e6db8fbb9e3f Mon Sep 17 00:00:00 2001
+From 66a3dbf086b8f9dfb320c0640972879aa3f10828 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 18 Mar 2020 20:27:32 -0600
-Subject: [PATCH 053/100] crypto: arm64/chacha - correctly walk through blocks
+Subject: [PATCH 053/102] crypto: arm64/chacha - correctly walk through blocks
 
 commit c8cfcb78c65877313cda7bcbace624d3dbd1f3b3 upstream.
 
@@ -44148,10 +44148,10 @@ index c391a91364e9..fa43deda2660 100644
 2.18.2
 
 
-From e0f9507b756594951d5d4ea1591387aa62d4caa0 Mon Sep 17 00:00:00 2001
+From 66c51f8a14bfe493cbf756094de5239b60698f46 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 20 Jan 2020 18:18:15 +0100
-Subject: [PATCH 054/100] crypto: x86/curve25519 - replace with formally
+Subject: [PATCH 054/102] crypto: x86/curve25519 - replace with formally
  verified implementation
 
 commit 07b586fe06625b0b610dc3d3a969c51913d143d4 upstream.
@@ -47905,10 +47905,10 @@ index eec7d2d24239..e4e58b8e9afe 100644
 2.18.2
 
 
-From 1d46b9410c99a51d869bd4b7cd41ea32f2fea63d Mon Sep 17 00:00:00 2001
+From 088f417b491f0eeff2dee995a1905d4616bbfbac Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 1 Mar 2020 16:06:56 +0800
-Subject: [PATCH 055/100] crypto: x86/curve25519 - leave r12 as spare register
+Subject: [PATCH 055/102] crypto: x86/curve25519 - leave r12 as spare register
 
 commit dc7fc3a53ae158263196b1892b672aedf67796c5 upstream.
 
@@ -48287,10 +48287,10 @@ index e4e58b8e9afe..8a17621f7d3a 100644
 2.18.2
 
 
-From 1b621c6bdc78e16880d8aaae55dceade812c56fd Mon Sep 17 00:00:00 2001
+From 10eb55997dca18f9f8243378cc7b2172e393a5a6 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 19 Mar 2020 11:56:17 -0600
-Subject: [PATCH 056/100] crypto: arm[64]/poly1305 - add artifact to .gitignore
+Subject: [PATCH 056/102] crypto: arm[64]/poly1305 - add artifact to .gitignore
  files
 
 commit 6e4e00d8b68ca7eb30d08afb740033e0d36abe55 upstream.
@@ -48331,10 +48331,10 @@ index 879df8781ed5..e403b1343328 100644
 2.18.2
 
 
-From 04d656cc3b94e33050abc7df5cdc9b1e245aae84 Mon Sep 17 00:00:00 2001
+From 8d63a52d0c2f12b386077ebb56a47f756d186f5b Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 23 Apr 2020 15:54:04 -0600
-Subject: [PATCH 057/100] crypto: arch/lib - limit simd usage to 4k chunks
+Subject: [PATCH 057/102] crypto: arch/lib - limit simd usage to 4k chunks
 
 commit 706024a52c614b478b63f7728d202532ce6591a9 upstream.
 
@@ -48592,10 +48592,214 @@ index 79bb58737d52..61b2bc8b6986 100644
 2.18.2
 
 
-From af068e66b2ae1e5fbef3ff78dcd10867ad5af096 Mon Sep 17 00:00:00 2001
+From 16b579fcd3976821b57485df02338de90d5e1021 Mon Sep 17 00:00:00 2001
+From: Herbert Xu <herbert@gondor.apana.org.au>
+Date: Wed, 8 Jul 2020 12:41:13 +1000
+Subject: [PATCH 058/102] crypto: lib/chacha20poly1305 - Add missing function
+ declaration
+
+commit 06cc2afbbdf9a9e8df3e2f8db724997dd6e1b4ac upstream.
+
+This patch adds a declaration for chacha20poly1305_selftest to
+silence a sparse warning.
+
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ include/crypto/chacha20poly1305.h | 2 ++
+ lib/crypto/chacha20poly1305.c     | 2 --
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/crypto/chacha20poly1305.h b/include/crypto/chacha20poly1305.h
+index 234ee28078ef..d2ac3ff7dc1e 100644
+--- a/include/crypto/chacha20poly1305.h
++++ b/include/crypto/chacha20poly1305.h
+@@ -45,4 +45,6 @@ bool chacha20poly1305_decrypt_sg_inplace(struct scatterlist *src, size_t src_len
+ 					 const u64 nonce,
+ 					 const u8 key[CHACHA20POLY1305_KEY_SIZE]);
+ 
++bool chacha20poly1305_selftest(void);
++
+ #endif /* __CHACHA20POLY1305_H */
+diff --git a/lib/crypto/chacha20poly1305.c b/lib/crypto/chacha20poly1305.c
+index ad0699ce702f..431e04280332 100644
+--- a/lib/crypto/chacha20poly1305.c
++++ b/lib/crypto/chacha20poly1305.c
+@@ -21,8 +21,6 @@
+ 
+ #define CHACHA_KEY_WORDS	(CHACHA_KEY_SIZE / sizeof(u32))
+ 
+-bool __init chacha20poly1305_selftest(void);
+-
+ static void chacha_load_key(u32 *k, const u8 *in)
+ {
+ 	k[0] = get_unaligned_le32(in);
+-- 
+2.18.2
+
+
+From ece6dfac8cc83c47ab7943601fa374486d800860 Mon Sep 17 00:00:00 2001
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Wed, 8 Jul 2020 12:11:18 +0300
+Subject: [PATCH 059/102] crypto: x86/chacha-sse3 - use unaligned loads for
+ state array
+
+commit e79a31715193686e92dadb4caedfbb1f5de3659c upstream.
+
+Due to the fact that the x86 port does not support allocating objects
+on the stack with an alignment that exceeds 8 bytes, we have a rather
+ugly hack in the x86 code for ChaCha to ensure that the state array is
+aligned to 16 bytes, allowing the SSE3 implementation of the algorithm
+to use aligned loads.
+
+Given that the performance benefit of using of aligned loads appears to
+be limited (~0.25% for 1k blocks using tcrypt on a Corei7-8650U), and
+the fact that this hack has leaked into generic ChaCha code, let's just
+remove it.
+
+Cc: Martin Willi <martin@strongswan.org>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Eric Biggers <ebiggers@kernel.org>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Reviewed-by: Martin Willi <martin@strongswan.org>
+Reviewed-by: Eric Biggers <ebiggers@google.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ arch/x86/crypto/chacha-ssse3-x86_64.S | 16 ++++++++--------
+ arch/x86/crypto/chacha_glue.c         | 17 ++---------------
+ include/crypto/chacha.h               |  4 ----
+ 3 files changed, 10 insertions(+), 27 deletions(-)
+
+diff --git a/arch/x86/crypto/chacha-ssse3-x86_64.S b/arch/x86/crypto/chacha-ssse3-x86_64.S
+index 2d86c7d6dc88..a556a57f1a4a 100644
+--- a/arch/x86/crypto/chacha-ssse3-x86_64.S
++++ b/arch/x86/crypto/chacha-ssse3-x86_64.S
+@@ -120,10 +120,10 @@ ENTRY(chacha_block_xor_ssse3)
+ 	FRAME_BEGIN
+ 
+ 	# x0..3 = s0..3
+-	movdqa		0x00(%rdi),%xmm0
+-	movdqa		0x10(%rdi),%xmm1
+-	movdqa		0x20(%rdi),%xmm2
+-	movdqa		0x30(%rdi),%xmm3
++	movdqu		0x00(%rdi),%xmm0
++	movdqu		0x10(%rdi),%xmm1
++	movdqu		0x20(%rdi),%xmm2
++	movdqu		0x30(%rdi),%xmm3
+ 	movdqa		%xmm0,%xmm8
+ 	movdqa		%xmm1,%xmm9
+ 	movdqa		%xmm2,%xmm10
+@@ -205,10 +205,10 @@ ENTRY(hchacha_block_ssse3)
+ 	# %edx: nrounds
+ 	FRAME_BEGIN
+ 
+-	movdqa		0x00(%rdi),%xmm0
+-	movdqa		0x10(%rdi),%xmm1
+-	movdqa		0x20(%rdi),%xmm2
+-	movdqa		0x30(%rdi),%xmm3
++	movdqu		0x00(%rdi),%xmm0
++	movdqu		0x10(%rdi),%xmm1
++	movdqu		0x20(%rdi),%xmm2
++	movdqu		0x30(%rdi),%xmm3
+ 
+ 	mov		%edx,%r8d
+ 	call		chacha_permute
+diff --git a/arch/x86/crypto/chacha_glue.c b/arch/x86/crypto/chacha_glue.c
+index f3bfce21bc0d..4c4dc64398cb 100644
+--- a/arch/x86/crypto/chacha_glue.c
++++ b/arch/x86/crypto/chacha_glue.c
+@@ -14,8 +14,6 @@
+ #include <linux/module.h>
+ #include <asm/simd.h>
+ 
+-#define CHACHA_STATE_ALIGN 16
+-
+ asmlinkage void chacha_block_xor_ssse3(u32 *state, u8 *dst, const u8 *src,
+ 				       unsigned int len, int nrounds);
+ asmlinkage void chacha_4block_xor_ssse3(u32 *state, u8 *dst, const u8 *src,
+@@ -125,8 +123,6 @@ static void chacha_dosimd(u32 *state, u8 *dst, const u8 *src,
+ 
+ void hchacha_block_arch(const u32 *state, u32 *stream, int nrounds)
+ {
+-	state = PTR_ALIGN(state, CHACHA_STATE_ALIGN);
+-
+ 	if (!static_branch_likely(&chacha_use_simd) || !crypto_simd_usable()) {
+ 		hchacha_block_generic(state, stream, nrounds);
+ 	} else {
+@@ -139,8 +135,6 @@ EXPORT_SYMBOL(hchacha_block_arch);
+ 
+ void chacha_init_arch(u32 *state, const u32 *key, const u8 *iv)
+ {
+-	state = PTR_ALIGN(state, CHACHA_STATE_ALIGN);
+-
+ 	chacha_init_generic(state, key, iv);
+ }
+ EXPORT_SYMBOL(chacha_init_arch);
+@@ -148,8 +142,6 @@ EXPORT_SYMBOL(chacha_init_arch);
+ void chacha_crypt_arch(u32 *state, u8 *dst, const u8 *src, unsigned int bytes,
+ 		       int nrounds)
+ {
+-	state = PTR_ALIGN(state, CHACHA_STATE_ALIGN);
+-
+ 	if (!static_branch_likely(&chacha_use_simd) || !crypto_simd_usable() ||
+ 	    bytes <= CHACHA_BLOCK_SIZE)
+ 		return chacha_crypt_generic(state, dst, src, bytes, nrounds);
+@@ -171,15 +163,12 @@ EXPORT_SYMBOL(chacha_crypt_arch);
+ static int chacha_simd_stream_xor(struct skcipher_request *req,
+ 				  const struct chacha_ctx *ctx, const u8 *iv)
+ {
+-	u32 *state, state_buf[16 + 2] __aligned(8);
++	u32 state[CHACHA_STATE_WORDS] __aligned(8);
+ 	struct skcipher_walk walk;
+ 	int err;
+ 
+ 	err = skcipher_walk_virt(&walk, req, false);
+ 
+-	BUILD_BUG_ON(CHACHA_STATE_ALIGN != 16);
+-	state = PTR_ALIGN(state_buf + 0, CHACHA_STATE_ALIGN);
+-
+ 	chacha_init_generic(state, ctx->key, iv);
+ 
+ 	while (walk.nbytes > 0) {
+@@ -218,12 +207,10 @@ static int xchacha_simd(struct skcipher_request *req)
+ {
+ 	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
+ 	struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
+-	u32 *state, state_buf[16 + 2] __aligned(8);
++	u32 state[CHACHA_STATE_WORDS] __aligned(8);
+ 	struct chacha_ctx subctx;
+ 	u8 real_iv[16];
+ 
+-	BUILD_BUG_ON(CHACHA_STATE_ALIGN != 16);
+-	state = PTR_ALIGN(state_buf + 0, CHACHA_STATE_ALIGN);
+ 	chacha_init_generic(state, ctx->key, req->iv);
+ 
+ 	if (req->cryptlen > CHACHA_BLOCK_SIZE && crypto_simd_usable()) {
+diff --git a/include/crypto/chacha.h b/include/crypto/chacha.h
+index 2676f4fbd4c1..3a1c72fdb7cf 100644
+--- a/include/crypto/chacha.h
++++ b/include/crypto/chacha.h
+@@ -25,11 +25,7 @@
+ #define CHACHA_BLOCK_SIZE	64
+ #define CHACHAPOLY_IV_SIZE	12
+ 
+-#ifdef CONFIG_X86_64
+-#define CHACHA_STATE_WORDS	((CHACHA_BLOCK_SIZE + 12) / sizeof(u32))
+-#else
+ #define CHACHA_STATE_WORDS	(CHACHA_BLOCK_SIZE / sizeof(u32))
+-#endif
+ 
+ /* 192-bit nonce, then 64-bit stream position */
+ #define XCHACHA_IV_SIZE		32
+-- 
+2.18.2
+
+
+From 7b3d4f2940feb08f9e958ce2eb66b428bf37de4a Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 11 Feb 2020 20:47:05 +0100
-Subject: [PATCH 058/100] icmp: introduce helper for nat'd source address in
+Subject: [PATCH 060/102] icmp: introduce helper for nat'd source address in
  network device context
 
 commit 0b41713b606694257b90d61ba7e2712d8457648b upstream.
@@ -48662,7 +48866,7 @@ index 5d4bfdba9adf..9ac2d2672a93 100644
  int icmp_err(struct sk_buff *skb, u32 info);
  int icmp_init(void);
 diff --git a/net/ipv4/icmp.c b/net/ipv4/icmp.c
-index ac95ba78b903..9eb05a8139cb 100644
+index 73f46cb5e51d..2721e1774e2f 100644
 --- a/net/ipv4/icmp.c
 +++ b/net/ipv4/icmp.c
 @@ -747,6 +747,39 @@ out:;
@@ -48752,10 +48956,10 @@ index 02045494c24c..e0086758b6ee 100644
 2.18.2
 
 
-From 93ca3bf7fc729df26023968388d2c063b177e828 Mon Sep 17 00:00:00 2001
+From ebd9f6a83e5250842ef4dff84478b45cb0b02bc2 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 9 Dec 2019 00:27:34 +0100
-Subject: [PATCH 059/100] net: WireGuard secure network tunnel
+Subject: [PATCH 061/102] net: WireGuard secure network tunnel
 
 commit e7096c131e5161fa3b8e52a650d7719d2857adfd upstream.
 
@@ -56939,10 +57143,10 @@ index 000000000000..e7310d9390f7
 2.18.2
 
 
-From 514644d220829b4c1987cd451485d984cd88e6dd Mon Sep 17 00:00:00 2001
+From 3c3c8d15eb936dc54218631310777f36d433b24c Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 15 Dec 2019 22:08:00 +0100
-Subject: [PATCH 060/100] wireguard: selftests: import harness makefile for
+Subject: [PATCH 062/102] wireguard: selftests: import harness makefile for
  test suite
 
 commit 65d88d04114bca7d85faebd5fed61069cb2b632c upstream.
@@ -58076,10 +58280,10 @@ index 000000000000..9cca30206014
 2.18.2
 
 
-From 044e1033e6c7ee9f63c7bd2686f3a528c085befa Mon Sep 17 00:00:00 2001
+From 2e57e5839641c9d8f544d825fc79a8ee8efcb683 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 15 Dec 2019 22:08:01 +0100
-Subject: [PATCH 061/100] wireguard: Kconfig: select parent dependency for
+Subject: [PATCH 063/102] wireguard: Kconfig: select parent dependency for
  crypto
 
 commit d7c68a38bb4f9b7c1a2e4a772872c752ee5c44a6 upstream.
@@ -58113,10 +58317,10 @@ index 16ad145e22c9..57f1ba924f4e 100644
 2.18.2
 
 
-From 2ff0156ba74c1330a1ae557b898879a45b7aea33 Mon Sep 17 00:00:00 2001
+From 37061b340eeca3350700f8063d7a87cdd0d94ac4 Mon Sep 17 00:00:00 2001
 From: Josh Soref <jsoref@gmail.com>
 Date: Sun, 15 Dec 2019 22:08:02 +0100
-Subject: [PATCH 062/100] wireguard: global: fix spelling mistakes in comments
+Subject: [PATCH 064/102] wireguard: global: fix spelling mistakes in comments
 
 commit a2ec8b5706944d228181c8b91d815f41d6dd8e7b upstream.
 
@@ -58187,10 +58391,10 @@ index dd8a47c4ad11..ae88be14c947 100644
 2.18.2
 
 
-From 84e89e9fd9f5264db5ca5c6b4601c3762bde0868 Mon Sep 17 00:00:00 2001
+From 4f4ad9fc4749759e8e0a9ec20beaf6c90e4de3e5 Mon Sep 17 00:00:00 2001
 From: YueHaibing <yuehaibing@huawei.com>
 Date: Sun, 15 Dec 2019 22:08:03 +0100
-Subject: [PATCH 063/100] wireguard: main: remove unused include
+Subject: [PATCH 065/102] wireguard: main: remove unused include
  <linux/version.h>
 
 commit 43967b6ff91e53bcce5ae08c16a0588a475b53a1 upstream.
@@ -58222,10 +58426,10 @@ index 10c0a40f6a9e..7a7d5f1a80fc 100644
 2.18.2
 
 
-From 3d578c333903a03c4431ba9bf7715da6ffbfada5 Mon Sep 17 00:00:00 2001
+From e52ce44f079a4817922341b2f36df79dff176db4 Mon Sep 17 00:00:00 2001
 From: Wei Yongjun <weiyongjun1@huawei.com>
 Date: Sun, 15 Dec 2019 22:08:04 +0100
-Subject: [PATCH 064/100] wireguard: allowedips: use kfree_rcu() instead of
+Subject: [PATCH 066/102] wireguard: allowedips: use kfree_rcu() instead of
  call_rcu()
 
 commit d89ee7d5c73af15c1c6f12b016cdf469742b5726 upstream.
@@ -58270,10 +58474,10 @@ index 72667d5399c3..121d9ea0f135 100644
 2.18.2
 
 
-From cad9e6e6f5b2b10404d8873d0474a3c770f062be Mon Sep 17 00:00:00 2001
+From 78bad68b8a01e2f6ea00ab47f0ae2aa7c4271b5a Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 2 Jan 2020 17:47:49 +0100
-Subject: [PATCH 065/100] wireguard: selftests: remove ancient kernel
+Subject: [PATCH 067/102] wireguard: selftests: remove ancient kernel
  compatibility code
 
 commit 9a69a4c8802adf642bc4a13d471b5a86b44ed434 upstream.
@@ -58657,10 +58861,10 @@ index 9cca30206014..af9323a0b6e0 100644
 2.18.2
 
 
-From 9666ac553d46a1d0ee0baa37d5880e41428d1038 Mon Sep 17 00:00:00 2001
+From 698a5f5e69b1828a12b0b2a13964155e0010fc40 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 2 Jan 2020 17:47:50 +0100
-Subject: [PATCH 066/100] wireguard: queueing: do not account for pfmemalloc
+Subject: [PATCH 068/102] wireguard: queueing: do not account for pfmemalloc
  when clearing skb header
 
 commit 04d2ea92a18417619182cbb79063f154892b0150 upstream.
@@ -58702,10 +58906,10 @@ index 58fdd630b246..e62c714a548e 100644
 2.18.2
 
 
-From 1f217f112b8681b030dd198a2c7a5c06102f20c5 Mon Sep 17 00:00:00 2001
+From c51ab2284d454fd109f439c25a52e425d2942243 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 2 Jan 2020 17:47:51 +0100
-Subject: [PATCH 067/100] wireguard: socket: mark skbs as not on list when
+Subject: [PATCH 069/102] wireguard: socket: mark skbs as not on list when
  receiving via gro
 
 commit 736775d06bac60d7a353e405398b48b2bd8b1e54 upstream.
@@ -58742,10 +58946,10 @@ index c46256d0d81c..262f3b5c819d 100644
 2.18.2
 
 
-From bc67e71a23c2e84f1ae7b471a50a62c886d36d7b Mon Sep 17 00:00:00 2001
+From 88b1984484da2aea12b42a0faa41293b5306a943 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 8 Jan 2020 16:59:02 -0500
-Subject: [PATCH 068/100] net: introduce skb_list_walk_safe for skb segment
+Subject: [PATCH 070/102] net: introduce skb_list_walk_safe for skb segment
  walking
 
 commit dcfea72e79b0aa7a057c8f6024169d86a1bbc84b upstream.
@@ -58820,10 +59024,10 @@ index 955e1370f033..5e9fe508977f 100644
 2.18.2
 
 
-From 8fe9a34f82f28628f6a553d11370f35422346240 Mon Sep 17 00:00:00 2001
+From 8d8671d5c029d2a9a39b056e270ff5552f169afa Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 13 Jan 2020 18:42:26 -0500
-Subject: [PATCH 069/100] net: skbuff: disambiguate argument and member for
+Subject: [PATCH 071/102] net: skbuff: disambiguate argument and member for
  skb_list_walk_safe helper
 
 commit 5eee7bd7e245914e4e050c413dfe864e31805207 upstream.
@@ -58861,10 +59065,10 @@ index 5e9fe508977f..3c7755d29636 100644
 2.18.2
 
 
-From 814bebdf05ee13ea187fce3c52ae9d7914b92aa2 Mon Sep 17 00:00:00 2001
+From 464505e79104aed8c1be0cef82a5161e35a912e4 Mon Sep 17 00:00:00 2001
 From: Eric Dumazet <edumazet@google.com>
 Date: Tue, 4 Feb 2020 22:17:25 +0100
-Subject: [PATCH 070/100] wireguard: allowedips: fix use-after-free in
+Subject: [PATCH 072/102] wireguard: allowedips: fix use-after-free in
  root_remove_peer_lists
 
 commit 9981159fc3b677b357f84e069a11de5a5ec8a2a8 upstream.
@@ -59031,10 +59235,10 @@ index 121d9ea0f135..3725e9cd85f4 100644
 2.18.2
 
 
-From 865cb6d968679b607bb1a83b4d243eec411fc1c8 Mon Sep 17 00:00:00 2001
+From 8f8e7d212ee362a11219ca7913232b980229e594 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 4 Feb 2020 22:17:26 +0100
-Subject: [PATCH 071/100] wireguard: noise: reject peers with low order public
+Subject: [PATCH 073/102] wireguard: noise: reject peers with low order public
  keys
 
 commit ec31c2676a10e064878927b243fada8c2fb0c03c upstream.
@@ -59273,10 +59477,10 @@ index d71c8db68a8c..919d9d866446 100644
 2.18.2
 
 
-From dcfbac9ca10b50be17c38740df7f6c81c4840270 Mon Sep 17 00:00:00 2001
+From 084636722e963933243723773ba16fc8ba770aa9 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 4 Feb 2020 22:17:27 +0100
-Subject: [PATCH 072/100] wireguard: selftests: ensure non-addition of peers
+Subject: [PATCH 074/102] wireguard: selftests: ensure non-addition of peers
  with failed precomputation
 
 commit f9398acba6a4ae9cb98bfe4d56414d376eff8d57 upstream.
@@ -59313,10 +59517,10 @@ index d5c85c7494f2..b03647d1bbf6 100755
 2.18.2
 
 
-From 428b6098ac8141b68397f7aaa85eb0f615ff237b Mon Sep 17 00:00:00 2001
+From 057a7fae3da625af873e90d2428c2e36aa3cb5ba Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 4 Feb 2020 22:17:29 +0100
-Subject: [PATCH 073/100] wireguard: selftests: tie socket waiting to target
+Subject: [PATCH 075/102] wireguard: selftests: tie socket waiting to target
  pid
 
 commit 88f404a9b1d75388225b1c67b6dd327cb2182777 upstream.
@@ -59397,10 +59601,10 @@ index b03647d1bbf6..f5ab1cda8bb5 100755
 2.18.2
 
 
-From 02e7bebbc099bcec52dd85181009d61881627d77 Mon Sep 17 00:00:00 2001
+From 615e1e581f15d7076cc36c0745084cfa4a8166fe Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 11 Feb 2020 20:47:08 +0100
-Subject: [PATCH 074/100] wireguard: device: use icmp_ndo_send helper
+Subject: [PATCH 076/102] wireguard: device: use icmp_ndo_send helper
 
 commit a12d7f3cbdc72c7625881c8dc2660fc2c979fdf2 upstream.
 
@@ -59469,10 +59673,10 @@ index f5ab1cda8bb5..138d46b3f330 100755
 2.18.2
 
 
-From 7750b809baf591ea2729e2d7e3c3c021e93ad8f0 Mon Sep 17 00:00:00 2001
+From 6c8f13f52437e2c6c47b154a309a3bd7268cdadc Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 14 Feb 2020 23:57:20 +0100
-Subject: [PATCH 075/100] wireguard: selftests: reduce complexity and fix make
+Subject: [PATCH 077/102] wireguard: selftests: reduce complexity and fix make
  races
 
 commit 04ddf1208f03e1dbc39a4619c40eba640051b950 upstream.
@@ -59579,10 +59783,10 @@ index f10aa3590adc..28d477683e8a 100644
 2.18.2
 
 
-From 1296b940ccd927bbaa66765149ccb094c1b44fe2 Mon Sep 17 00:00:00 2001
+From 8c1fccf4e2cc8826a2331d0db343b605d6c2a259 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 14 Feb 2020 23:57:21 +0100
-Subject: [PATCH 076/100] wireguard: receive: reset last_under_load to zero
+Subject: [PATCH 078/102] wireguard: receive: reset last_under_load to zero
 
 commit 2a8a4df36462aa85b0db87b7c5ea145ba67e34a8 upstream.
 
@@ -59623,10 +59827,10 @@ index 9c6bab9c981f..4a153894cee2 100644
 2.18.2
 
 
-From b2ce88b315ce1aeba00deecefe751925d8add692 Mon Sep 17 00:00:00 2001
+From b857ee61d95d1594fef2431a742f1dba9a346d5c Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 14 Feb 2020 23:57:22 +0100
-Subject: [PATCH 077/100] wireguard: send: account for mtu=0 devices
+Subject: [PATCH 079/102] wireguard: send: account for mtu=0 devices
 
 commit 175f1ca9a9ed8689d2028da1a7c624bb4fb4ff7e upstream.
 
@@ -59726,10 +59930,10 @@ index c13260563446..7348c10cbae3 100644
 2.18.2
 
 
-From 766b55937688166afcd08d168abbfa3cc675c3ef Mon Sep 17 00:00:00 2001
+From 556cc16a48669c4fe24c3aff25cc42dd6943dda0 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 14 Feb 2020 23:57:23 +0100
-Subject: [PATCH 078/100] wireguard: socket: remove extra call to
+Subject: [PATCH 080/102] wireguard: socket: remove extra call to
  synchronize_net
 
 commit 1fbc33b0a7feb6ca72bf7dc8a05d81485ee8ee2e upstream.
@@ -59765,10 +59969,10 @@ index 262f3b5c819d..b0d6541582d3 100644
 2.18.2
 
 
-From 2f4ee5e5f2dad3d3ccfea4d16c2c54d9346f7cd1 Mon Sep 17 00:00:00 2001
+From 4df296950ba1c2f95f11df0d8c768e294f6372d6 Mon Sep 17 00:00:00 2001
 From: YueHaibing <yuehaibing@huawei.com>
 Date: Wed, 18 Mar 2020 18:30:43 -0600
-Subject: [PATCH 079/100] wireguard: selftests: remove duplicated include
+Subject: [PATCH 081/102] wireguard: selftests: remove duplicated include
  <sys/types.h>
 
 commit 166391159c5deb84795d2ff46e95f276177fa5fb upstream.
@@ -59799,10 +60003,10 @@ index 90bc9813cadc..c9698120ac9d 100644
 2.18.2
 
 
-From c7092cc3c5f766315eb5f1bd1717a2fe6348e977 Mon Sep 17 00:00:00 2001
+From c1696f2c621d4995ef55b434093dd155d033ef53 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 18 Mar 2020 18:30:45 -0600
-Subject: [PATCH 080/100] wireguard: queueing: account for skb->protocol==0
+Subject: [PATCH 082/102] wireguard: queueing: account for skb->protocol==0
 
 commit a5588604af448664e796daf3c1d5a4523c60667b upstream.
 
@@ -59909,10 +60113,10 @@ index 4a153894cee2..243ed7172dd2 100644
 2.18.2
 
 
-From 9c31aa57f2861ba637fb5513444ad5b3139511c8 Mon Sep 17 00:00:00 2001
+From f65f946499aa53cf2d1e42a455d45c8d5ab5f039 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 18 Mar 2020 18:30:46 -0600
-Subject: [PATCH 081/100] wireguard: receive: remove dead code from default
+Subject: [PATCH 083/102] wireguard: receive: remove dead code from default
  packet type case
 
 commit 2b8765c52db24c0fbcc81bac9b5e8390f2c7d3c8 upstream.
@@ -59950,10 +60154,10 @@ index 243ed7172dd2..da3b782ab7d3 100644
 2.18.2
 
 
-From 72e3696fde1ec043a8e0bd2f193f9d56d3b46b6b Mon Sep 17 00:00:00 2001
+From 065d774ecd57dd44af70da3fedca6055f3a1b733 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 18 Mar 2020 18:30:47 -0600
-Subject: [PATCH 082/100] wireguard: noise: error out precomputed DH during
+Subject: [PATCH 084/102] wireguard: noise: error out precomputed DH during
  handshake rather than config
 
 commit 11a7686aa99c7fe4b3f80f6dcccd54129817984d upstream.
@@ -60188,10 +60392,10 @@ index 138d46b3f330..936e1ca9410e 100755
 2.18.2
 
 
-From d1ae8043584a1d3a3474c9e212463bc8876996e2 Mon Sep 17 00:00:00 2001
+From cc596bdf55f1539ee9be8b1725029c1267d30ace Mon Sep 17 00:00:00 2001
 From: Sultan Alsawaf <sultan@kerneltoast.com>
 Date: Wed, 29 Apr 2020 14:59:20 -0600
-Subject: [PATCH 083/100] wireguard: send: remove errant newline from
+Subject: [PATCH 085/102] wireguard: send: remove errant newline from
  packet_encrypt_worker
 
 commit d6833e42786e050e7522d6a91a9361e54085897d upstream.
@@ -60223,10 +60427,10 @@ index 7348c10cbae3..3e030d614df5 100644
 2.18.2
 
 
-From 1e92895e72c5c9354900200fbcfb6b2ab63d9908 Mon Sep 17 00:00:00 2001
+From c42c6bb1f76a284a5ee519430d131850abf76abf Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 29 Apr 2020 14:59:21 -0600
-Subject: [PATCH 084/100] wireguard: queueing: cleanup ptr_ring in error path
+Subject: [PATCH 086/102] wireguard: queueing: cleanup ptr_ring in error path
  of packet_queue_init
 
 commit 130c58606171326c81841a49cc913cd354113dd9 upstream.
@@ -60264,10 +60468,10 @@ index 5c964fcb994e..71b8e80b58e1 100644
 2.18.2
 
 
-From 4c5e81cd3378da4d3045474fcc5514c4b2542e5d Mon Sep 17 00:00:00 2001
+From 8ad9fa392efd8a7fdb7aaa95e10024e92b5464d6 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
 Date: Wed, 29 Apr 2020 14:59:22 -0600
-Subject: [PATCH 085/100] wireguard: receive: use tunnel helpers for
+Subject: [PATCH 087/102] wireguard: receive: use tunnel helpers for
  decapsulating ECN markings
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -60320,10 +60524,10 @@ index da3b782ab7d3..267f202f1931 100644
 2.18.2
 
 
-From dea57992e63578e9e696da9ef0c99366f521e4a1 Mon Sep 17 00:00:00 2001
+From ed3a1c861619bd533d5fcb22987f07e4601f4347 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:02 -0600
-Subject: [PATCH 086/100] wireguard: selftests: use normal kernel stack size on
+Subject: [PATCH 088/102] wireguard: selftests: use normal kernel stack size on
  ppc64
 
 commit a0fd7cc87a018df1a17f9d3f0bd994c1f22c6b34 upstream.
@@ -60355,10 +60559,10 @@ index 990c510a9cfa..f52f1e2bc7f6 100644
 2.18.2
 
 
-From 09699317fac248b183c945291dffa1a105a1836e Mon Sep 17 00:00:00 2001
+From 5552a23000791407274d21a3ca302786347f4147 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:03 -0600
-Subject: [PATCH 087/100] wireguard: socket: remove errant restriction on
+Subject: [PATCH 089/102] wireguard: socket: remove errant restriction on
  looping to self
 
 commit b673e24aad36981f327a6570412ffa7754de8911 upstream.
@@ -60525,10 +60729,10 @@ index 936e1ca9410e..17a1f53ceba0 100755
 2.18.2
 
 
-From 16a4e963577da1e2b33b4f99fe84e99ae73ed4e1 Mon Sep 17 00:00:00 2001
+From 18a85d4b9af765b0bd3aabe53775b5f5dfe0c458 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:04 -0600
-Subject: [PATCH 088/100] wireguard: send/receive: cond_resched() when
+Subject: [PATCH 090/102] wireguard: send/receive: cond_resched() when
  processing worker ringbuffers
 
 commit 4005f5c3c9d006157ba716594e0d70c88a235c5e upstream.
@@ -60591,10 +60795,10 @@ index 3e030d614df5..dc3079e17c7f 100644
 2.18.2
 
 
-From a2045eeb3476532960810da93c17f282e5360573 Mon Sep 17 00:00:00 2001
+From 7bbcc267509b75c3352eaa5e72162146d5c68e33 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:05 -0600
-Subject: [PATCH 089/100] wireguard: selftests: initalize ipv6 members to NULL
+Subject: [PATCH 091/102] wireguard: selftests: initalize ipv6 members to NULL
  to squelch clang warning
 
 commit 4fed818ef54b08d4b29200e416cce65546ad5312 upstream.
@@ -60648,10 +60852,10 @@ index bcd6462e4540..007cd4457c5f 100644
 2.18.2
 
 
-From fe7815fa6ff6e3deb4a1b1e74e16759c0616b427 Mon Sep 17 00:00:00 2001
+From fdc6bbe557a98411c50fba6a97c584f038e2cdd5 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:06 -0600
-Subject: [PATCH 090/100] wireguard: send/receive: use explicit unlikely branch
+Subject: [PATCH 092/102] wireguard: send/receive: use explicit unlikely branch
  instead of implicit coalescing
 
 commit 243f2148937adc72bcaaa590d482d599c936efde upstream.
@@ -60744,10 +60948,10 @@ index dc3079e17c7f..6687db699803 100644
 2.18.2
 
 
-From 9cfdaa1253b4ccb2b8a0fe2a2cabad4ae93ad0d0 Mon Sep 17 00:00:00 2001
+From 0b9eda8d65e28b1df80ebebaf122e9c974bf325e Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 19 May 2020 22:49:27 -0600
-Subject: [PATCH 091/100] wireguard: selftests: use newer iproute2 for gcc-10
+Subject: [PATCH 093/102] wireguard: selftests: use newer iproute2 for gcc-10
 
 commit ee3c1aa3f34b7842c1557cfe5d8c3f7b8c692de8 upstream.
 
@@ -60781,10 +60985,10 @@ index 28d477683e8a..2dab4f57516d 100644
 2.18.2
 
 
-From 6c01e455945ce254bab6ea2a62ccfd0881e2ea27 Mon Sep 17 00:00:00 2001
+From 4c9012da0c27d8904d2bcb2e673101238b49e894 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 19 May 2020 22:49:28 -0600
-Subject: [PATCH 092/100] wireguard: noise: read preshared key while taking
+Subject: [PATCH 094/102] wireguard: noise: read preshared key while taking
  lock
 
 commit bc67d371256f5c47d824e2eec51e46c8d62d022e upstream.
@@ -60849,10 +61053,10 @@ index 708dc61c974f..07eb438a6dee 100644
 2.18.2
 
 
-From 1d53452dea64c2136269ed52b70a21ad6fe351c9 Mon Sep 17 00:00:00 2001
+From 0d223d55549518845ec7d2bfebfc38d3fada8b15 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 19 May 2020 22:49:29 -0600
-Subject: [PATCH 093/100] wireguard: queueing: preserve flow hash across packet
+Subject: [PATCH 095/102] wireguard: queueing: preserve flow hash across packet
  scrubbing
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -60977,10 +61181,10 @@ index 6687db699803..2f5119ff93d8 100644
 2.18.2
 
 
-From 0271d514595e74b57a787e6eff78edbfb037037d Mon Sep 17 00:00:00 2001
+From 7a2acdd5a22efcb430b579f2a7b40064ecf86c4e Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 19 May 2020 22:49:30 -0600
-Subject: [PATCH 094/100] wireguard: noise: separate receive counter from send
+Subject: [PATCH 096/102] wireguard: noise: separate receive counter from send
  counter
 
 commit a9e90d9931f3a474f04bab782ccd9d77904941e9 upstream.
@@ -61322,10 +61526,10 @@ index 2f5119ff93d8..f74b9341ab0f 100644
 2.18.2
 
 
-From cab5c845e26d1d60febea5920bd88bda8f2a7ed4 Mon Sep 17 00:00:00 2001
+From 1b3c36c47ca6db8b7b95abd8380135d8acb131a6 Mon Sep 17 00:00:00 2001
 From: Frank Werner-Krippendorf <mail@hb9fxq.ch>
 Date: Tue, 23 Jun 2020 03:59:44 -0600
-Subject: [PATCH 095/100] wireguard: noise: do not assign initiation time in if
+Subject: [PATCH 097/102] wireguard: noise: do not assign initiation time in if
  condition
 
 commit 558b353c9c2a717509f291c066c6bd8f5f5e21be upstream.
@@ -61361,10 +61565,10 @@ index 626433690abb..201a22681945 100644
 2.18.2
 
 
-From 86f957cb5a047391d80b789f971a8f1ebd70b216 Mon Sep 17 00:00:00 2001
+From bc39ada8f9940609289eb94b4f912a4bce7f5856 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 23 Jun 2020 03:59:45 -0600
-Subject: [PATCH 096/100] wireguard: device: avoid circular netns references
+Subject: [PATCH 098/102] wireguard: device: avoid circular netns references
 
 commit 900575aa33a3eaaef802b31de187a85c4a4b4bd0 upstream.
 
@@ -61671,10 +61875,10 @@ index 17a1f53ceba0..d77f4829f1e0 100755
 2.18.2
 
 
-From b5ad616118347eb41cdf4723a47efc820eb3de72 Mon Sep 17 00:00:00 2001
+From b15250ddde160448e1eab5d22b9ffa6b72e87e5c Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 24 Jun 2020 16:06:03 -0600
-Subject: [PATCH 097/100] wireguard: receive: account for napi_gro_receive
+Subject: [PATCH 099/102] wireguard: receive: account for napi_gro_receive
  never returning GRO_DROP
 
 commit df08126e3833e9dca19e2407db5f5860a7c194fb upstream.
@@ -61719,10 +61923,10 @@ index 91438144e4f7..9b2ab6fc91cd 100644
 2.18.2
 
 
-From 65e2cc153a28545822075c4615807ffb848c634d Mon Sep 17 00:00:00 2001
+From 3f481d2bac00d47782386000c915aefee885a57e Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 29 Jun 2020 19:06:18 -0600
-Subject: [PATCH 098/100] net: ip_tunnel: add header_ops for layer 3 devices
+Subject: [PATCH 100/102] net: ip_tunnel: add header_ops for layer 3 devices
 
 commit 2606aff916854b61234bf85001be9777bab2d5f8 upstream.
 
@@ -61785,10 +61989,10 @@ index 1452a97914a0..cfe21c3ddfc2 100644
 2.18.2
 
 
-From 7aa05817924e993a55069d9b6304cd432f8800c3 Mon Sep 17 00:00:00 2001
+From 52bdaaf683ff53acbfbb00d18f2a36fd7d309d4a Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 29 Jun 2020 19:06:20 -0600
-Subject: [PATCH 099/100] wireguard: implement header_ops->parse_protocol for
+Subject: [PATCH 101/102] wireguard: implement header_ops->parse_protocol for
  AF_PACKET
 
 commit 01a4967c71c004f8ecad4ab57021348636502fa9 upstream.
@@ -61828,10 +62032,10 @@ index a8f151b1b5fa..c9f65e96ccb0 100644
 2.18.2
 
 
-From c1445fa819ec6f562548bdd9cb2d3c24cd654f81 Mon Sep 17 00:00:00 2001
+From dec8ffb544c2191faa1d646bd6b71776d42cb0d2 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 29 Jun 2020 19:06:21 -0600
-Subject: [PATCH 100/100] wireguard: queueing: make use of
+Subject: [PATCH 102/102] wireguard: queueing: make use of
  ip_tunnel_parse_protocol
 
 commit 1a574074ae7d1d745c16f7710655f38a53174c27 upstream.

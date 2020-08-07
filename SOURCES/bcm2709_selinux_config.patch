@@ -1,6 +1,16 @@
-diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defconfig
---- a/arch/arm/configs/bcm2709_defconfig	2020-03-20 16:51:27.175254408 +0000
-+++ b/arch/arm/configs/bcm2709_defconfig	2020-03-20 16:53:31.404025537 +0000
+From 6d2d7c1a6f5154cf968f6957cf584f156704ad5d Mon Sep 17 00:00:00 2001
+From: Pablo Greco <pgreco@centosproject.org>
+Date: Fri, 7 Aug 2020 02:59:05 +0000
+Subject: [PATCH] configs 2709
+
+---
+ arch/arm/configs/bcm2709_defconfig | 31 ++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+
+diff --git a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defconfig
+index 7860c8e..fac3e9b 100644
+--- a/arch/arm/configs/bcm2709_defconfig
++++ b/arch/arm/configs/bcm2709_defconfig
 @@ -2,6 +2,7 @@ CONFIG_LOCALVERSION="-v7"
  # CONFIG_LOCALVERSION_AUTO is not set
  CONFIG_SYSVIPC=y
@@ -9,7 +19,7 @@ diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defc
  CONFIG_GENERIC_IRQ_DEBUGFS=y
  CONFIG_NO_HZ=y
  CONFIG_HIGH_RES_TIMERS=y
-@@ -121,6 +122,7 @@ CONFIG_IPV6_SUBTREES=y
+@@ -123,6 +124,7 @@ CONFIG_IPV6_SUBTREES=y
  CONFIG_IPV6_MROUTE=y
  CONFIG_IPV6_MROUTE_MULTIPLE_TABLES=y
  CONFIG_IPV6_PIMSM_V2=y
@@ -17,7 +27,7 @@ diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defc
  CONFIG_NETFILTER=y
  CONFIG_NF_CONNTRACK=m
  CONFIG_NF_CONNTRACK_ZONES=y
-@@ -168,6 +170,7 @@ CONFIG_NFT_FIB_NETDEV=m
+@@ -170,6 +172,7 @@ CONFIG_NFT_FIB_NETDEV=m
  CONFIG_NF_FLOW_TABLE_INET=m
  CONFIG_NF_FLOW_TABLE=m
  CONFIG_NETFILTER_XT_SET=m
@@ -25,7 +35,7 @@ diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defc
  CONFIG_NETFILTER_XT_TARGET_CHECKSUM=m
  CONFIG_NETFILTER_XT_TARGET_CLASSIFY=m
  CONFIG_NETFILTER_XT_TARGET_CONNMARK=m
-@@ -275,6 +278,7 @@ CONFIG_IP_NF_TARGET_CLUSTERIP=m
+@@ -277,6 +280,7 @@ CONFIG_IP_NF_TARGET_CLUSTERIP=m
  CONFIG_IP_NF_TARGET_ECN=m
  CONFIG_IP_NF_TARGET_TTL=m
  CONFIG_IP_NF_RAW=m
@@ -33,7 +43,7 @@ diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defc
  CONFIG_IP_NF_ARPTABLES=m
  CONFIG_IP_NF_ARPFILTER=m
  CONFIG_IP_NF_ARP_MANGLE=m
-@@ -296,6 +300,7 @@ CONFIG_IP6_NF_FILTER=m
+@@ -298,6 +302,7 @@ CONFIG_IP6_NF_FILTER=m
  CONFIG_IP6_NF_TARGET_REJECT=m
  CONFIG_IP6_NF_MANGLE=m
  CONFIG_IP6_NF_RAW=m
@@ -41,7 +51,7 @@ diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defc
  CONFIG_IP6_NF_NAT=m
  CONFIG_IP6_NF_TARGET_MASQUERADE=m
  CONFIG_IP6_NF_TARGET_NPT=m
-@@ -1346,6 +1351,7 @@ CONFIG_NILFS2_FS=m
+@@ -1349,6 +1354,7 @@ CONFIG_NILFS2_FS=m
  CONFIG_F2FS_FS=y
  CONFIG_FS_ENCRYPTION=y
  CONFIG_FANOTIFY=y
@@ -49,7 +59,7 @@ diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defc
  CONFIG_QFMT_V1=m
  CONFIG_QFMT_V2=m
  CONFIG_AUTOFS4_FS=y
-@@ -1388,6 +1394,7 @@ CONFIG_NFS_FSCACHE=y
+@@ -1391,6 +1397,7 @@ CONFIG_NFS_FSCACHE=y
  CONFIG_NFSD=m
  CONFIG_NFSD_V3_ACL=y
  CONFIG_NFSD_V4=y
@@ -57,7 +67,7 @@ diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defc
  CONFIG_CIFS=m
  CONFIG_CIFS_WEAK_PW_HASH=y
  CONFIG_CIFS_UPCALL=y
-@@ -1435,7 +1442,14 @@ CONFIG_NLS_ISO8859_15=m
+@@ -1438,7 +1445,14 @@ CONFIG_NLS_ISO8859_15=m
  CONFIG_NLS_KOI8_R=m
  CONFIG_NLS_KOI8_U=m
  CONFIG_DLM=m
@@ -72,7 +82,7 @@ diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defc
  CONFIG_CRYPTO_USER=m
  CONFIG_CRYPTO_XCBC=m
  CONFIG_CRYPTO_TGR192=m
-@@ -1464,3 +1478,20 @@ CONFIG_FUNCTION_PROFILER=y
+@@ -1470,3 +1484,20 @@ CONFIG_FUNCTION_PROFILER=y
  CONFIG_KGDB=y
  CONFIG_KGDB_KDB=y
  CONFIG_KDB_KEYBOARD=y
@@ -93,3 +103,6 @@ diff -Naurp a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defc
 +CONFIG_CRYPTO_POLY1305_ARM=m
 +# CONFIG_WIREGUARD_DEBUG is not set
 +CONFIG_WIREGUARD=m
+-- 
+2.18.2
+

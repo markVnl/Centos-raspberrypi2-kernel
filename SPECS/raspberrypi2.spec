@@ -1,5 +1,5 @@
-%global commit_firmware_long 542aceb30364db3ce87d532ea90451f46bbb84e9
-%global commit_linux_long 0fe13a5838b20d5078c46ef4f132f02aa3a06641
+%global commit_firmware_long b571a3cfbb3198d445727f4a0057847fedce410b
+%global commit_linux_long 8ae5f3e1ecf0c41cb788d90c048a10c27e8aaa02
 
 ExclusiveArch: aarch64 armv7hl
 
@@ -31,24 +31,24 @@ ExclusiveArch: aarch64 armv7hl
 %endif
 %define extra_version 1
 
+%define kversion 5.4
+%define kfullversion %{kversion}.56
+
 Name:           raspberrypi2
-Version:        5.4.53
+Version:        %{kfullversion}
 Release:        %{local_version}.%{extra_version}%{?dist}
 Summary:        Specific kernel and bootcode for Raspberry Pi
 
 License:        GPLv2
 URL:            https://github.com/raspberrypi/linux
-Source0:        https://github.com/raspberrypi/linux/archive/%{commit_linux_long}.tar.gz
+Source0:        https://www.kernel.org/pub/linux/kernel/v5.x/linux-%{kversion}.tar.xz
 Source1:        https://github.com/raspberrypi/firmware/archive/%{commit_firmware_long}.tar.gz
-
-#cherry picked to avoid patch conflicts
-Patch1000:      aac47fd9e07926faf1b89a27b2f671e1f4f794e6.patch
-Patch54052:     patch-5.4.51-52.xz
-Patch54053:     patch-5.4.52-53.xz
+Source2:        https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-%{kfullversion}.xz
+Source3:        rpi-5.4.x.patch
 
 BuildRequires: kmod, patch, bash, sh-utils, tar
 BuildRequires: bzip2, xz, findutils, gzip, m4, perl, perl-Carp, make, diffutils, gawk
-BuildRequires: gcc, binutils, redhat-rpm-config, hmaccalc
+BuildRequires: gcc, binutils, redhat-rpm-config, hmaccalc, git
 BuildRequires: net-tools, hostname, bc
 BuildRequires: elfutils-devel zlib-devel binutils-devel newt-devel python3-devel perl(ExtUtils::Embed) bison flex xz-devel
 BuildRequires: audit-libs-devel
@@ -56,8 +56,8 @@ BuildRequires: pciutils-devel gettext ncurses-devel
 BuildRequires: openssl-devel
 
 # Compile with SELinux but disable per default
-Patch0:         bcm2709_selinux_config.patch
-Patch1:         bcm2711_selinux_config.patch
+Patch100:       bcm2709_selinux_config.patch
+Patch101:       bcm2711_selinux_config.patch
 
 #Wireguard
 Patch800: wireguard.patch
@@ -118,15 +118,21 @@ including the kernel bootloader.
 
 
 %prep
-%setup -q -n linux-%{commit_linux_long}
-%patch1000 -p1
-%patch0 -p1
-%patch1 -p1
+%setup -q -n linux-%{kversion}
+git init
+git config user.email "kernel-team@fedoraproject.org"
+git config user.name "Fedora Kernel Team"
+git config gc.auto 0
+git add .
+git commit -a -q -m "baseline"
+xzcat %{SOURCE2} | patch -p1 -F1 -s
+git commit -a -q -m "%{kfullversion}"
+git am %{SOURCE3}
 
-%patch54052 -p1
-%patch54053 -p1
+git am %{PATCH100}
+git am %{PATCH101}
 
-%patch800 -p1
+git am %{PATCH800}
 
 perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = -%{release}/" Makefile
 perl -p -i -e "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=/" arch/%{Arch}/configs/bcm%{bcmmodel}_defconfig
@@ -143,6 +149,10 @@ pathfix.py -pni "%{__python3} %{py3_shbang_opts}" scripts/bloat-o-meter
 pathfix.py -pni "%{__python3} %{py3_shbang_opts}" scripts/show_delta
 pathfix.py -pni "%{__python3} %{py3_shbang_opts}" tools/ tools/perf/scripts/python/*.py tools/kvm/kvm_stat/kvm_stat
 %endif
+
+# This Prevents scripts/setlocalversion from mucking with our version numbers.
+touch .scmversion
+git commit -a -q -m "modifs"
 
 %build
 export KERNEL=kernel%{armtarget}
@@ -259,6 +269,10 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Fri Aug  7 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.56
+- Update to version v5.4.56
+- Redesign format to make it look more like the kernel package
+
 * Sun Jul 26 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.53
 - Update to version v5.4.53
 - Add Wireguard support

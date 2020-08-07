@@ -1,6 +1,17 @@
-diff -Naurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defconfig
---- a/arch/arm/configs/bcm2711_defconfig	2020-03-20 11:43:40.000000000 +0000
-+++ b/arch/arm/configs/bcm2711_defconfig	2020-03-20 16:49:57.845295276 +0000
+From 78e8879fadef673a7eb365392199f7b695f9c745 Mon Sep 17 00:00:00 2001
+From: Pablo Greco <pgreco@centosproject.org>
+Date: Fri, 7 Aug 2020 02:59:05 +0000
+Subject: [PATCH] configs 2711
+
+---
+ arch/arm/configs/bcm2711_defconfig   | 31 ++++++++++++++++++++++++++++
+ arch/arm64/configs/bcm2711_defconfig | 31 ++++++++++++++++++++++++++++
+ 2 files changed, 62 insertions(+)
+
+diff --git a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defconfig
+index e98d000..0ea815e 100644
+--- a/arch/arm/configs/bcm2711_defconfig
++++ b/arch/arm/configs/bcm2711_defconfig
 @@ -2,6 +2,7 @@ CONFIG_LOCALVERSION="-v7l"
  # CONFIG_LOCALVERSION_AUTO is not set
  CONFIG_SYSVIPC=y
@@ -41,7 +52,7 @@ diff -Naurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defc
  CONFIG_IP6_NF_NAT=m
  CONFIG_IP6_NF_TARGET_MASQUERADE=m
  CONFIG_IP6_NF_TARGET_NPT=m
-@@ -1385,6 +1390,7 @@ CONFIG_NILFS2_FS=m
+@@ -1386,6 +1391,7 @@ CONFIG_NILFS2_FS=m
  CONFIG_F2FS_FS=y
  CONFIG_FS_ENCRYPTION=y
  CONFIG_FANOTIFY=y
@@ -49,7 +60,7 @@ diff -Naurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defc
  CONFIG_QFMT_V1=m
  CONFIG_QFMT_V2=m
  CONFIG_AUTOFS4_FS=y
-@@ -1427,6 +1433,7 @@ CONFIG_NFS_FSCACHE=y
+@@ -1428,6 +1434,7 @@ CONFIG_NFS_FSCACHE=y
  CONFIG_NFSD=m
  CONFIG_NFSD_V3_ACL=y
  CONFIG_NFSD_V4=y
@@ -57,7 +68,7 @@ diff -Naurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defc
  CONFIG_CIFS=m
  CONFIG_CIFS_WEAK_PW_HASH=y
  CONFIG_CIFS_UPCALL=y
-@@ -1475,6 +1482,13 @@ CONFIG_NLS_ISO8859_15=m
+@@ -1476,6 +1483,13 @@ CONFIG_NLS_ISO8859_15=m
  CONFIG_NLS_KOI8_R=m
  CONFIG_NLS_KOI8_U=m
  CONFIG_DLM=m
@@ -71,7 +82,7 @@ diff -Naurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defc
  CONFIG_CRYPTO_USER=m
  CONFIG_CRYPTO_XCBC=m
  CONFIG_CRYPTO_TGR192=m
-@@ -1503,3 +1517,20 @@ CONFIG_FUNCTION_PROFILER=y
+@@ -1507,3 +1521,20 @@ CONFIG_FUNCTION_PROFILER=y
  CONFIG_KGDB=y
  CONFIG_KGDB_KDB=y
  CONFIG_KDB_KEYBOARD=y
@@ -92,9 +103,10 @@ diff -Naurp a/arch/arm/configs/bcm2711_defconfig b/arch/arm/configs/bcm2711_defc
 +CONFIG_CRYPTO_POLY1305_ARM=m
 +# CONFIG_WIREGUARD_DEBUG is not set
 +CONFIG_WIREGUARD=m
-diff -Naurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_defconfig
---- a/arch/arm64/configs/bcm2711_defconfig	2020-03-20 11:43:40.000000000 +0000
-+++ b/arch/arm64/configs/bcm2711_defconfig	2020-03-20 16:44:49.430793984 +0000
+diff --git a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_defconfig
+index 0855074..61b2b2b 100644
+--- a/arch/arm64/configs/bcm2711_defconfig
++++ b/arch/arm64/configs/bcm2711_defconfig
 @@ -2,6 +2,7 @@ CONFIG_LOCALVERSION="-v8"
  # CONFIG_LOCALVERSION_AUTO is not set
  CONFIG_SYSVIPC=y
@@ -135,7 +147,7 @@ diff -Naurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_
  CONFIG_IP6_NF_NAT=m
  CONFIG_IP6_NF_TARGET_MASQUERADE=m
  CONFIG_IP6_NF_TARGET_NPT=m
-@@ -1377,6 +1382,7 @@ CONFIG_NILFS2_FS=m
+@@ -1378,6 +1383,7 @@ CONFIG_NILFS2_FS=m
  CONFIG_F2FS_FS=y
  CONFIG_FS_ENCRYPTION=y
  CONFIG_FANOTIFY=y
@@ -143,7 +155,7 @@ diff -Naurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_
  CONFIG_QFMT_V1=m
  CONFIG_QFMT_V2=m
  CONFIG_AUTOFS4_FS=y
-@@ -1419,6 +1425,7 @@ CONFIG_NFS_FSCACHE=y
+@@ -1420,6 +1426,7 @@ CONFIG_NFS_FSCACHE=y
  CONFIG_NFSD=m
  CONFIG_NFSD_V3_ACL=y
  CONFIG_NFSD_V4=y
@@ -151,7 +163,7 @@ diff -Naurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_
  CONFIG_CIFS=m
  CONFIG_CIFS_WEAK_PW_HASH=y
  CONFIG_CIFS_UPCALL=y
-@@ -1467,6 +1474,13 @@ CONFIG_NLS_ISO8859_15=m
+@@ -1468,6 +1475,13 @@ CONFIG_NLS_ISO8859_15=m
  CONFIG_NLS_KOI8_R=m
  CONFIG_NLS_KOI8_U=m
  CONFIG_DLM=m
@@ -165,7 +177,7 @@ diff -Naurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_
  CONFIG_CRYPTO_USER=m
  CONFIG_CRYPTO_XCBC=m
  CONFIG_CRYPTO_TGR192=m
-@@ -1494,3 +1508,20 @@ CONFIG_FUNCTION_PROFILER=y
+@@ -1498,3 +1512,20 @@ CONFIG_FUNCTION_PROFILER=y
  CONFIG_KGDB=y
  CONFIG_KGDB_KDB=y
  CONFIG_KDB_KEYBOARD=y
@@ -186,3 +198,6 @@ diff -Naurp a/arch/arm64/configs/bcm2711_defconfig b/arch/arm64/configs/bcm2711_
 +# CONFIG_EFI_CUSTOM_SSDT_OVERLAYS is not set
 +# CONFIG_WIREGUARD_DEBUG is not set
 +CONFIG_WIREGUARD=m
+-- 
+2.18.2
+
