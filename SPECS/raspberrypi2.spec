@@ -54,6 +54,12 @@ BuildRequires: elfutils-devel zlib-devel binutils-devel newt-devel python3-devel
 BuildRequires: audit-libs-devel
 BuildRequires: pciutils-devel gettext ncurses-devel
 BuildRequires: openssl-devel
+%if 0%{?rhel} == 7
+BuildRequires:  devtoolset-8-build
+BuildRequires:  devtoolset-8-binutils
+BuildRequires:  devtoolset-8-gcc
+BuildRequires:  devtoolset-8-make
+%endif
 
 # Compile with SELinux but disable per default
 Patch100:       bcm2709_selinux_config.patch
@@ -118,6 +124,9 @@ including the kernel bootloader.
 
 
 %prep
+%if 0%{?rhel} == 7
+source scl_source enable devtoolset-8 || :
+%endif
 %setup -q -n linux-%{kversion}
 git init
 git config user.email "kernel-team@fedoraproject.org"
@@ -155,11 +164,17 @@ touch .scmversion
 git commit -a -q -m "modifs"
 
 %build
+%if 0%{?rhel} == 7
+source scl_source enable devtoolset-8 || :
+%endif
 export KERNEL=kernel%{armtarget}
 make bcm%{bcmmodel}_defconfig
 make %{?_smp_mflags} %{build_image} modules dtbs
 
 %install
+%if 0%{?rhel} == 7
+source scl_source enable devtoolset-8 || :
+%endif
 # kernel
 mkdir -p %{buildroot}/boot/overlays/
 mkdir -p %{buildroot}/usr/share/%{name}-kernel/%{version}-%{release}/boot/overlays
@@ -271,6 +286,7 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %changelog
 * Sat Sep 12 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.65
 - Update to version v5.4.65
+- Build using devtoolset-8
 
 * Sun Aug 23 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.60
 - Update to version v5.4.60
