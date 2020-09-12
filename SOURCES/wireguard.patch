@@ -1,7 +1,7 @@
-From 8778630384d761ce052c8b2f2cc4e6e0a34e7808 Mon Sep 17 00:00:00 2001
+From bbf4bb1aec9b0737d88cd74d133ee8b530c308fc Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:07 +0100
-Subject: [PATCH 001/102] crypto: lib - tidy up lib/crypto Kconfig and Makefile
+Subject: [PATCH 001/111] crypto: lib - tidy up lib/crypto Kconfig and Makefile
 
 commit 746b2e024c67aa605ac12d135cd7085a49cf9dc4 upstream.
 
@@ -121,10 +121,10 @@ index cbe0b6a6450d..63de4cb3fcf8 100644
 2.18.2
 
 
-From 209066a1844c5b0a5591670d785869afa383fab2 Mon Sep 17 00:00:00 2001
+From 4ee599cdfc21e09b47c574c05d8d6fa5ff2c39d5 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:08 +0100
-Subject: [PATCH 002/102] crypto: chacha - move existing library code into
+Subject: [PATCH 002/111] crypto: chacha - move existing library code into
  lib/crypto
 
 commit 5fb8ef25803ef33e2eb60b626435828b937bed75 upstream.
@@ -648,10 +648,10 @@ index 000000000000..dabc3accae05
 2.18.2
 
 
-From 45f0fe575e0d1ccab9c9d594e65f575d0873bf05 Mon Sep 17 00:00:00 2001
+From 7aeacfe16716998be9827d1b7211e3665caf0786 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:09 +0100
-Subject: [PATCH 003/102] crypto: x86/chacha - depend on generic chacha library
+Subject: [PATCH 003/111] crypto: x86/chacha - depend on generic chacha library
  instead of crypto driver
 
 commit 28e8d89b1ce8d2e7badfb5f69971dd635acb8863 upstream.
@@ -849,10 +849,10 @@ index f29bf10c0462..564a3f7b40b8 100644
 2.18.2
 
 
-From 1900060b30098b6963f5ae0dd969e9c94bce7bd1 Mon Sep 17 00:00:00 2001
+From 9872e8231411c094377e97c3e92f623205c6e7ff Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:10 +0100
-Subject: [PATCH 004/102] crypto: x86/chacha - expose SIMD ChaCha routine as
+Subject: [PATCH 004/111] crypto: x86/chacha - expose SIMD ChaCha routine as
  library function
 
 commit 84e03fa39fbe95a5567d43bff458c6d3b3a23ad1 upstream.
@@ -1065,10 +1065,10 @@ index 5c662f8fecac..2676f4fbd4c1 100644
 2.18.2
 
 
-From 89f503c29b4483551193b266ddc1e549bf6ee33d Mon Sep 17 00:00:00 2001
+From 26b3eccf1b4cae251e956a7df640daf6393bc4d3 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:11 +0100
-Subject: [PATCH 005/102] crypto: arm64/chacha - depend on generic chacha
+Subject: [PATCH 005/111] crypto: arm64/chacha - depend on generic chacha
  library instead of crypto driver
 
 commit c77da4867cbb7841177275dbb250f5c09679fae4 upstream.
@@ -1202,10 +1202,10 @@ index d4cc61bfe79d..cae2cb92eca8 100644
 2.18.2
 
 
-From 65c6eef97112e0e3e33371216d951a63169f188d Mon Sep 17 00:00:00 2001
+From 14b5fac4ecdf01d965c1f43ab735ac06a2299faf Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:12 +0100
-Subject: [PATCH 006/102] crypto: arm64/chacha - expose arm64 ChaCha routine as
+Subject: [PATCH 006/111] crypto: arm64/chacha - expose arm64 ChaCha routine as
  library function
 
 commit b3aad5bad26a01a4bd8c49a5c5f52aec665f3b7c upstream.
@@ -1348,10 +1348,10 @@ index cae2cb92eca8..46cd4297761c 100644
 2.18.2
 
 
-From fd9d18994aa3e5d605aa244a7397fcc406136b30 Mon Sep 17 00:00:00 2001
+From 01d8a2d19bc5f75b5e8c00dd13139ff1dc915789 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:13 +0100
-Subject: [PATCH 007/102] crypto: arm/chacha - import Eric Biggers's scalar
+Subject: [PATCH 007/111] crypto: arm/chacha - import Eric Biggers's scalar
  accelerated ChaCha code
 
 commit 29621d099f9c642b22a69dc8e7e20c108473a392 upstream.
@@ -1835,10 +1835,10 @@ index 000000000000..2140319b64a0
 2.18.2
 
 
-From b905cc8204606eab7ef7915d154012653307b10d Mon Sep 17 00:00:00 2001
+From 6d85165f03549d41259e3228ba1212d5a7a4c68e Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:14 +0100
-Subject: [PATCH 008/102] crypto: arm/chacha - remove dependency on generic
+Subject: [PATCH 008/111] crypto: arm/chacha - remove dependency on generic
  ChaCha driver
 
 commit b36d8c09e710c71f6a9690b6586fea2d1c9e1e27 upstream.
@@ -2544,10 +2544,10 @@ index 46cd4297761c..b08029d7bde6 100644
 2.18.2
 
 
-From a76e3299dbec67c13ad08417d107b0635e314328 Mon Sep 17 00:00:00 2001
+From 9ae5b2c138a05d387abc3e4062a09f8064307a40 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:15 +0100
-Subject: [PATCH 009/102] crypto: arm/chacha - expose ARM ChaCha routine as
+Subject: [PATCH 009/111] crypto: arm/chacha - expose ARM ChaCha routine as
  library function
 
 commit a44a3430d71bad4ee56788a59fff099b291ea54c upstream.
@@ -2660,10 +2660,10 @@ index eb40efb3eb34..3f0c057aa050 100644
 2.18.2
 
 
-From 89e33ebf324d8371d40d0e1a44f0177c35c27d4b Mon Sep 17 00:00:00 2001
+From d1597bbeb1abe97d6368467801d6aa3eedcba07a Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:16 +0100
-Subject: [PATCH 010/102] crypto: mips/chacha - import 32r2 ChaCha code from
+Subject: [PATCH 010/111] crypto: mips/chacha - import 32r2 ChaCha code from
  Zinc
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -3119,10 +3119,10 @@ index 000000000000..a81e02db95e7
 2.18.2
 
 
-From 3b756386ffec40b38f9c2041ecee10be54f68787 Mon Sep 17 00:00:00 2001
+From 62a678a7aba7506f44e8ea2fec45a709dad8fb4a Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:17 +0100
-Subject: [PATCH 011/102] crypto: mips/chacha - wire up accelerated 32r2 code
+Subject: [PATCH 011/111] crypto: mips/chacha - wire up accelerated 32r2 code
  from Zinc
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -3694,10 +3694,10 @@ index 649dc564f242..6b5e14cee475 100644
 2.18.2
 
 
-From 8048e91cccb933bb1c61acc78cb506c97b3ca362 Mon Sep 17 00:00:00 2001
+From e4638e0c1d51441930995140083b66817f4ad10c Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:18 +0100
-Subject: [PATCH 012/102] crypto: chacha - unexport chacha_generic routines
+Subject: [PATCH 012/111] crypto: chacha - unexport chacha_generic routines
 
 commit 22cf705360707ced15f9fe5423938f313c7df536 upstream.
 
@@ -3817,10 +3817,10 @@ index c0e40b245431..aa5d4a16aac5 100644
 2.18.2
 
 
-From 202a09d95a174ee44947871aa86c43d9de8f8d0d Mon Sep 17 00:00:00 2001
+From cb79241e8feac37fa381e6e7a6a92ee00d5e97f0 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:19 +0100
-Subject: [PATCH 013/102] crypto: poly1305 - move core routines into a separate
+Subject: [PATCH 013/111] crypto: poly1305 - move core routines into a separate
  library
 
 commit 48ea8c6ebc96bc0990e12ee1c43d0832c23576bb upstream.
@@ -4493,10 +4493,10 @@ index 000000000000..f019a57dbc1b
 2.18.2
 
 
-From 3450230c482c7d4b8ca9fe2d54fef00949fbb865 Mon Sep 17 00:00:00 2001
+From a91c6520226129e73a042da46a68fdd1ed462b3f Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:20 +0100
-Subject: [PATCH 014/102] crypto: x86/poly1305 - unify Poly1305 state struct
+Subject: [PATCH 014/111] crypto: x86/poly1305 - unify Poly1305 state struct
  with generic code
 
 commit ad8f5b88383ea685f2b8df2a12ee3e08089a1287 upstream.
@@ -4756,10 +4756,10 @@ index f5a4319c2a1f..36b5886cb50c 100644
 2.18.2
 
 
-From ef73d7ae12b39e76235baba9a178452c7d7269d5 Mon Sep 17 00:00:00 2001
+From e8933a8cc2291cdc5f351ba62583b19016ba7558 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:21 +0100
-Subject: [PATCH 015/102] crypto: poly1305 - expose init/update/final library
+Subject: [PATCH 015/111] crypto: poly1305 - expose init/update/final library
  interface
 
 commit a1d93064094cc5e24d64e35cf093e7191d0c9344 upstream.
@@ -4993,10 +4993,10 @@ index f019a57dbc1b..32ec293c65ae 100644
 2.18.2
 
 
-From 4fc756a627a983a5c13bb0e110d36e1413c9440c Mon Sep 17 00:00:00 2001
+From fdfafd6a5df551a278ca3ec07f5cc909e7dba007 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:22 +0100
-Subject: [PATCH 016/102] crypto: x86/poly1305 - depend on generic library not
+Subject: [PATCH 016/111] crypto: x86/poly1305 - depend on generic library not
  generic shash
 
 commit 1b2c6a5120489d41c8ea3b8dacd0b4586289b158 upstream.
@@ -5222,10 +5222,10 @@ index 04fa269e5534..479b0cab2a1a 100644
 2.18.2
 
 
-From 51def5ed5363a5e6c8702f15676627f602e5bfdf Mon Sep 17 00:00:00 2001
+From b095e7c38359ffa613d0c18e3cc68e40d9288816 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:23 +0100
-Subject: [PATCH 017/102] crypto: x86/poly1305 - expose existing driver as
+Subject: [PATCH 017/111] crypto: x86/poly1305 - expose existing driver as
  poly1305 library
 
 commit f0e89bcfbb894e5844cd1bbf6b3cf7c63cb0f5ac upstream.
@@ -5396,10 +5396,10 @@ index a731ea36bd5c..181754615f73 100644
 2.18.2
 
 
-From e63ea0f203d049885a4f8a295464c8020b078a02 Mon Sep 17 00:00:00 2001
+From a7b0cee7ad132cbe5ca7ca07c56cc012390bf367 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:24 +0100
-Subject: [PATCH 018/102] crypto: arm64/poly1305 - incorporate
+Subject: [PATCH 018/111] crypto: arm64/poly1305 - incorporate
  OpenSSL/CRYPTOGAMS NEON implementation
 
 commit f569ca16475155013525686d0f73bc379c67e635 upstream.
@@ -7498,10 +7498,10 @@ index 181754615f73..9923445e8225 100644
 2.18.2
 
 
-From 008d72f98e0ad5fe960b7a09ecdbdb05580d27b3 Mon Sep 17 00:00:00 2001
+From ce86f9037d86325458407eb786584e6302f98e5b Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:25 +0100
-Subject: [PATCH 019/102] crypto: arm/poly1305 - incorporate OpenSSL/CRYPTOGAMS
+Subject: [PATCH 019/111] crypto: arm/poly1305 - incorporate OpenSSL/CRYPTOGAMS
  NEON implementation
 
 commit a6b803b3ddc793d6db0c16f12fc12d30d20fa9cc upstream.
@@ -10293,10 +10293,10 @@ index 9923445e8225..9bd15b227e78 100644
 2.18.2
 
 
-From ee02d59c4f5254a73ae059b17e5d9ea4a8642028 Mon Sep 17 00:00:00 2001
+From 73b23c5b957adcda6ed1c8d7dba488d56d45719d Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:26 +0100
-Subject: [PATCH 020/102] crypto: mips/poly1305 - incorporate
+Subject: [PATCH 020/111] crypto: mips/poly1305 - incorporate
  OpenSSL/CRYPTOGAMS optimized implementation
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -11872,10 +11872,10 @@ index 9bd15b227e78..d15ec5382986 100644
 2.18.2
 
 
-From c8abcf8e1b1c0d95f497451174fa98aa28daf975 Mon Sep 17 00:00:00 2001
+From 0eb7f58b6196fee0fce5fdc0d2da5c2030b82c33 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:28 +0100
-Subject: [PATCH 021/102] crypto: blake2s - generic C library implementation
+Subject: [PATCH 021/111] crypto: blake2s - generic C library implementation
  and selftest
 
 commit 66d7fb94e4ffe5acc589e0b2b4710aecc1f07a28 upstream.
@@ -12992,10 +12992,10 @@ index 000000000000..41025a30c524
 2.18.2
 
 
-From 8b81229bc1d0c4376d083c3573e7ea72b1b18976 Mon Sep 17 00:00:00 2001
+From 6af7e478d1106c23001e33297f3220d3e279ed95 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:29 +0100
-Subject: [PATCH 022/102] crypto: testmgr - add test cases for Blake2s
+Subject: [PATCH 022/111] crypto: testmgr - add test cases for Blake2s
 
 commit 17e1df67023a5c9ccaeb5de8bf5b88f63127ecf7 upstream.
 
@@ -13322,10 +13322,10 @@ index ef7d21f39d4a..102fcad54966 100644
 2.18.2
 
 
-From 232dcec39c2068e2d9177d24aa61cd8648f54305 Mon Sep 17 00:00:00 2001
+From 08bf11c5062fa6d1fade35a4df7d7ec4060de58c Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:30 +0100
-Subject: [PATCH 023/102] crypto: blake2s - implement generic shash driver
+Subject: [PATCH 023/111] crypto: blake2s - implement generic shash driver
 
 commit 7f9b0880925f1f9d7d59504ea0892d2ae9cfc233 upstream.
 
@@ -13580,10 +13580,10 @@ index 941693effc7d..74ff77032e52 100644
 2.18.2
 
 
-From 8416cc48644e8ee0778547c8cbc151fb5ead51eb Mon Sep 17 00:00:00 2001
+From 606aebe720cfafeb48102c050b4f200176b8fbd7 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:31 +0100
-Subject: [PATCH 024/102] crypto: blake2s - x86_64 SIMD implementation
+Subject: [PATCH 024/111] crypto: blake2s - x86_64 SIMD implementation
 
 commit ed0356eda153f6a95649e11feb7b07083caf9e20 upstream.
 
@@ -14151,10 +14151,10 @@ index 81c8a4059afc..8fd3954bf64c 100644
 2.18.2
 
 
-From f3b459801854bd2c9624e05401f892108b005200 Mon Sep 17 00:00:00 2001
+From bbd50c0a415eecea9f6043f63d65a966c201d1bc Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:32 +0100
-Subject: [PATCH 025/102] crypto: curve25519 - generic C library
+Subject: [PATCH 025/111] crypto: curve25519 - generic C library
  implementations
 
 commit 0ed42a6f431e930b2e8fae21955406e09fe75d70 upstream.
@@ -16021,10 +16021,10 @@ index 000000000000..0106bebe6900
 2.18.2
 
 
-From b17de7636a4c58d8e985c1e08a3f56a750d89430 Mon Sep 17 00:00:00 2001
+From 38af1a26c91e3c45ab0d0296e471e088b5d82580 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:33 +0100
-Subject: [PATCH 026/102] crypto: curve25519 - add kpp selftest
+Subject: [PATCH 026/111] crypto: curve25519 - add kpp selftest
 
 commit f613457a7af085728297bef71233c37faf3c01b1 upstream.
 
@@ -17297,10 +17297,10 @@ index 102fcad54966..5d132ae996b4 100644
 2.18.2
 
 
-From c20147b70d73e2fb5a7656997c7583964e4d7b81 Mon Sep 17 00:00:00 2001
+From aa7da815fcab6a235c14ec4191a11d0f1dd969f8 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:34 +0100
-Subject: [PATCH 027/102] crypto: curve25519 - implement generic KPP driver
+Subject: [PATCH 027/111] crypto: curve25519 - implement generic KPP driver
 
 commit ee772cb641135739c1530647391d5a04c39db192 upstream.
 
@@ -17444,10 +17444,10 @@ index 000000000000..bd88fd571393
 2.18.2
 
 
-From 1520c383f9ed860c6afa73609b3e3dadbe45a7d9 Mon Sep 17 00:00:00 2001
+From 5cbd392593fa11f939bae7f95b9763ad61962fe6 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:35 +0100
-Subject: [PATCH 028/102] crypto: lib/curve25519 - work around Clang stack
+Subject: [PATCH 028/111] crypto: lib/curve25519 - work around Clang stack
  spilling issue
 
 commit 660bb8e1f833ea63185fe80fde847e3e42f18e3b upstream.
@@ -17525,10 +17525,10 @@ index 1c455207341d..2fde0ec33dbd 100644
 2.18.2
 
 
-From f8549a26f577e7ea963560f92fd8aca6a6fc8670 Mon Sep 17 00:00:00 2001
+From ec54cbc43bda3479e5d82164bd2986e12bc09ff1 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:36 +0100
-Subject: [PATCH 029/102] crypto: curve25519 - x86_64 library and KPP
+Subject: [PATCH 029/111] crypto: curve25519 - x86_64 library and KPP
  implementations
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -20073,10 +20073,10 @@ index a3fc859830c1..b8b738bcc312 100644
 2.18.2
 
 
-From 76729db2ce00b84c5738f9ab7e9ccd72729a9479 Mon Sep 17 00:00:00 2001
+From 444a6f273657190124123d509567970e9bc02ec5 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:37 +0100
-Subject: [PATCH 030/102] crypto: arm/curve25519 - import Bernstein and
+Subject: [PATCH 030/111] crypto: arm/curve25519 - import Bernstein and
  Schwabe's Curve25519 ARM implementation
 
 commit f0fb006b604f98e2309a30f34ef455ac734f7c1c upstream.
@@ -22215,10 +22215,10 @@ index 000000000000..f33b85fef382
 2.18.2
 
 
-From 82d4da04035fce31f3ac94f9c67ae544787ac562 Mon Sep 17 00:00:00 2001
+From 9c14e32439d17664117aff577311c6d529d3c0dd Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 8 Nov 2019 13:22:38 +0100
-Subject: [PATCH 031/102] crypto: arm/curve25519 - wire up NEON implementation
+Subject: [PATCH 031/111] crypto: arm/curve25519 - wire up NEON implementation
 
 commit d8f1308a025fc7e00414194ed742d5f05a21e13c upstream.
 
@@ -23286,10 +23286,10 @@ index 000000000000..2e9e12d2f642
 2.18.2
 
 
-From 80ae5baadedd8e9abf750daab65444c44e2a60d1 Mon Sep 17 00:00:00 2001
+From b8003c55005c87f763b6c6a3a04610ba79d0ba07 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:39 +0100
-Subject: [PATCH 032/102] crypto: chacha20poly1305 - import construction and
+Subject: [PATCH 032/111] crypto: chacha20poly1305 - import construction and
  selftest from Zinc
 
 commit ed20078b7e3331e82828be357147af6a3282e4ce upstream.
@@ -30980,10 +30980,10 @@ index 000000000000..c12ddbe9eb92
 2.18.2
 
 
-From 0438989198bb5541aea5dfcd33736a9211e930b6 Mon Sep 17 00:00:00 2001
+From ad1e02414b6baaf029d1ba95a1ff5b962f142c5f Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 8 Nov 2019 13:22:40 +0100
-Subject: [PATCH 033/102] crypto: lib/chacha20poly1305 - reimplement
+Subject: [PATCH 033/111] crypto: lib/chacha20poly1305 - reimplement
  crypt_from_sg() routine
 
 commit d95312a3ccc0cd544d374be2fc45aeaa803e5fd9 upstream.
@@ -31285,10 +31285,10 @@ index c12ddbe9eb92..821e5cc9b14e 100644
 2.18.2
 
 
-From 36146ca92431d588fac6d067c06556c9f2898cd7 Mon Sep 17 00:00:00 2001
+From 142a6533c36fa2289ed7c8e28cdd947100b2c5d6 Mon Sep 17 00:00:00 2001
 From: Eric Biggers <ebiggers@google.com>
 Date: Sun, 17 Nov 2019 23:21:29 -0800
-Subject: [PATCH 034/102] crypto: chacha_generic - remove unnecessary setkey()
+Subject: [PATCH 034/111] crypto: chacha_generic - remove unnecessary setkey()
  functions
 
 commit 2043323a799a660bc84bbee404cf7a2617ec6157 upstream.
@@ -31359,10 +31359,10 @@ index c1b147318393..8beea79ab117 100644
 2.18.2
 
 
-From 666afd130a006818f81862fb9478a79391081a3b Mon Sep 17 00:00:00 2001
+From ef82f9452678441afb721aeb23bb53c3210c0f80 Mon Sep 17 00:00:00 2001
 From: Eric Biggers <ebiggers@google.com>
 Date: Sun, 17 Nov 2019 23:21:58 -0800
-Subject: [PATCH 035/102] crypto: x86/chacha - only unregister algorithms if
+Subject: [PATCH 035/111] crypto: x86/chacha - only unregister algorithms if
  registered
 
 commit b62755aed3a3f5ca9edd2718339ccea3b6bbbe57 upstream.
@@ -31397,10 +31397,10 @@ index b391e13a9e41..a94e30b6f941 100644
 2.18.2
 
 
-From 22aa44bb07b38a0f1de8586ac11c698da2379a03 Mon Sep 17 00:00:00 2001
+From e63c6fd00d7c0b6250beae7372115f3cbf83ddb5 Mon Sep 17 00:00:00 2001
 From: Eric Biggers <ebiggers@google.com>
 Date: Sun, 17 Nov 2019 23:22:16 -0800
-Subject: [PATCH 036/102] crypto: lib/chacha20poly1305 - use chacha20_crypt()
+Subject: [PATCH 036/111] crypto: lib/chacha20poly1305 - use chacha20_crypt()
 
 commit 413808b71e6204b0cc1eeaa77960f7c3cd381d33 upstream.
 
@@ -31486,10 +31486,10 @@ index 821e5cc9b14e..6d83cafebc69 100644
 2.18.2
 
 
-From 26654690b2e8d2a08b8cf51c41075a2fca6fef39 Mon Sep 17 00:00:00 2001
+From 45d145f70e1cb895cb22815dfb2108b1b7b6f52f Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 25 Nov 2019 11:31:12 +0100
-Subject: [PATCH 037/102] crypto: arch - conditionalize crypto api in arch glue
+Subject: [PATCH 037/111] crypto: arch - conditionalize crypto api in arch glue
  for lib code
 
 commit 8394bfec51e0e565556101bcc4e2fe7551104cd8 upstream.
@@ -31787,10 +31787,10 @@ index 370cd88068ec..0cc4537e6617 100644
 2.18.2
 
 
-From 59fe107a2044939247de58d1d9294584e46462fa Mon Sep 17 00:00:00 2001
+From 3444a13a6fb12b49ab71dd3c9dbac0a21789ca63 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Valdis=20Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>
 Date: Thu, 5 Dec 2019 20:58:36 -0500
-Subject: [PATCH 038/102] crypto: chacha - fix warning message in header file
+Subject: [PATCH 038/111] crypto: chacha - fix warning message in header file
 
 commit 579d705cd64e44f3fcda1a6cfd5f37468a5ddf63 upstream.
 
@@ -31828,10 +31828,10 @@ index aa5d4a16aac5..b085dc1ac151 100644
 2.18.2
 
 
-From 8ec749d01cf688aee3054d342a07bbf3de103989 Mon Sep 17 00:00:00 2001
+From 8da51cbbeda9be60b2e2b2052236880b33ecd6e3 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 11 Dec 2019 10:26:39 +0100
-Subject: [PATCH 039/102] crypto: arm/curve25519 - add arch-specific key
+Subject: [PATCH 039/111] crypto: arm/curve25519 - add arch-specific key
  generation function
 
 commit 84faa307249b341f6ad8de3e1869d77a65e26669 upstream.
@@ -31872,10 +31872,10 @@ index f3f42cf3b893..776ae07e0469 100644
 2.18.2
 
 
-From cc753590e7c166ab7bd05e77d493d8c07138e802 Mon Sep 17 00:00:00 2001
+From 1f1a39f93a47971b5a909cc583fb7a4a11c28f91 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 16 Dec 2019 19:53:26 +0100
-Subject: [PATCH 040/102] crypto: lib/curve25519 - re-add selftests
+Subject: [PATCH 040/111] crypto: lib/curve25519 - re-add selftests
 
 commit aa127963f1cab2b93c74c9b128a84610203fb674 upstream.
 
@@ -33270,10 +33270,10 @@ index 0106bebe6900..c03ccdb99434 100644
 2.18.2
 
 
-From 7c6ead9004462ba14187f6b17931019f71464b1e Mon Sep 17 00:00:00 2001
+From 4c7f288fcf26efce71a1baad7f2eb097519b6797 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 5 Jan 2020 22:40:46 -0500
-Subject: [PATCH 041/102] crypto: poly1305 - add new 32 and 64-bit generic
+Subject: [PATCH 041/111] crypto: poly1305 - add new 32 and 64-bit generic
  versions
 
 commit 1c08a104360f3e18f4ee6346c21cc3923efb952e upstream.
@@ -34465,10 +34465,10 @@ index 32ec293c65ae..9d2d14df0fee 100644
 2.18.2
 
 
-From 497457d1568e24430c7946470141811202c3fa38 Mon Sep 17 00:00:00 2001
+From 9d7baa7058da6b1cb82ef52986bacc9b566a72b5 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 5 Jan 2020 22:40:47 -0500
-Subject: [PATCH 042/102] crypto: x86/poly1305 - import unmodified cryptogams
+Subject: [PATCH 042/111] crypto: x86/poly1305 - import unmodified cryptogams
  implementation
 
 commit 0896ca2a0cb6127e8a129f1f2a680d49b6b0f65c upstream.
@@ -38655,10 +38655,10 @@ index 000000000000..342ad7f18aa7
 2.18.2
 
 
-From 698790f98cbcce58f5aa39c5c513c8cda43abd98 Mon Sep 17 00:00:00 2001
+From 817bb9dc4136715aa625c4c97af8136b94cd2b9b Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 5 Jan 2020 22:40:48 -0500
-Subject: [PATCH 043/102] crypto: x86/poly1305 - wire up faster implementations
+Subject: [PATCH 043/111] crypto: x86/poly1305 - wire up faster implementations
  for kernel
 
 commit d7d7b853566254648df59f7ea27ea05952a6cfa8 upstream.
@@ -41592,10 +41592,10 @@ index 0b2c4fce26d9..14c032de276e 100644
 2.18.2
 
 
-From 0440c094fe88d834255c5bb6c0c3063e5d5d8a5d Mon Sep 17 00:00:00 2001
+From 53fb1d044bf5ed226e54504e4e3bf6c1c20c1026 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 5 Jan 2020 22:40:49 -0500
-Subject: [PATCH 044/102] crypto: {arm,arm64,mips}/poly1305 - remove redundant
+Subject: [PATCH 044/111] crypto: {arm,arm64,mips}/poly1305 - remove redundant
  non-reduction from emit
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -41773,10 +41773,10 @@ index b37d29cf5d0a..fc881b46d911 100644
 2.18.2
 
 
-From b811e759edf1a00c880fd81911e464a19092af1a Mon Sep 17 00:00:00 2001
+From 053e1885ce870a29cf558a21c59e319a3ffcf4b8 Mon Sep 17 00:00:00 2001
 From: Herbert Xu <herbert@gondor.apana.org.au>
 Date: Wed, 8 Jan 2020 12:37:35 +0800
-Subject: [PATCH 045/102] crypto: curve25519 - Fix selftest build error
+Subject: [PATCH 045/111] crypto: curve25519 - Fix selftest build error
 
 commit a8bdf2c42ee4d1ee42af1f3601f85de94e70a421 upstream.
 
@@ -41886,10 +41886,10 @@ index c03ccdb99434..288a62cd29b2 100644
 2.18.2
 
 
-From e252a7bbd574e3f5d0ce35c139500d280f45cde9 Mon Sep 17 00:00:00 2001
+From eb414e7bf531a0a53c01d1b5be35013136120b9c Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 16 Jan 2020 18:23:55 +0100
-Subject: [PATCH 046/102] crypto: x86/poly1305 - fix .gitignore typo
+Subject: [PATCH 046/111] crypto: x86/poly1305 - fix .gitignore typo
 
 commit 1f6868995326cc82102049e349d8dbd116bdb656 upstream.
 
@@ -41915,10 +41915,10 @@ index c406ea6571fa..30be0400a439 100644
 2.18.2
 
 
-From 49c45bd0d17029d7f0eeb5c72e2509e316e408bc Mon Sep 17 00:00:00 2001
+From a7d7e36d71f2963cd1e286cb5be322dd3b1f25ba Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 16 Jan 2020 21:26:34 +0100
-Subject: [PATCH 047/102] crypto: chacha20poly1305 - add back missing test
+Subject: [PATCH 047/111] crypto: chacha20poly1305 - add back missing test
  vectors and test chunking
 
 commit 72c7943792c9e7788ddd182337bcf8f650cf56f5 upstream.
@@ -43779,10 +43779,10 @@ index 465de46dbdef..c391a91364e9 100644
 2.18.2
 
 
-From 17478e7046844d5a665c2d166229be3814a36921 Mon Sep 17 00:00:00 2001
+From a8744d0d02b93347f58372088794085f1c8c2674 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 17 Jan 2020 11:42:22 +0100
-Subject: [PATCH 048/102] crypto: x86/poly1305 - emit does base conversion
+Subject: [PATCH 048/111] crypto: x86/poly1305 - emit does base conversion
  itself
 
 commit f9e7fe32a792726186301423ff63a465d63386e1 upstream.
@@ -43822,10 +43822,10 @@ index 657363588e0c..79bb58737d52 100644
 2.18.2
 
 
-From 562fd82f6954cad0744b5613a781ae926c913b2d Mon Sep 17 00:00:00 2001
+From 72125bc90af545c0ea95d1180234ee985e1947b1 Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Fri, 17 Jan 2020 17:43:18 +0100
-Subject: [PATCH 049/102] crypto: arm/chacha - fix build failured when kernel
+Subject: [PATCH 049/111] crypto: arm/chacha - fix build failured when kernel
  mode NEON is disabled
 
 commit 0bc81767c5bd9d005fae1099fb39eb3688370cb1 upstream.
@@ -43886,10 +43886,10 @@ index 7bdf8823066d..893692ed12b7 100644
 2.18.2
 
 
-From b037bb06b0e8cef9db0572eb947a365d10d47a26 Mon Sep 17 00:00:00 2001
+From ce524bfa47574457f01439ad02e1cb16e3235c98 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 17 Jan 2020 12:01:36 +0100
-Subject: [PATCH 050/102] crypto: Kconfig - allow tests to be disabled when
+Subject: [PATCH 050/111] crypto: Kconfig - allow tests to be disabled when
  manager is disabled
 
 commit 2343d1529aff8b552589f622c23932035ed7a05d upstream.
@@ -43932,10 +43932,10 @@ index b8b738bcc312..8fcf630471dc 100644
 2.18.2
 
 
-From 2a257f05f1ca068024df70c092855fc7d3b0a764 Mon Sep 17 00:00:00 2001
+From 229f75b9db2ecce24734ea40184e40658d42cd57 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 6 Feb 2020 12:42:01 +0100
-Subject: [PATCH 051/102] crypto: chacha20poly1305 - prevent integer overflow
+Subject: [PATCH 051/111] crypto: chacha20poly1305 - prevent integer overflow
  on large input
 
 commit c9cc0517bba9f0213f1e55172feceb99e5512daf upstream.
@@ -43978,10 +43978,10 @@ index 6d83cafebc69..ad0699ce702f 100644
 2.18.2
 
 
-From 64699e667b888145a48404c43089e0dddc365aaa Mon Sep 17 00:00:00 2001
+From d16d04b184b9cd7bc8a91dec6403a433a0ac5018 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 1 Mar 2020 22:52:35 +0800
-Subject: [PATCH 052/102] crypto: x86/curve25519 - support assemblers with no
+Subject: [PATCH 052/111] crypto: x86/curve25519 - support assemblers with no
  adx support
 
 commit 1579f1bc3b753d17a44de3457d5c6f4a5b14c752 upstream.
@@ -44072,10 +44072,10 @@ index 4e6dc840b159..9ecb3c1f0f15 100644
 2.18.2
 
 
-From 66a3dbf086b8f9dfb320c0640972879aa3f10828 Mon Sep 17 00:00:00 2001
+From 1a572ff1421939ba931b2bd05041b62b53e9e216 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 18 Mar 2020 20:27:32 -0600
-Subject: [PATCH 053/102] crypto: arm64/chacha - correctly walk through blocks
+Subject: [PATCH 053/111] crypto: arm64/chacha - correctly walk through blocks
 
 commit c8cfcb78c65877313cda7bcbace624d3dbd1f3b3 upstream.
 
@@ -44148,10 +44148,10 @@ index c391a91364e9..fa43deda2660 100644
 2.18.2
 
 
-From 66c51f8a14bfe493cbf756094de5239b60698f46 Mon Sep 17 00:00:00 2001
+From 33efbbcd684c9461aa13c3ede481ebd997295019 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 20 Jan 2020 18:18:15 +0100
-Subject: [PATCH 054/102] crypto: x86/curve25519 - replace with formally
+Subject: [PATCH 054/111] crypto: x86/curve25519 - replace with formally
  verified implementation
 
 commit 07b586fe06625b0b610dc3d3a969c51913d143d4 upstream.
@@ -47905,10 +47905,10 @@ index eec7d2d24239..e4e58b8e9afe 100644
 2.18.2
 
 
-From 088f417b491f0eeff2dee995a1905d4616bbfbac Mon Sep 17 00:00:00 2001
+From b8344fcd3bee836dc627c8d36f92579a80bca65d Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 1 Mar 2020 16:06:56 +0800
-Subject: [PATCH 055/102] crypto: x86/curve25519 - leave r12 as spare register
+Subject: [PATCH 055/111] crypto: x86/curve25519 - leave r12 as spare register
 
 commit dc7fc3a53ae158263196b1892b672aedf67796c5 upstream.
 
@@ -48287,10 +48287,10 @@ index e4e58b8e9afe..8a17621f7d3a 100644
 2.18.2
 
 
-From 10eb55997dca18f9f8243378cc7b2172e393a5a6 Mon Sep 17 00:00:00 2001
+From 86c46383822fdd1a29422968a4cc14f177ff52f6 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 19 Mar 2020 11:56:17 -0600
-Subject: [PATCH 056/102] crypto: arm[64]/poly1305 - add artifact to .gitignore
+Subject: [PATCH 056/111] crypto: arm[64]/poly1305 - add artifact to .gitignore
  files
 
 commit 6e4e00d8b68ca7eb30d08afb740033e0d36abe55 upstream.
@@ -48331,10 +48331,10 @@ index 879df8781ed5..e403b1343328 100644
 2.18.2
 
 
-From 8d63a52d0c2f12b386077ebb56a47f756d186f5b Mon Sep 17 00:00:00 2001
+From 7b34cc188560dd1e11f3b94381f16859216e8206 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 23 Apr 2020 15:54:04 -0600
-Subject: [PATCH 057/102] crypto: arch/lib - limit simd usage to 4k chunks
+Subject: [PATCH 057/111] crypto: arch/lib - limit simd usage to 4k chunks
 
 commit 706024a52c614b478b63f7728d202532ce6591a9 upstream.
 
@@ -48592,10 +48592,10 @@ index 79bb58737d52..61b2bc8b6986 100644
 2.18.2
 
 
-From 16b579fcd3976821b57485df02338de90d5e1021 Mon Sep 17 00:00:00 2001
+From c96659dc4d1e056882851b8ef301946fdde59a1f Mon Sep 17 00:00:00 2001
 From: Herbert Xu <herbert@gondor.apana.org.au>
 Date: Wed, 8 Jul 2020 12:41:13 +1000
-Subject: [PATCH 058/102] crypto: lib/chacha20poly1305 - Add missing function
+Subject: [PATCH 058/111] crypto: lib/chacha20poly1305 - Add missing function
  declaration
 
 commit 06cc2afbbdf9a9e8df3e2f8db724997dd6e1b4ac upstream.
@@ -48638,10 +48638,10 @@ index ad0699ce702f..431e04280332 100644
 2.18.2
 
 
-From ece6dfac8cc83c47ab7943601fa374486d800860 Mon Sep 17 00:00:00 2001
+From d41126beaf21859ab04b29afd19e9d14202cb29e Mon Sep 17 00:00:00 2001
 From: Ard Biesheuvel <ardb@kernel.org>
 Date: Wed, 8 Jul 2020 12:11:18 +0300
-Subject: [PATCH 059/102] crypto: x86/chacha-sse3 - use unaligned loads for
+Subject: [PATCH 059/111] crypto: x86/chacha-sse3 - use unaligned loads for
  state array
 
 commit e79a31715193686e92dadb4caedfbb1f5de3659c upstream.
@@ -48796,10 +48796,478 @@ index 2676f4fbd4c1..3a1c72fdb7cf 100644
 2.18.2
 
 
-From 7b3d4f2940feb08f9e958ce2eb66b428bf37de4a Mon Sep 17 00:00:00 2001
+From 303ee70fd1b5e802dff37e0a81e4c28ca998207f Mon Sep 17 00:00:00 2001
+From: Herbert Xu <herbert@gondor.apana.org.au>
+Date: Thu, 23 Jul 2020 17:50:48 +1000
+Subject: [PATCH 060/111] crypto: x86/curve25519 - Remove unused carry
+ variables
+
+commit 054a5540fb8f7268e2c79e9deab4242db15c8cba upstream.
+
+The carry variables are assigned but never used, which upsets
+the compiler.  This patch removes them.
+
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Reviewed-by: Karthikeyan Bhargavan <karthik.bhargavan@gmail.com>
+Acked-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ arch/x86/crypto/curve25519-x86_64.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/arch/x86/crypto/curve25519-x86_64.c b/arch/x86/crypto/curve25519-x86_64.c
+index 8a17621f7d3a..8acbb6584a37 100644
+--- a/arch/x86/crypto/curve25519-x86_64.c
++++ b/arch/x86/crypto/curve25519-x86_64.c
+@@ -948,10 +948,8 @@ static void store_felem(u64 *b, u64 *f)
+ {
+ 	u64 f30 = f[3U];
+ 	u64 top_bit0 = f30 >> (u32)63U;
+-	u64 carry0;
+ 	u64 f31;
+ 	u64 top_bit;
+-	u64 carry;
+ 	u64 f0;
+ 	u64 f1;
+ 	u64 f2;
+@@ -970,11 +968,11 @@ static void store_felem(u64 *b, u64 *f)
+ 	u64 o2;
+ 	u64 o3;
+ 	f[3U] = f30 & (u64)0x7fffffffffffffffU;
+-	carry0 = add_scalar(f, f, (u64)19U * top_bit0);
++	add_scalar(f, f, (u64)19U * top_bit0);
+ 	f31 = f[3U];
+ 	top_bit = f31 >> (u32)63U;
+ 	f[3U] = f31 & (u64)0x7fffffffffffffffU;
+-	carry = add_scalar(f, f, (u64)19U * top_bit);
++	add_scalar(f, f, (u64)19U * top_bit);
+ 	f0 = f[0U];
+ 	f1 = f[1U];
+ 	f2 = f[2U];
+-- 
+2.18.2
+
+
+From 010a71d67061f58bc36ae7349c6f87aac46326bf Mon Sep 17 00:00:00 2001
+From: Fabio Estevam <festevam@gmail.com>
+Date: Mon, 24 Aug 2020 11:09:53 -0300
+Subject: [PATCH 061/111] crypto: arm/curve25519 - include
+ <linux/scatterlist.h>
+
+commit 6779d0e6b0fe193ab3010ea201782ca6f75a3862 upstream.
+
+Building ARM allmodconfig leads to the following warnings:
+
+arch/arm/crypto/curve25519-glue.c:73:12: error: implicit declaration of function 'sg_copy_to_buffer' [-Werror=implicit-function-declaration]
+arch/arm/crypto/curve25519-glue.c:74:9: error: implicit declaration of function 'sg_nents_for_len' [-Werror=implicit-function-declaration]
+arch/arm/crypto/curve25519-glue.c:88:11: error: implicit declaration of function 'sg_copy_from_buffer' [-Werror=implicit-function-declaration]
+
+Include <linux/scatterlist.h> to fix such warnings
+
+Reported-by: Olof's autobuilder <build@lixom.net>
+Fixes: 0c3dc787a62a ("crypto: algapi - Remove skbuff.h inclusion")
+Signed-off-by: Fabio Estevam <festevam@gmail.com>
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Acked-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ arch/arm/crypto/curve25519-glue.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/crypto/curve25519-glue.c b/arch/arm/crypto/curve25519-glue.c
+index 776ae07e0469..31eb75b6002f 100644
+--- a/arch/arm/crypto/curve25519-glue.c
++++ b/arch/arm/crypto/curve25519-glue.c
+@@ -16,6 +16,7 @@
+ #include <linux/module.h>
+ #include <linux/init.h>
+ #include <linux/jump_label.h>
++#include <linux/scatterlist.h>
+ #include <crypto/curve25519.h>
+ 
+ asmlinkage void curve25519_neon(u8 mypublic[CURVE25519_KEY_SIZE],
+-- 
+2.18.2
+
+
+From 13335bdbea0d55b2b2d2393f551997ce7ad6bf15 Mon Sep 17 00:00:00 2001
+From: Herbert Xu <herbert@gondor.apana.org.au>
+Date: Tue, 25 Aug 2020 11:23:00 +1000
+Subject: [PATCH 062/111] crypto: arm/poly1305 - Add prototype for
+ poly1305_blocks_neon
+
+commit 51982ea02aef972132eb35c583d3e4c5b83166e5 upstream.
+
+This patch adds a prototype for poly1305_blocks_neon to slience
+a compiler warning:
+
+  CC [M]  arch/arm/crypto/poly1305-glue.o
+../arch/arm/crypto/poly1305-glue.c:25:13: warning: no previous prototype for `poly1305_blocks_neon' [-Wmissing-prototypes]
+ void __weak poly1305_blocks_neon(void *state, const u8 *src, u32 len, u32 hibit)
+             ^~~~~~~~~~~~~~~~~~~~
+
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Acked-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ arch/arm/crypto/poly1305-glue.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/crypto/poly1305-glue.c b/arch/arm/crypto/poly1305-glue.c
+index 13cfef4ae22e..3023c1acfa19 100644
+--- a/arch/arm/crypto/poly1305-glue.c
++++ b/arch/arm/crypto/poly1305-glue.c
+@@ -20,6 +20,7 @@
+ 
+ void poly1305_init_arm(void *state, const u8 *key);
+ void poly1305_blocks_arm(void *state, const u8 *src, u32 len, u32 hibit);
++void poly1305_blocks_neon(void *state, const u8 *src, u32 len, u32 hibit);
+ void poly1305_emit_arm(void *state, u8 *digest, const u32 *nonce);
+ 
+ void __weak poly1305_blocks_neon(void *state, const u8 *src, u32 len, u32 hibit)
+-- 
+2.18.2
+
+
+From ed226e02d6d925659250beac5e1b94689df046bd Mon Sep 17 00:00:00 2001
+From: Uros Bizjak <ubizjak@gmail.com>
+Date: Thu, 27 Aug 2020 19:30:58 +0200
+Subject: [PATCH 063/111] crypto: curve25519-x86_64 - Use XORL r32,32
+
+commit db719539fd3889836900bf912755aa30a5985e9a upstream.
+
+x86_64 zero extends 32bit operations, so for 64bit operands,
+XORL r32,r32 is functionally equal to XORL r64,r64, but avoids
+a REX prefix byte when legacy registers are used.
+
+Signed-off-by: Uros Bizjak <ubizjak@gmail.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: "David S. Miller" <davem@davemloft.net>
+Acked-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ arch/x86/crypto/curve25519-x86_64.c | 68 ++++++++++++++---------------
+ 1 file changed, 34 insertions(+), 34 deletions(-)
+
+diff --git a/arch/x86/crypto/curve25519-x86_64.c b/arch/x86/crypto/curve25519-x86_64.c
+index 8acbb6584a37..a9edb6f8a0ba 100644
+--- a/arch/x86/crypto/curve25519-x86_64.c
++++ b/arch/x86/crypto/curve25519-x86_64.c
+@@ -45,11 +45,11 @@ static inline u64 add_scalar(u64 *out, const u64 *f1, u64 f2)
+ 
+ 	asm volatile(
+ 		/* Clear registers to propagate the carry bit */
+-		"  xor %%r8, %%r8;"
+-		"  xor %%r9, %%r9;"
+-		"  xor %%r10, %%r10;"
+-		"  xor %%r11, %%r11;"
+-		"  xor %1, %1;"
++		"  xor %%r8d, %%r8d;"
++		"  xor %%r9d, %%r9d;"
++		"  xor %%r10d, %%r10d;"
++		"  xor %%r11d, %%r11d;"
++		"  xor %k1, %k1;"
+ 
+ 		/* Begin addition chain */
+ 		"  addq 0(%3), %0;"
+@@ -93,7 +93,7 @@ static inline void fadd(u64 *out, const u64 *f1, const u64 *f2)
+ 		"  cmovc %0, %%rax;"
+ 
+ 		/* Step 2: Add carry*38 to the original sum */
+-		"  xor %%rcx, %%rcx;"
++		"  xor %%ecx, %%ecx;"
+ 		"  add %%rax, %%r8;"
+ 		"  adcx %%rcx, %%r9;"
+ 		"  movq %%r9, 8(%1);"
+@@ -165,28 +165,28 @@ static inline void fmul(u64 *out, const u64 *f1, const u64 *f2, u64 *tmp)
+ 
+ 		/* Compute src1[0] * src2 */
+ 		"  movq 0(%1), %%rdx;"
+-		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"     "  movq %%r8, 0(%0);"
++		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10d, %%r10d;"   "  movq %%r8, 0(%0);"
+ 		"  mulxq 8(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  movq %%r10, 8(%0);"
+ 		"  mulxq 16(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"
+ 		"  mulxq 24(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"
+ 		/* Compute src1[1] * src2 */
+ 		"  movq 8(%1), %%rdx;"
+-		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"     "  adcxq 8(%0), %%r8;"    "  movq %%r8, 8(%0);"
++		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10d, %%r10d;"   "  adcxq 8(%0), %%r8;"    "  movq %%r8, 8(%0);"
+ 		"  mulxq 8(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 16(%0);"
+ 		"  mulxq 16(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"    "  adcx %%r14, %%rbx;"    "  mov $0, %%r8;"
+ 		"  mulxq 24(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  adcx %%rax, %%r14;"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"    "  adcx %%r8, %%rax;"
+ 		/* Compute src1[2] * src2 */
+ 		"  movq 16(%1), %%rdx;"
+-		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"    "  adcxq 16(%0), %%r8;"    "  movq %%r8, 16(%0);"
++		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10d, %%r10d;"   "  adcxq 16(%0), %%r8;"   "  movq %%r8, 16(%0);"
+ 		"  mulxq 8(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 24(%0);"
+ 		"  mulxq 16(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"    "  adcx %%r14, %%rbx;"    "  mov $0, %%r8;"
+ 		"  mulxq 24(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  adcx %%rax, %%r14;"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"    "  adcx %%r8, %%rax;"
+ 		/* Compute src1[3] * src2 */
+ 		"  movq 24(%1), %%rdx;"
+-		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"    "  adcxq 24(%0), %%r8;"    "  movq %%r8, 24(%0);"
++		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10d, %%r10d;"   "  adcxq 24(%0), %%r8;"   "  movq %%r8, 24(%0);"
+ 		"  mulxq 8(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 32(%0);"
+ 		"  mulxq 16(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"    "  adcx %%r14, %%rbx;"    "  movq %%rbx, 40(%0);"    "  mov $0, %%r8;"
+ 		"  mulxq 24(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  adcx %%rax, %%r14;"    "  movq %%r14, 48(%0);"    "  mov $0, %%rax;"
+@@ -200,7 +200,7 @@ static inline void fmul(u64 *out, const u64 *f1, const u64 *f2, u64 *tmp)
+ 		/* Step 1: Compute dst + carry == tmp_hi * 38 + tmp_lo */
+ 		"  mov $38, %%rdx;"
+ 		"  mulxq 32(%1), %%r8, %%r13;"
+-		"  xor %3, %3;"
++		"  xor %k3, %k3;"
+ 		"  adoxq 0(%1), %%r8;"
+ 		"  mulxq 40(%1), %%r9, %%rbx;"
+ 		"  adcx %%r13, %%r9;"
+@@ -246,28 +246,28 @@ static inline void fmul2(u64 *out, const u64 *f1, const u64 *f2, u64 *tmp)
+ 
+ 		/* Compute src1[0] * src2 */
+ 		"  movq 0(%1), %%rdx;"
+-		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"     "  movq %%r8, 0(%0);"
++		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10d, %%r10d;"   "  movq %%r8, 0(%0);"
+ 		"  mulxq 8(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  movq %%r10, 8(%0);"
+ 		"  mulxq 16(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"
+ 		"  mulxq 24(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"
+ 		/* Compute src1[1] * src2 */
+ 		"  movq 8(%1), %%rdx;"
+-		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"     "  adcxq 8(%0), %%r8;"    "  movq %%r8, 8(%0);"
++		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10d, %%r10d;"   "  adcxq 8(%0), %%r8;"    "  movq %%r8, 8(%0);"
+ 		"  mulxq 8(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 16(%0);"
+ 		"  mulxq 16(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"    "  adcx %%r14, %%rbx;"    "  mov $0, %%r8;"
+ 		"  mulxq 24(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  adcx %%rax, %%r14;"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"    "  adcx %%r8, %%rax;"
+ 		/* Compute src1[2] * src2 */
+ 		"  movq 16(%1), %%rdx;"
+-		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"    "  adcxq 16(%0), %%r8;"    "  movq %%r8, 16(%0);"
++		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10d, %%r10d;"   "  adcxq 16(%0), %%r8;"   "  movq %%r8, 16(%0);"
+ 		"  mulxq 8(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 24(%0);"
+ 		"  mulxq 16(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"    "  adcx %%r14, %%rbx;"    "  mov $0, %%r8;"
+ 		"  mulxq 24(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  adcx %%rax, %%r14;"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"    "  adcx %%r8, %%rax;"
+ 		/* Compute src1[3] * src2 */
+ 		"  movq 24(%1), %%rdx;"
+-		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"    "  adcxq 24(%0), %%r8;"    "  movq %%r8, 24(%0);"
++		"  mulxq 0(%3), %%r8, %%r9;"       "  xor %%r10d, %%r10d;"   "  adcxq 24(%0), %%r8;"   "  movq %%r8, 24(%0);"
+ 		"  mulxq 8(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 32(%0);"
+ 		"  mulxq 16(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"    "  adcx %%r14, %%rbx;"    "  movq %%rbx, 40(%0);"    "  mov $0, %%r8;"
+ 		"  mulxq 24(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  adcx %%rax, %%r14;"    "  movq %%r14, 48(%0);"    "  mov $0, %%rax;"
+@@ -277,29 +277,29 @@ static inline void fmul2(u64 *out, const u64 *f1, const u64 *f2, u64 *tmp)
+ 
+ 		/* Compute src1[0] * src2 */
+ 		"  movq 32(%1), %%rdx;"
+-		"  mulxq 32(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"     "  movq %%r8, 64(%0);"
+-		"  mulxq 40(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  movq %%r10, 72(%0);"
++		"  mulxq 32(%3), %%r8, %%r9;"      "  xor %%r10d, %%r10d;"   "  movq %%r8, 64(%0);"
++		"  mulxq 40(%3), %%r10, %%r11;"    "  adox %%r9, %%r10;"     "  movq %%r10, 72(%0);"
+ 		"  mulxq 48(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"
+ 		"  mulxq 56(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"
+ 		/* Compute src1[1] * src2 */
+ 		"  movq 40(%1), %%rdx;"
+-		"  mulxq 32(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"     "  adcxq 72(%0), %%r8;"    "  movq %%r8, 72(%0);"
+-		"  mulxq 40(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 80(%0);"
++		"  mulxq 32(%3), %%r8, %%r9;"      "  xor %%r10d, %%r10d;"   "  adcxq 72(%0), %%r8;"   "  movq %%r8, 72(%0);"
++		"  mulxq 40(%3), %%r10, %%r11;"    "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 80(%0);"
+ 		"  mulxq 48(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"    "  adcx %%r14, %%rbx;"    "  mov $0, %%r8;"
+ 		"  mulxq 56(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  adcx %%rax, %%r14;"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"    "  adcx %%r8, %%rax;"
+ 		/* Compute src1[2] * src2 */
+ 		"  movq 48(%1), %%rdx;"
+-		"  mulxq 32(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"    "  adcxq 80(%0), %%r8;"    "  movq %%r8, 80(%0);"
+-		"  mulxq 40(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 88(%0);"
++		"  mulxq 32(%3), %%r8, %%r9;"      "  xor %%r10d, %%r10d;"   "  adcxq 80(%0), %%r8;"   "  movq %%r8, 80(%0);"
++		"  mulxq 40(%3), %%r10, %%r11;"    "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 88(%0);"
+ 		"  mulxq 48(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"    "  adcx %%r14, %%rbx;"    "  mov $0, %%r8;"
+ 		"  mulxq 56(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  adcx %%rax, %%r14;"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"    "  adcx %%r8, %%rax;"
+ 		/* Compute src1[3] * src2 */
+ 		"  movq 56(%1), %%rdx;"
+-		"  mulxq 32(%3), %%r8, %%r9;"       "  xor %%r10, %%r10;"    "  adcxq 88(%0), %%r8;"    "  movq %%r8, 88(%0);"
+-		"  mulxq 40(%3), %%r10, %%r11;"     "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 96(%0);"
++		"  mulxq 32(%3), %%r8, %%r9;"      "  xor %%r10d, %%r10d;"   "  adcxq 88(%0), %%r8;"   "  movq %%r8, 88(%0);"
++		"  mulxq 40(%3), %%r10, %%r11;"    "  adox %%r9, %%r10;"     "  adcx %%rbx, %%r10;"    "  movq %%r10, 96(%0);"
+ 		"  mulxq 48(%3), %%rbx, %%r13;"    "  adox %%r11, %%rbx;"    "  adcx %%r14, %%rbx;"    "  movq %%rbx, 104(%0);"    "  mov $0, %%r8;"
+ 		"  mulxq 56(%3), %%r14, %%rdx;"    "  adox %%r13, %%r14;"    "  adcx %%rax, %%r14;"    "  movq %%r14, 112(%0);"    "  mov $0, %%rax;"
+ 		                                   "  adox %%rdx, %%rax;"    "  adcx %%r8, %%rax;"     "  movq %%rax, 120(%0);"
+@@ -312,7 +312,7 @@ static inline void fmul2(u64 *out, const u64 *f1, const u64 *f2, u64 *tmp)
+ 		/* Step 1: Compute dst + carry == tmp_hi * 38 + tmp_lo */
+ 		"  mov $38, %%rdx;"
+ 		"  mulxq 32(%1), %%r8, %%r13;"
+-		"  xor %3, %3;"
++		"  xor %k3, %k3;"
+ 		"  adoxq 0(%1), %%r8;"
+ 		"  mulxq 40(%1), %%r9, %%rbx;"
+ 		"  adcx %%r13, %%r9;"
+@@ -345,7 +345,7 @@ static inline void fmul2(u64 *out, const u64 *f1, const u64 *f2, u64 *tmp)
+ 		/* Step 1: Compute dst + carry == tmp_hi * 38 + tmp_lo */
+ 		"  mov $38, %%rdx;"
+ 		"  mulxq 96(%1), %%r8, %%r13;"
+-		"  xor %3, %3;"
++		"  xor %k3, %k3;"
+ 		"  adoxq 64(%1), %%r8;"
+ 		"  mulxq 104(%1), %%r9, %%rbx;"
+ 		"  adcx %%r13, %%r9;"
+@@ -516,7 +516,7 @@ static inline void fsqr(u64 *out, const u64 *f, u64 *tmp)
+ 
+ 		/* Step 1: Compute all partial products */
+ 		"  movq 0(%1), %%rdx;"                                       /* f[0] */
+-		"  mulxq 8(%1), %%r8, %%r14;"      "  xor %%r15, %%r15;"     /* f[1]*f[0] */
++		"  mulxq 8(%1), %%r8, %%r14;"      "  xor %%r15d, %%r15d;"   /* f[1]*f[0] */
+ 		"  mulxq 16(%1), %%r9, %%r10;"     "  adcx %%r14, %%r9;"     /* f[2]*f[0] */
+ 		"  mulxq 24(%1), %%rax, %%rcx;"    "  adcx %%rax, %%r10;"    /* f[3]*f[0] */
+ 		"  movq 24(%1), %%rdx;"                                      /* f[3] */
+@@ -526,7 +526,7 @@ static inline void fsqr(u64 *out, const u64 *f, u64 *tmp)
+ 		"  mulxq 16(%1), %%rax, %%rcx;"    "  mov $0, %%r14;"        /* f[2]*f[1] */
+ 
+ 		/* Step 2: Compute two parallel carry chains */
+-		"  xor %%r15, %%r15;"
++		"  xor %%r15d, %%r15d;"
+ 		"  adox %%rax, %%r10;"
+ 		"  adcx %%r8, %%r8;"
+ 		"  adox %%rcx, %%r11;"
+@@ -563,7 +563,7 @@ static inline void fsqr(u64 *out, const u64 *f, u64 *tmp)
+ 		/* Step 1: Compute dst + carry == tmp_hi * 38 + tmp_lo */
+ 		"  mov $38, %%rdx;"
+ 		"  mulxq 32(%1), %%r8, %%r13;"
+-		"  xor %%rcx, %%rcx;"
++		"  xor %%ecx, %%ecx;"
+ 		"  adoxq 0(%1), %%r8;"
+ 		"  mulxq 40(%1), %%r9, %%rbx;"
+ 		"  adcx %%r13, %%r9;"
+@@ -607,7 +607,7 @@ static inline void fsqr2(u64 *out, const u64 *f, u64 *tmp)
+ 	asm volatile(
+ 		/* Step 1: Compute all partial products */
+ 		"  movq 0(%1), %%rdx;"                                       /* f[0] */
+-		"  mulxq 8(%1), %%r8, %%r14;"      "  xor %%r15, %%r15;"     /* f[1]*f[0] */
++		"  mulxq 8(%1), %%r8, %%r14;"      "  xor %%r15d, %%r15d;"   /* f[1]*f[0] */
+ 		"  mulxq 16(%1), %%r9, %%r10;"     "  adcx %%r14, %%r9;"     /* f[2]*f[0] */
+ 		"  mulxq 24(%1), %%rax, %%rcx;"    "  adcx %%rax, %%r10;"    /* f[3]*f[0] */
+ 		"  movq 24(%1), %%rdx;"                                      /* f[3] */
+@@ -617,7 +617,7 @@ static inline void fsqr2(u64 *out, const u64 *f, u64 *tmp)
+ 		"  mulxq 16(%1), %%rax, %%rcx;"    "  mov $0, %%r14;"        /* f[2]*f[1] */
+ 
+ 		/* Step 2: Compute two parallel carry chains */
+-		"  xor %%r15, %%r15;"
++		"  xor %%r15d, %%r15d;"
+ 		"  adox %%rax, %%r10;"
+ 		"  adcx %%r8, %%r8;"
+ 		"  adox %%rcx, %%r11;"
+@@ -647,7 +647,7 @@ static inline void fsqr2(u64 *out, const u64 *f, u64 *tmp)
+ 
+ 		/* Step 1: Compute all partial products */
+ 		"  movq 32(%1), %%rdx;"                                       /* f[0] */
+-		"  mulxq 40(%1), %%r8, %%r14;"      "  xor %%r15, %%r15;"     /* f[1]*f[0] */
++		"  mulxq 40(%1), %%r8, %%r14;"     "  xor %%r15d, %%r15d;"   /* f[1]*f[0] */
+ 		"  mulxq 48(%1), %%r9, %%r10;"     "  adcx %%r14, %%r9;"     /* f[2]*f[0] */
+ 		"  mulxq 56(%1), %%rax, %%rcx;"    "  adcx %%rax, %%r10;"    /* f[3]*f[0] */
+ 		"  movq 56(%1), %%rdx;"                                      /* f[3] */
+@@ -657,7 +657,7 @@ static inline void fsqr2(u64 *out, const u64 *f, u64 *tmp)
+ 		"  mulxq 48(%1), %%rax, %%rcx;"    "  mov $0, %%r14;"        /* f[2]*f[1] */
+ 
+ 		/* Step 2: Compute two parallel carry chains */
+-		"  xor %%r15, %%r15;"
++		"  xor %%r15d, %%r15d;"
+ 		"  adox %%rax, %%r10;"
+ 		"  adcx %%r8, %%r8;"
+ 		"  adox %%rcx, %%r11;"
+@@ -692,7 +692,7 @@ static inline void fsqr2(u64 *out, const u64 *f, u64 *tmp)
+ 		/* Step 1: Compute dst + carry == tmp_hi * 38 + tmp_lo */
+ 		"  mov $38, %%rdx;"
+ 		"  mulxq 32(%1), %%r8, %%r13;"
+-		"  xor %%rcx, %%rcx;"
++		"  xor %%ecx, %%ecx;"
+ 		"  adoxq 0(%1), %%r8;"
+ 		"  mulxq 40(%1), %%r9, %%rbx;"
+ 		"  adcx %%r13, %%r9;"
+@@ -725,7 +725,7 @@ static inline void fsqr2(u64 *out, const u64 *f, u64 *tmp)
+ 		/* Step 1: Compute dst + carry == tmp_hi * 38 + tmp_lo */
+ 		"  mov $38, %%rdx;"
+ 		"  mulxq 96(%1), %%r8, %%r13;"
+-		"  xor %%rcx, %%rcx;"
++		"  xor %%ecx, %%ecx;"
+ 		"  adoxq 64(%1), %%r8;"
+ 		"  mulxq 104(%1), %%r9, %%rbx;"
+ 		"  adcx %%r13, %%r9;"
+-- 
+2.18.2
+
+
+From 5e15835b8473c841abfe7a8540e2994d4d0f1a66 Mon Sep 17 00:00:00 2001
+From: Uros Bizjak <ubizjak@gmail.com>
+Date: Thu, 27 Aug 2020 19:38:31 +0200
+Subject: [PATCH 064/111] crypto: poly1305-x86_64 - Use XORL r32,32
+
+commit 7dfd1e01b3dfc13431b1b25720cf2692a7e111ef upstream.
+
+x86_64 zero extends 32bit operations, so for 64bit operands,
+XORL r32,r32 is functionally equal to XORQ r64,r64, but avoids
+a REX prefix byte when legacy registers are used.
+
+Signed-off-by: Uros Bizjak <ubizjak@gmail.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: "David S. Miller" <davem@davemloft.net>
+Acked-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ arch/x86/crypto/poly1305-x86_64-cryptogams.pl | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/arch/x86/crypto/poly1305-x86_64-cryptogams.pl b/arch/x86/crypto/poly1305-x86_64-cryptogams.pl
+index 80061bea6b16..5b593990501d 100644
+--- a/arch/x86/crypto/poly1305-x86_64-cryptogams.pl
++++ b/arch/x86/crypto/poly1305-x86_64-cryptogams.pl
+@@ -246,7 +246,7 @@ $code.=<<___ if (!$kernel);
+ ___
+ &declare_function("poly1305_init_x86_64", 32, 3);
+ $code.=<<___;
+-	xor	%rax,%rax
++	xor	%eax,%eax
+ 	mov	%rax,0($ctx)		# initialize hash value
+ 	mov	%rax,8($ctx)
+ 	mov	%rax,16($ctx)
+@@ -2869,7 +2869,7 @@ $code.=<<___;
+ .type	poly1305_init_base2_44,\@function,3
+ .align	32
+ poly1305_init_base2_44:
+-	xor	%rax,%rax
++	xor	%eax,%eax
+ 	mov	%rax,0($ctx)		# initialize hash value
+ 	mov	%rax,8($ctx)
+ 	mov	%rax,16($ctx)
+@@ -3963,7 +3963,7 @@ xor128_decrypt_n_pad:
+ 	mov	\$16,$len
+ 	sub	%r10,$len
+ 	xor	%eax,%eax
+-	xor	%r11,%r11
++	xor	%r11d,%r11d
+ .Loop_dec_byte:
+ 	mov	($inp,$otp),%r11b
+ 	mov	($otp),%al
+@@ -4101,7 +4101,7 @@ avx_handler:
+ 	.long	0xa548f3fc		# cld; rep movsq
+ 
+ 	mov	$disp,%rsi
+-	xor	%rcx,%rcx		# arg1, UNW_FLAG_NHANDLER
++	xor	%ecx,%ecx		# arg1, UNW_FLAG_NHANDLER
+ 	mov	8(%rsi),%rdx		# arg2, disp->ImageBase
+ 	mov	0(%rsi),%r8		# arg3, disp->ControlPc
+ 	mov	16(%rsi),%r9		# arg4, disp->FunctionEntry
+-- 
+2.18.2
+
+
+From 1ed9bf88b9cfa8eb51a5450f04a38aebee733963 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 11 Feb 2020 20:47:05 +0100
-Subject: [PATCH 060/102] icmp: introduce helper for nat'd source address in
+Subject: [PATCH 065/111] icmp: introduce helper for nat'd source address in
  network device context
 
 commit 0b41713b606694257b90d61ba7e2712d8457648b upstream.
@@ -48956,10 +49424,10 @@ index 02045494c24c..e0086758b6ee 100644
 2.18.2
 
 
-From ebd9f6a83e5250842ef4dff84478b45cb0b02bc2 Mon Sep 17 00:00:00 2001
+From 55f44ac0d7ef3d9fe23b66ee91568edcfd0a687c Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 9 Dec 2019 00:27:34 +0100
-Subject: [PATCH 061/102] net: WireGuard secure network tunnel
+Subject: [PATCH 066/111] net: WireGuard secure network tunnel
 
 commit e7096c131e5161fa3b8e52a650d7719d2857adfd upstream.
 
@@ -49148,10 +49616,10 @@ Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
  create mode 100755 tools/testing/selftests/wireguard/netns.sh
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index fe6fa5d3a63e..d05f78261f33 100644
+index 1407008df749..2395dfb37d1a 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -17583,6 +17583,14 @@ L:	linux-gpio@vger.kernel.org
+@@ -17584,6 +17584,14 @@ L:	linux-gpio@vger.kernel.org
  S:	Maintained
  F:	drivers/gpio/gpio-ws16c48.c
  
@@ -57143,10 +57611,10 @@ index 000000000000..e7310d9390f7
 2.18.2
 
 
-From 3c3c8d15eb936dc54218631310777f36d433b24c Mon Sep 17 00:00:00 2001
+From 77c9e153f9f0df7f589a9c41b228137eac8a8752 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 15 Dec 2019 22:08:00 +0100
-Subject: [PATCH 062/102] wireguard: selftests: import harness makefile for
+Subject: [PATCH 067/111] wireguard: selftests: import harness makefile for
  test suite
 
 commit 65d88d04114bca7d85faebd5fed61069cb2b632c upstream.
@@ -58280,10 +58748,10 @@ index 000000000000..9cca30206014
 2.18.2
 
 
-From 2e57e5839641c9d8f544d825fc79a8ee8efcb683 Mon Sep 17 00:00:00 2001
+From 15207cd73dd3d5a380c55cd14910d3f5754068c9 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sun, 15 Dec 2019 22:08:01 +0100
-Subject: [PATCH 063/102] wireguard: Kconfig: select parent dependency for
+Subject: [PATCH 068/111] wireguard: Kconfig: select parent dependency for
  crypto
 
 commit d7c68a38bb4f9b7c1a2e4a772872c752ee5c44a6 upstream.
@@ -58317,10 +58785,10 @@ index 16ad145e22c9..57f1ba924f4e 100644
 2.18.2
 
 
-From 37061b340eeca3350700f8063d7a87cdd0d94ac4 Mon Sep 17 00:00:00 2001
+From 32c53a43704c0dc6a4b3595aaa466e24ef95f2c6 Mon Sep 17 00:00:00 2001
 From: Josh Soref <jsoref@gmail.com>
 Date: Sun, 15 Dec 2019 22:08:02 +0100
-Subject: [PATCH 064/102] wireguard: global: fix spelling mistakes in comments
+Subject: [PATCH 069/111] wireguard: global: fix spelling mistakes in comments
 
 commit a2ec8b5706944d228181c8b91d815f41d6dd8e7b upstream.
 
@@ -58391,10 +58859,10 @@ index dd8a47c4ad11..ae88be14c947 100644
 2.18.2
 
 
-From 4f4ad9fc4749759e8e0a9ec20beaf6c90e4de3e5 Mon Sep 17 00:00:00 2001
+From 21758113061c32da38358a7623db25bea7a1b818 Mon Sep 17 00:00:00 2001
 From: YueHaibing <yuehaibing@huawei.com>
 Date: Sun, 15 Dec 2019 22:08:03 +0100
-Subject: [PATCH 065/102] wireguard: main: remove unused include
+Subject: [PATCH 070/111] wireguard: main: remove unused include
  <linux/version.h>
 
 commit 43967b6ff91e53bcce5ae08c16a0588a475b53a1 upstream.
@@ -58426,10 +58894,10 @@ index 10c0a40f6a9e..7a7d5f1a80fc 100644
 2.18.2
 
 
-From e52ce44f079a4817922341b2f36df79dff176db4 Mon Sep 17 00:00:00 2001
+From 484a916ee8c80ab19e0f322a6dc5da72dffc1926 Mon Sep 17 00:00:00 2001
 From: Wei Yongjun <weiyongjun1@huawei.com>
 Date: Sun, 15 Dec 2019 22:08:04 +0100
-Subject: [PATCH 066/102] wireguard: allowedips: use kfree_rcu() instead of
+Subject: [PATCH 071/111] wireguard: allowedips: use kfree_rcu() instead of
  call_rcu()
 
 commit d89ee7d5c73af15c1c6f12b016cdf469742b5726 upstream.
@@ -58474,10 +58942,10 @@ index 72667d5399c3..121d9ea0f135 100644
 2.18.2
 
 
-From 78bad68b8a01e2f6ea00ab47f0ae2aa7c4271b5a Mon Sep 17 00:00:00 2001
+From 81c5e624093c936565980ead355a4e58278dbfb1 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 2 Jan 2020 17:47:49 +0100
-Subject: [PATCH 067/102] wireguard: selftests: remove ancient kernel
+Subject: [PATCH 072/111] wireguard: selftests: remove ancient kernel
  compatibility code
 
 commit 9a69a4c8802adf642bc4a13d471b5a86b44ed434 upstream.
@@ -58861,10 +59329,10 @@ index 9cca30206014..af9323a0b6e0 100644
 2.18.2
 
 
-From 698a5f5e69b1828a12b0b2a13964155e0010fc40 Mon Sep 17 00:00:00 2001
+From 0692300b5a34d4de3e6d2f122f9012ebabf1ba70 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 2 Jan 2020 17:47:50 +0100
-Subject: [PATCH 068/102] wireguard: queueing: do not account for pfmemalloc
+Subject: [PATCH 073/111] wireguard: queueing: do not account for pfmemalloc
  when clearing skb header
 
 commit 04d2ea92a18417619182cbb79063f154892b0150 upstream.
@@ -58906,10 +59374,10 @@ index 58fdd630b246..e62c714a548e 100644
 2.18.2
 
 
-From c51ab2284d454fd109f439c25a52e425d2942243 Mon Sep 17 00:00:00 2001
+From 0a724185216808689541cc36aca39b93eaf8d791 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Thu, 2 Jan 2020 17:47:51 +0100
-Subject: [PATCH 069/102] wireguard: socket: mark skbs as not on list when
+Subject: [PATCH 074/111] wireguard: socket: mark skbs as not on list when
  receiving via gro
 
 commit 736775d06bac60d7a353e405398b48b2bd8b1e54 upstream.
@@ -58946,10 +59414,10 @@ index c46256d0d81c..262f3b5c819d 100644
 2.18.2
 
 
-From 88b1984484da2aea12b42a0faa41293b5306a943 Mon Sep 17 00:00:00 2001
+From 63d5635fb45747466c1ec35862b88fd720208009 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 8 Jan 2020 16:59:02 -0500
-Subject: [PATCH 070/102] net: introduce skb_list_walk_safe for skb segment
+Subject: [PATCH 075/111] net: introduce skb_list_walk_safe for skb segment
  walking
 
 commit dcfea72e79b0aa7a057c8f6024169d86a1bbc84b upstream.
@@ -59024,10 +59492,10 @@ index 955e1370f033..5e9fe508977f 100644
 2.18.2
 
 
-From 8d8671d5c029d2a9a39b056e270ff5552f169afa Mon Sep 17 00:00:00 2001
+From 73ccb3009a5fbc9cb752633ab1f58ddf5fb3baa2 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 13 Jan 2020 18:42:26 -0500
-Subject: [PATCH 071/102] net: skbuff: disambiguate argument and member for
+Subject: [PATCH 076/111] net: skbuff: disambiguate argument and member for
  skb_list_walk_safe helper
 
 commit 5eee7bd7e245914e4e050c413dfe864e31805207 upstream.
@@ -59065,10 +59533,10 @@ index 5e9fe508977f..3c7755d29636 100644
 2.18.2
 
 
-From 464505e79104aed8c1be0cef82a5161e35a912e4 Mon Sep 17 00:00:00 2001
+From efa92661e440d0226cefd69c0abf4ca806d477f5 Mon Sep 17 00:00:00 2001
 From: Eric Dumazet <edumazet@google.com>
 Date: Tue, 4 Feb 2020 22:17:25 +0100
-Subject: [PATCH 072/102] wireguard: allowedips: fix use-after-free in
+Subject: [PATCH 077/111] wireguard: allowedips: fix use-after-free in
  root_remove_peer_lists
 
 commit 9981159fc3b677b357f84e069a11de5a5ec8a2a8 upstream.
@@ -59235,10 +59703,10 @@ index 121d9ea0f135..3725e9cd85f4 100644
 2.18.2
 
 
-From 8f8e7d212ee362a11219ca7913232b980229e594 Mon Sep 17 00:00:00 2001
+From b34ba0bc7bcc1ed8f9a98c02ccbe46bb6e9d25ea Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 4 Feb 2020 22:17:26 +0100
-Subject: [PATCH 073/102] wireguard: noise: reject peers with low order public
+Subject: [PATCH 078/111] wireguard: noise: reject peers with low order public
  keys
 
 commit ec31c2676a10e064878927b243fada8c2fb0c03c upstream.
@@ -59477,10 +59945,10 @@ index d71c8db68a8c..919d9d866446 100644
 2.18.2
 
 
-From 084636722e963933243723773ba16fc8ba770aa9 Mon Sep 17 00:00:00 2001
+From 582b49f3e28a850c5064955c7c6556f29ffa5b73 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 4 Feb 2020 22:17:27 +0100
-Subject: [PATCH 074/102] wireguard: selftests: ensure non-addition of peers
+Subject: [PATCH 079/111] wireguard: selftests: ensure non-addition of peers
  with failed precomputation
 
 commit f9398acba6a4ae9cb98bfe4d56414d376eff8d57 upstream.
@@ -59517,10 +59985,10 @@ index d5c85c7494f2..b03647d1bbf6 100755
 2.18.2
 
 
-From 057a7fae3da625af873e90d2428c2e36aa3cb5ba Mon Sep 17 00:00:00 2001
+From 07464ba3502e269e5d1b6db1c4f1e60528c07f9f Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 4 Feb 2020 22:17:29 +0100
-Subject: [PATCH 075/102] wireguard: selftests: tie socket waiting to target
+Subject: [PATCH 080/111] wireguard: selftests: tie socket waiting to target
  pid
 
 commit 88f404a9b1d75388225b1c67b6dd327cb2182777 upstream.
@@ -59601,10 +60069,10 @@ index b03647d1bbf6..f5ab1cda8bb5 100755
 2.18.2
 
 
-From 615e1e581f15d7076cc36c0745084cfa4a8166fe Mon Sep 17 00:00:00 2001
+From a5f7d81b8eb60585d519ae8b5406ee5299eba56d Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 11 Feb 2020 20:47:08 +0100
-Subject: [PATCH 076/102] wireguard: device: use icmp_ndo_send helper
+Subject: [PATCH 081/111] wireguard: device: use icmp_ndo_send helper
 
 commit a12d7f3cbdc72c7625881c8dc2660fc2c979fdf2 upstream.
 
@@ -59673,10 +60141,10 @@ index f5ab1cda8bb5..138d46b3f330 100755
 2.18.2
 
 
-From 6c8f13f52437e2c6c47b154a309a3bd7268cdadc Mon Sep 17 00:00:00 2001
+From ef2aa4e86d5cfc85d0c43a9c9258f0358a3416e1 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 14 Feb 2020 23:57:20 +0100
-Subject: [PATCH 077/102] wireguard: selftests: reduce complexity and fix make
+Subject: [PATCH 082/111] wireguard: selftests: reduce complexity and fix make
  races
 
 commit 04ddf1208f03e1dbc39a4619c40eba640051b950 upstream.
@@ -59783,10 +60251,10 @@ index f10aa3590adc..28d477683e8a 100644
 2.18.2
 
 
-From 8c1fccf4e2cc8826a2331d0db343b605d6c2a259 Mon Sep 17 00:00:00 2001
+From 4290e92a82f97152d012f95bf12749d553657e83 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 14 Feb 2020 23:57:21 +0100
-Subject: [PATCH 078/102] wireguard: receive: reset last_under_load to zero
+Subject: [PATCH 083/111] wireguard: receive: reset last_under_load to zero
 
 commit 2a8a4df36462aa85b0db87b7c5ea145ba67e34a8 upstream.
 
@@ -59827,10 +60295,10 @@ index 9c6bab9c981f..4a153894cee2 100644
 2.18.2
 
 
-From b857ee61d95d1594fef2431a742f1dba9a346d5c Mon Sep 17 00:00:00 2001
+From adccd7f3760f71ea360cca23ea61fe98e2570ce7 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 14 Feb 2020 23:57:22 +0100
-Subject: [PATCH 079/102] wireguard: send: account for mtu=0 devices
+Subject: [PATCH 084/111] wireguard: send: account for mtu=0 devices
 
 commit 175f1ca9a9ed8689d2028da1a7c624bb4fb4ff7e upstream.
 
@@ -59930,10 +60398,10 @@ index c13260563446..7348c10cbae3 100644
 2.18.2
 
 
-From 556cc16a48669c4fe24c3aff25cc42dd6943dda0 Mon Sep 17 00:00:00 2001
+From 51e2c40ef1b13f286072ee2830f477cef8de4e51 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Fri, 14 Feb 2020 23:57:23 +0100
-Subject: [PATCH 080/102] wireguard: socket: remove extra call to
+Subject: [PATCH 085/111] wireguard: socket: remove extra call to
  synchronize_net
 
 commit 1fbc33b0a7feb6ca72bf7dc8a05d81485ee8ee2e upstream.
@@ -59969,10 +60437,10 @@ index 262f3b5c819d..b0d6541582d3 100644
 2.18.2
 
 
-From 4df296950ba1c2f95f11df0d8c768e294f6372d6 Mon Sep 17 00:00:00 2001
+From 644412771742addf9ed055685b9d8625927efbee Mon Sep 17 00:00:00 2001
 From: YueHaibing <yuehaibing@huawei.com>
 Date: Wed, 18 Mar 2020 18:30:43 -0600
-Subject: [PATCH 081/102] wireguard: selftests: remove duplicated include
+Subject: [PATCH 086/111] wireguard: selftests: remove duplicated include
  <sys/types.h>
 
 commit 166391159c5deb84795d2ff46e95f276177fa5fb upstream.
@@ -60003,10 +60471,10 @@ index 90bc9813cadc..c9698120ac9d 100644
 2.18.2
 
 
-From c1696f2c621d4995ef55b434093dd155d033ef53 Mon Sep 17 00:00:00 2001
+From 56136f7d6c86894d708c90f9d900c10eef211f5c Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 18 Mar 2020 18:30:45 -0600
-Subject: [PATCH 082/102] wireguard: queueing: account for skb->protocol==0
+Subject: [PATCH 087/111] wireguard: queueing: account for skb->protocol==0
 
 commit a5588604af448664e796daf3c1d5a4523c60667b upstream.
 
@@ -60113,10 +60581,10 @@ index 4a153894cee2..243ed7172dd2 100644
 2.18.2
 
 
-From f65f946499aa53cf2d1e42a455d45c8d5ab5f039 Mon Sep 17 00:00:00 2001
+From f20dfa360fade00beab3c1fde2484c0af31089e8 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 18 Mar 2020 18:30:46 -0600
-Subject: [PATCH 083/102] wireguard: receive: remove dead code from default
+Subject: [PATCH 088/111] wireguard: receive: remove dead code from default
  packet type case
 
 commit 2b8765c52db24c0fbcc81bac9b5e8390f2c7d3c8 upstream.
@@ -60154,10 +60622,10 @@ index 243ed7172dd2..da3b782ab7d3 100644
 2.18.2
 
 
-From 065d774ecd57dd44af70da3fedca6055f3a1b733 Mon Sep 17 00:00:00 2001
+From 454eb2c1f4e51f3075bbe991fa3caec2e9d75dfc Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 18 Mar 2020 18:30:47 -0600
-Subject: [PATCH 084/102] wireguard: noise: error out precomputed DH during
+Subject: [PATCH 089/111] wireguard: noise: error out precomputed DH during
  handshake rather than config
 
 commit 11a7686aa99c7fe4b3f80f6dcccd54129817984d upstream.
@@ -60392,10 +60860,10 @@ index 138d46b3f330..936e1ca9410e 100755
 2.18.2
 
 
-From cc596bdf55f1539ee9be8b1725029c1267d30ace Mon Sep 17 00:00:00 2001
+From 5927c138a003f8e35ab286bd8521d314b8dba7c7 Mon Sep 17 00:00:00 2001
 From: Sultan Alsawaf <sultan@kerneltoast.com>
 Date: Wed, 29 Apr 2020 14:59:20 -0600
-Subject: [PATCH 085/102] wireguard: send: remove errant newline from
+Subject: [PATCH 090/111] wireguard: send: remove errant newline from
  packet_encrypt_worker
 
 commit d6833e42786e050e7522d6a91a9361e54085897d upstream.
@@ -60427,10 +60895,10 @@ index 7348c10cbae3..3e030d614df5 100644
 2.18.2
 
 
-From c42c6bb1f76a284a5ee519430d131850abf76abf Mon Sep 17 00:00:00 2001
+From 84d9e8aed2ff8c27d313c104898197f96db5940c Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 29 Apr 2020 14:59:21 -0600
-Subject: [PATCH 086/102] wireguard: queueing: cleanup ptr_ring in error path
+Subject: [PATCH 091/111] wireguard: queueing: cleanup ptr_ring in error path
  of packet_queue_init
 
 commit 130c58606171326c81841a49cc913cd354113dd9 upstream.
@@ -60468,10 +60936,10 @@ index 5c964fcb994e..71b8e80b58e1 100644
 2.18.2
 
 
-From 8ad9fa392efd8a7fdb7aaa95e10024e92b5464d6 Mon Sep 17 00:00:00 2001
+From 4679b58795110210caaf0a8dfb0edcb7ee290a95 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
 Date: Wed, 29 Apr 2020 14:59:22 -0600
-Subject: [PATCH 087/102] wireguard: receive: use tunnel helpers for
+Subject: [PATCH 092/111] wireguard: receive: use tunnel helpers for
  decapsulating ECN markings
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -60524,10 +60992,10 @@ index da3b782ab7d3..267f202f1931 100644
 2.18.2
 
 
-From ed3a1c861619bd533d5fcb22987f07e4601f4347 Mon Sep 17 00:00:00 2001
+From b49ee9516949e76a028cd02a2169bd5eb626f8b2 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:02 -0600
-Subject: [PATCH 088/102] wireguard: selftests: use normal kernel stack size on
+Subject: [PATCH 093/111] wireguard: selftests: use normal kernel stack size on
  ppc64
 
 commit a0fd7cc87a018df1a17f9d3f0bd994c1f22c6b34 upstream.
@@ -60559,10 +61027,10 @@ index 990c510a9cfa..f52f1e2bc7f6 100644
 2.18.2
 
 
-From 5552a23000791407274d21a3ca302786347f4147 Mon Sep 17 00:00:00 2001
+From ea12677cac264b7ca0b590528811a7adea9dab85 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:03 -0600
-Subject: [PATCH 089/102] wireguard: socket: remove errant restriction on
+Subject: [PATCH 094/111] wireguard: socket: remove errant restriction on
  looping to self
 
 commit b673e24aad36981f327a6570412ffa7754de8911 upstream.
@@ -60729,10 +61197,10 @@ index 936e1ca9410e..17a1f53ceba0 100755
 2.18.2
 
 
-From 18a85d4b9af765b0bd3aabe53775b5f5dfe0c458 Mon Sep 17 00:00:00 2001
+From 02e4d9d72c88c70cef26e348ef39b6172b9540d2 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:04 -0600
-Subject: [PATCH 090/102] wireguard: send/receive: cond_resched() when
+Subject: [PATCH 095/111] wireguard: send/receive: cond_resched() when
  processing worker ringbuffers
 
 commit 4005f5c3c9d006157ba716594e0d70c88a235c5e upstream.
@@ -60795,10 +61263,10 @@ index 3e030d614df5..dc3079e17c7f 100644
 2.18.2
 
 
-From 7bbcc267509b75c3352eaa5e72162146d5c68e33 Mon Sep 17 00:00:00 2001
+From 86bd3f4255cb765f777d0c07e3088690d8f770b5 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:05 -0600
-Subject: [PATCH 091/102] wireguard: selftests: initalize ipv6 members to NULL
+Subject: [PATCH 096/111] wireguard: selftests: initalize ipv6 members to NULL
  to squelch clang warning
 
 commit 4fed818ef54b08d4b29200e416cce65546ad5312 upstream.
@@ -60852,10 +61320,10 @@ index bcd6462e4540..007cd4457c5f 100644
 2.18.2
 
 
-From fdc6bbe557a98411c50fba6a97c584f038e2cdd5 Mon Sep 17 00:00:00 2001
+From 9e483eb0a0929a2d41e6bd85050f4cd6df2296f7 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 6 May 2020 15:33:06 -0600
-Subject: [PATCH 092/102] wireguard: send/receive: use explicit unlikely branch
+Subject: [PATCH 097/111] wireguard: send/receive: use explicit unlikely branch
  instead of implicit coalescing
 
 commit 243f2148937adc72bcaaa590d482d599c936efde upstream.
@@ -60948,10 +61416,10 @@ index dc3079e17c7f..6687db699803 100644
 2.18.2
 
 
-From 0b9eda8d65e28b1df80ebebaf122e9c974bf325e Mon Sep 17 00:00:00 2001
+From 63ff63eab82c03f8a704904f2d0053c9483a9963 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 19 May 2020 22:49:27 -0600
-Subject: [PATCH 093/102] wireguard: selftests: use newer iproute2 for gcc-10
+Subject: [PATCH 098/111] wireguard: selftests: use newer iproute2 for gcc-10
 
 commit ee3c1aa3f34b7842c1557cfe5d8c3f7b8c692de8 upstream.
 
@@ -60985,10 +61453,10 @@ index 28d477683e8a..2dab4f57516d 100644
 2.18.2
 
 
-From 4c9012da0c27d8904d2bcb2e673101238b49e894 Mon Sep 17 00:00:00 2001
+From 16a7e167d711c54e7a7a5cbbeb2248a8d3112be8 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 19 May 2020 22:49:28 -0600
-Subject: [PATCH 094/102] wireguard: noise: read preshared key while taking
+Subject: [PATCH 099/111] wireguard: noise: read preshared key while taking
  lock
 
 commit bc67d371256f5c47d824e2eec51e46c8d62d022e upstream.
@@ -61053,10 +61521,10 @@ index 708dc61c974f..07eb438a6dee 100644
 2.18.2
 
 
-From 0d223d55549518845ec7d2bfebfc38d3fada8b15 Mon Sep 17 00:00:00 2001
+From 3dcc39a231f8e089d1f5dfdca1df6a11bafbe6da Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 19 May 2020 22:49:29 -0600
-Subject: [PATCH 095/102] wireguard: queueing: preserve flow hash across packet
+Subject: [PATCH 100/111] wireguard: queueing: preserve flow hash across packet
  scrubbing
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -61181,10 +61649,10 @@ index 6687db699803..2f5119ff93d8 100644
 2.18.2
 
 
-From 7a2acdd5a22efcb430b579f2a7b40064ecf86c4e Mon Sep 17 00:00:00 2001
+From dc52db0cf977334487997686486a672a73e6f30a Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 19 May 2020 22:49:30 -0600
-Subject: [PATCH 096/102] wireguard: noise: separate receive counter from send
+Subject: [PATCH 101/111] wireguard: noise: separate receive counter from send
  counter
 
 commit a9e90d9931f3a474f04bab782ccd9d77904941e9 upstream.
@@ -61526,10 +61994,10 @@ index 2f5119ff93d8..f74b9341ab0f 100644
 2.18.2
 
 
-From 1b3c36c47ca6db8b7b95abd8380135d8acb131a6 Mon Sep 17 00:00:00 2001
+From 171ddbce134ea616e96dcdaa759200b2239ffcc0 Mon Sep 17 00:00:00 2001
 From: Frank Werner-Krippendorf <mail@hb9fxq.ch>
 Date: Tue, 23 Jun 2020 03:59:44 -0600
-Subject: [PATCH 097/102] wireguard: noise: do not assign initiation time in if
+Subject: [PATCH 102/111] wireguard: noise: do not assign initiation time in if
  condition
 
 commit 558b353c9c2a717509f291c066c6bd8f5f5e21be upstream.
@@ -61565,10 +62033,10 @@ index 626433690abb..201a22681945 100644
 2.18.2
 
 
-From bc39ada8f9940609289eb94b4f912a4bce7f5856 Mon Sep 17 00:00:00 2001
+From 69f3584dfb917d2d6ea7cefea968b36df678b5fa Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Tue, 23 Jun 2020 03:59:45 -0600
-Subject: [PATCH 098/102] wireguard: device: avoid circular netns references
+Subject: [PATCH 103/111] wireguard: device: avoid circular netns references
 
 commit 900575aa33a3eaaef802b31de187a85c4a4b4bd0 upstream.
 
@@ -61875,10 +62343,10 @@ index 17a1f53ceba0..d77f4829f1e0 100755
 2.18.2
 
 
-From b15250ddde160448e1eab5d22b9ffa6b72e87e5c Mon Sep 17 00:00:00 2001
+From 722d6876f6951ed2886d255dc52dfcc2c0a05cb5 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Wed, 24 Jun 2020 16:06:03 -0600
-Subject: [PATCH 099/102] wireguard: receive: account for napi_gro_receive
+Subject: [PATCH 104/111] wireguard: receive: account for napi_gro_receive
  never returning GRO_DROP
 
 commit df08126e3833e9dca19e2407db5f5860a7c194fb upstream.
@@ -61923,10 +62391,10 @@ index 91438144e4f7..9b2ab6fc91cd 100644
 2.18.2
 
 
-From 3f481d2bac00d47782386000c915aefee885a57e Mon Sep 17 00:00:00 2001
+From b7f1bfd60e87a24534d5815033b7d35040850bb5 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 29 Jun 2020 19:06:18 -0600
-Subject: [PATCH 100/102] net: ip_tunnel: add header_ops for layer 3 devices
+Subject: [PATCH 105/111] net: ip_tunnel: add header_ops for layer 3 devices
 
 commit 2606aff916854b61234bf85001be9777bab2d5f8 upstream.
 
@@ -61989,10 +62457,10 @@ index 1452a97914a0..cfe21c3ddfc2 100644
 2.18.2
 
 
-From 52bdaaf683ff53acbfbb00d18f2a36fd7d309d4a Mon Sep 17 00:00:00 2001
+From 843947533aba46175fdfea9aa6674a5bba321a10 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 29 Jun 2020 19:06:20 -0600
-Subject: [PATCH 101/102] wireguard: implement header_ops->parse_protocol for
+Subject: [PATCH 106/111] wireguard: implement header_ops->parse_protocol for
  AF_PACKET
 
 commit 01a4967c71c004f8ecad4ab57021348636502fa9 upstream.
@@ -62032,10 +62500,10 @@ index a8f151b1b5fa..c9f65e96ccb0 100644
 2.18.2
 
 
-From dec8ffb544c2191faa1d646bd6b71776d42cb0d2 Mon Sep 17 00:00:00 2001
+From a5ac0e0c6a686ec42004321a0ab9539364143050 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Mon, 29 Jun 2020 19:06:21 -0600
-Subject: [PATCH 102/102] wireguard: queueing: make use of
+Subject: [PATCH 107/111] wireguard: queueing: make use of
  ip_tunnel_parse_protocol
 
 commit 1a574074ae7d1d745c16f7710655f38a53174c27 upstream.
@@ -62105,6 +62573,307 @@ index 9b2ab6fc91cd..2c9551ea6dc7 100644
  	if (skb->protocol == htons(ETH_P_IP)) {
  		len = ntohs(ip_hdr(skb)->tot_len);
  		if (unlikely(len < sizeof(struct iphdr)))
+-- 
+2.18.2
+
+
+From 851d4971ac7da6fdc9b10adf4010fec13ea61c0d Mon Sep 17 00:00:00 2001
+From: Johannes Berg <johannes.berg@intel.com>
+Date: Tue, 18 Aug 2020 10:17:31 +0200
+Subject: [PATCH 108/111] netlink: consistently use NLA_POLICY_EXACT_LEN()
+
+commit 8140860c817f3e9f78bcd1e420b9777ddcbaa629 upstream.
+
+Change places that open-code NLA_POLICY_EXACT_LEN() to
+use the macro instead, giving us flexibility in how we
+handle the details of the macro.
+
+Signed-off-by: Johannes Berg <johannes.berg@intel.com>
+Acked-by: Matthieu Baerts <matthieu.baerts@tessares.net>
+Signed-off-by: David S. Miller <davem@davemloft.net>
+[Jason: only picked the drivers/net/wireguard/* part]
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ drivers/net/wireguard/netlink.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/net/wireguard/netlink.c b/drivers/net/wireguard/netlink.c
+index 9756239416fd..2a14f564033a 100644
+--- a/drivers/net/wireguard/netlink.c
++++ b/drivers/net/wireguard/netlink.c
+@@ -22,8 +22,8 @@ static struct genl_family genl_family;
+ static const struct nla_policy device_policy[WGDEVICE_A_MAX + 1] = {
+ 	[WGDEVICE_A_IFINDEX]		= { .type = NLA_U32 },
+ 	[WGDEVICE_A_IFNAME]		= { .type = NLA_NUL_STRING, .len = IFNAMSIZ - 1 },
+-	[WGDEVICE_A_PRIVATE_KEY]	= { .type = NLA_EXACT_LEN, .len = NOISE_PUBLIC_KEY_LEN },
+-	[WGDEVICE_A_PUBLIC_KEY]		= { .type = NLA_EXACT_LEN, .len = NOISE_PUBLIC_KEY_LEN },
++	[WGDEVICE_A_PRIVATE_KEY]	= NLA_POLICY_EXACT_LEN(NOISE_PUBLIC_KEY_LEN),
++	[WGDEVICE_A_PUBLIC_KEY]		= NLA_POLICY_EXACT_LEN(NOISE_PUBLIC_KEY_LEN),
+ 	[WGDEVICE_A_FLAGS]		= { .type = NLA_U32 },
+ 	[WGDEVICE_A_LISTEN_PORT]	= { .type = NLA_U16 },
+ 	[WGDEVICE_A_FWMARK]		= { .type = NLA_U32 },
+@@ -31,12 +31,12 @@ static const struct nla_policy device_policy[WGDEVICE_A_MAX + 1] = {
+ };
+ 
+ static const struct nla_policy peer_policy[WGPEER_A_MAX + 1] = {
+-	[WGPEER_A_PUBLIC_KEY]				= { .type = NLA_EXACT_LEN, .len = NOISE_PUBLIC_KEY_LEN },
+-	[WGPEER_A_PRESHARED_KEY]			= { .type = NLA_EXACT_LEN, .len = NOISE_SYMMETRIC_KEY_LEN },
++	[WGPEER_A_PUBLIC_KEY]				= NLA_POLICY_EXACT_LEN(NOISE_PUBLIC_KEY_LEN),
++	[WGPEER_A_PRESHARED_KEY]			= NLA_POLICY_EXACT_LEN(NOISE_SYMMETRIC_KEY_LEN),
+ 	[WGPEER_A_FLAGS]				= { .type = NLA_U32 },
+ 	[WGPEER_A_ENDPOINT]				= { .type = NLA_MIN_LEN, .len = sizeof(struct sockaddr) },
+ 	[WGPEER_A_PERSISTENT_KEEPALIVE_INTERVAL]	= { .type = NLA_U16 },
+-	[WGPEER_A_LAST_HANDSHAKE_TIME]			= { .type = NLA_EXACT_LEN, .len = sizeof(struct __kernel_timespec) },
++	[WGPEER_A_LAST_HANDSHAKE_TIME]			= NLA_POLICY_EXACT_LEN(sizeof(struct __kernel_timespec)),
+ 	[WGPEER_A_RX_BYTES]				= { .type = NLA_U64 },
+ 	[WGPEER_A_TX_BYTES]				= { .type = NLA_U64 },
+ 	[WGPEER_A_ALLOWEDIPS]				= { .type = NLA_NESTED },
+-- 
+2.18.2
+
+
+From d1b90bd05552e4ae77a5b409ea1215472db522a8 Mon Sep 17 00:00:00 2001
+From: Johannes Berg <johannes.berg@intel.com>
+Date: Tue, 18 Aug 2020 10:17:32 +0200
+Subject: [PATCH 109/111] netlink: consistently use NLA_POLICY_MIN_LEN()
+
+commit bc0435855041d7fff0b83dd992fc4be34aa11afb upstream.
+
+Change places that open-code NLA_POLICY_MIN_LEN() to
+use the macro instead, giving us flexibility in how we
+handle the details of the macro.
+
+Signed-off-by: Johannes Berg <johannes.berg@intel.com>
+Signed-off-by: David S. Miller <davem@davemloft.net>
+[Jason: only picked the drivers/net/wireguard/* part]
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ drivers/net/wireguard/netlink.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/wireguard/netlink.c b/drivers/net/wireguard/netlink.c
+index 2a14f564033a..1c69eb8735d5 100644
+--- a/drivers/net/wireguard/netlink.c
++++ b/drivers/net/wireguard/netlink.c
+@@ -34,7 +34,7 @@ static const struct nla_policy peer_policy[WGPEER_A_MAX + 1] = {
+ 	[WGPEER_A_PUBLIC_KEY]				= NLA_POLICY_EXACT_LEN(NOISE_PUBLIC_KEY_LEN),
+ 	[WGPEER_A_PRESHARED_KEY]			= NLA_POLICY_EXACT_LEN(NOISE_SYMMETRIC_KEY_LEN),
+ 	[WGPEER_A_FLAGS]				= { .type = NLA_U32 },
+-	[WGPEER_A_ENDPOINT]				= { .type = NLA_MIN_LEN, .len = sizeof(struct sockaddr) },
++	[WGPEER_A_ENDPOINT]				= NLA_POLICY_MIN_LEN(sizeof(struct sockaddr)),
+ 	[WGPEER_A_PERSISTENT_KEEPALIVE_INTERVAL]	= { .type = NLA_U16 },
+ 	[WGPEER_A_LAST_HANDSHAKE_TIME]			= NLA_POLICY_EXACT_LEN(sizeof(struct __kernel_timespec)),
+ 	[WGPEER_A_RX_BYTES]				= { .type = NLA_U64 },
+@@ -45,7 +45,7 @@ static const struct nla_policy peer_policy[WGPEER_A_MAX + 1] = {
+ 
+ static const struct nla_policy allowedip_policy[WGALLOWEDIP_A_MAX + 1] = {
+ 	[WGALLOWEDIP_A_FAMILY]		= { .type = NLA_U16 },
+-	[WGALLOWEDIP_A_IPADDR]		= { .type = NLA_MIN_LEN, .len = sizeof(struct in_addr) },
++	[WGALLOWEDIP_A_IPADDR]		= NLA_POLICY_MIN_LEN(sizeof(struct in_addr)),
+ 	[WGALLOWEDIP_A_CIDR_MASK]	= { .type = NLA_U8 }
+ };
+ 
+-- 
+2.18.2
+
+
+From 27ec71c22b1dec44cf144c08d05c880d31d5eae2 Mon Sep 17 00:00:00 2001
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Date: Wed, 9 Sep 2020 13:58:14 +0200
+Subject: [PATCH 110/111] wireguard: noise: take lock when removing handshake
+ entry from table
+
+commit 9179ba31367bcf481c3c79b5f028c94faad9f30a upstream.
+
+Eric reported that syzkaller found a race of this variety:
+
+CPU 1                                       CPU 2
+-------------------------------------------|---------------------------------------
+wg_index_hashtable_replace(old, ...)       |
+  if (hlist_unhashed(&old->index_hash))    |
+                                           | wg_index_hashtable_remove(old)
+                                           |   hlist_del_init_rcu(&old->index_hash)
+				           |     old->index_hash.pprev = NULL
+  hlist_replace_rcu(&old->index_hash, ...) |
+    *old->index_hash.pprev                 |
+
+Syzbot wasn't actually able to reproduce this more than once or create a
+reproducer, because the race window between checking "hlist_unhashed" and
+calling "hlist_replace_rcu" is just so small. Adding an mdelay(5) or
+similar there helps make this demonstrable using this simple script:
+
+    #!/bin/bash
+    set -ex
+    trap 'kill $pid1; kill $pid2; ip link del wg0; ip link del wg1' EXIT
+    ip link add wg0 type wireguard
+    ip link add wg1 type wireguard
+    wg set wg0 private-key <(wg genkey) listen-port 9999
+    wg set wg1 private-key <(wg genkey) peer $(wg show wg0 public-key) endpoint 127.0.0.1:9999 persistent-keepalive 1
+    wg set wg0 peer $(wg show wg1 public-key)
+    ip link set wg0 up
+    yes link set wg1 up | ip -force -batch - &
+    pid1=$!
+    yes link set wg1 down | ip -force -batch - &
+    pid2=$!
+    wait
+
+The fundumental underlying problem is that we permit calls to wg_index_
+hashtable_remove(handshake.entry) without requiring the caller to take
+the handshake mutex that is intended to protect members of handshake
+during mutations. This is consistently the case with calls to wg_index_
+hashtable_insert(handshake.entry) and wg_index_hashtable_replace(
+handshake.entry), but it's missing from a pertinent callsite of wg_
+index_hashtable_remove(handshake.entry). So, this patch makes sure that
+mutex is taken.
+
+The original code was a little bit funky though, in the form of:
+
+    remove(handshake.entry)
+    lock(), memzero(handshake.some_members), unlock()
+    remove(handshake.entry)
+
+The original intention of that double removal pattern outside the lock
+appears to be some attempt to prevent insertions that might happen while
+locks are dropped during expensive crypto operations, but actually, all
+callers of wg_index_hashtable_insert(handshake.entry) take the write
+lock and then explicitly check handshake.state, as they should, which
+the aforementioned memzero clears, which means an insertion should
+already be impossible. And regardless, the original intention was
+necessarily racy, since it wasn't guaranteed that something else would
+run after the unlock() instead of after the remove(). So, from a
+soundness perspective, it seems positive to remove what looks like a
+hack at best.
+
+The crash from both syzbot and from the script above is as follows:
+
+  general protection fault, probably for non-canonical address 0xdffffc0000000000: 0000 [#1] PREEMPT SMP KASAN
+  KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
+  CPU: 0 PID: 7395 Comm: kworker/0:3 Not tainted 5.9.0-rc4-syzkaller #0
+  Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
+  Workqueue: wg-kex-wg1 wg_packet_handshake_receive_worker
+  RIP: 0010:hlist_replace_rcu include/linux/rculist.h:505 [inline]
+  RIP: 0010:wg_index_hashtable_replace+0x176/0x330 drivers/net/wireguard/peerlookup.c:174
+  Code: 00 fc ff df 48 89 f9 48 c1 e9 03 80 3c 01 00 0f 85 44 01 00 00 48 b9 00 00 00 00 00 fc ff df 48 8b 45 10 48 89 c6 48 c1 ee 03 <80> 3c 0e 00 0f 85 06 01 00 00 48 85 d2 4c 89 28 74 47 e8 a3 4f b5
+  RSP: 0018:ffffc90006a97bf8 EFLAGS: 00010246
+  RAX: 0000000000000000 RBX: ffff888050ffc4f8 RCX: dffffc0000000000
+  RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffff88808e04e010
+  RBP: ffff88808e04e000 R08: 0000000000000001 R09: ffff8880543d0000
+  R10: ffffed100a87a000 R11: 000000000000016e R12: ffff8880543d0000
+  R13: ffff88808e04e008 R14: ffff888050ffc508 R15: ffff888050ffc500
+  FS:  0000000000000000(0000) GS:ffff8880ae600000(0000) knlGS:0000000000000000
+  CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+  CR2: 00000000f5505db0 CR3: 0000000097cf7000 CR4: 00000000001526f0
+  DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+  DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+  Call Trace:
+  wg_noise_handshake_begin_session+0x752/0xc9a drivers/net/wireguard/noise.c:820
+  wg_receive_handshake_packet drivers/net/wireguard/receive.c:183 [inline]
+  wg_packet_handshake_receive_worker+0x33b/0x730 drivers/net/wireguard/receive.c:220
+  process_one_work+0x94c/0x1670 kernel/workqueue.c:2269
+  worker_thread+0x64c/0x1120 kernel/workqueue.c:2415
+  kthread+0x3b5/0x4a0 kernel/kthread.c:292
+  ret_from_fork+0x1f/0x30 arch/x86/entry/entry_64.S:294
+
+Reported-by: syzbot <syzkaller@googlegroups.com>
+Reported-by: Eric Dumazet <edumazet@google.com>
+Link: https://lore.kernel.org/wireguard/20200908145911.4090480-1-edumazet@google.com/
+Fixes: e7096c131e51 ("net: WireGuard secure network tunnel")
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Signed-off-by: David S. Miller <davem@davemloft.net>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ drivers/net/wireguard/noise.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/drivers/net/wireguard/noise.c b/drivers/net/wireguard/noise.c
+index 201a22681945..27cb5045bed2 100644
+--- a/drivers/net/wireguard/noise.c
++++ b/drivers/net/wireguard/noise.c
+@@ -87,15 +87,12 @@ static void handshake_zero(struct noise_handshake *handshake)
+ 
+ void wg_noise_handshake_clear(struct noise_handshake *handshake)
+ {
++	down_write(&handshake->lock);
+ 	wg_index_hashtable_remove(
+ 			handshake->entry.peer->device->index_hashtable,
+ 			&handshake->entry);
+-	down_write(&handshake->lock);
+ 	handshake_zero(handshake);
+ 	up_write(&handshake->lock);
+-	wg_index_hashtable_remove(
+-			handshake->entry.peer->device->index_hashtable,
+-			&handshake->entry);
+ }
+ 
+ static struct noise_keypair *keypair_create(struct wg_peer *peer)
+-- 
+2.18.2
+
+
+From e2b69aa576a3011fc722450f3f296189b1dac3c8 Mon Sep 17 00:00:00 2001
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Date: Wed, 9 Sep 2020 13:58:15 +0200
+Subject: [PATCH 111/111] wireguard: peerlookup: take lock before checking hash
+ in replace operation
+
+commit 6147f7b1e90ff09bd52afc8b9206a7fcd133daf7 upstream.
+
+Eric's suggested fix for the previous commit's mentioned race condition
+was to simply take the table->lock in wg_index_hashtable_replace(). The
+table->lock of the hash table is supposed to protect the bucket heads,
+not the entires, but actually, since all the mutator functions are
+already taking it, it makes sense to take it too for the test to
+hlist_unhashed, as a defense in depth measure, so that it no longer
+races with deletions, regardless of what other locks are protecting
+individual entries. This is sensible from a performance perspective
+because, as Eric pointed out, the case of being unhashed is already the
+unlikely case, so this won't add common contention. And comparing
+instructions, this basically doesn't make much of a difference other
+than pushing and popping %r13, used by the new `bool ret`. More
+generally, I like the idea of locking consistency across table mutator
+functions, and this might let me rest slightly easier at night.
+
+Suggested-by: Eric Dumazet <edumazet@google.com>
+Link: https://lore.kernel.org/wireguard/20200908145911.4090480-1-edumazet@google.com/
+Fixes: e7096c131e51 ("net: WireGuard secure network tunnel")
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Signed-off-by: David S. Miller <davem@davemloft.net>
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ drivers/net/wireguard/peerlookup.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/wireguard/peerlookup.c b/drivers/net/wireguard/peerlookup.c
+index e4deb331476b..f2783aa7a88f 100644
+--- a/drivers/net/wireguard/peerlookup.c
++++ b/drivers/net/wireguard/peerlookup.c
+@@ -167,9 +167,13 @@ bool wg_index_hashtable_replace(struct index_hashtable *table,
+ 				struct index_hashtable_entry *old,
+ 				struct index_hashtable_entry *new)
+ {
+-	if (unlikely(hlist_unhashed(&old->index_hash)))
+-		return false;
++	bool ret;
++
+ 	spin_lock_bh(&table->lock);
++	ret = !hlist_unhashed(&old->index_hash);
++	if (unlikely(!ret))
++		goto out;
++
+ 	new->index = old->index;
+ 	hlist_replace_rcu(&old->index_hash, &new->index_hash);
+ 
+@@ -180,8 +184,9 @@ bool wg_index_hashtable_replace(struct index_hashtable *table,
+ 	 * simply gets dropped, which isn't terrible.
+ 	 */
+ 	INIT_HLIST_NODE(&old->index_hash);
++out:
+ 	spin_unlock_bh(&table->lock);
+-	return true;
++	return ret;
+ }
+ 
+ void wg_index_hashtable_remove(struct index_hashtable *table,
 -- 
 2.18.2
 
