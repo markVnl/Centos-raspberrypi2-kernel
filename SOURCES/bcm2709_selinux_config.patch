@@ -4,8 +4,8 @@ Date: Fri, 7 Aug 2020 02:59:05 +0000
 Subject: [PATCH] configs 2709
 
 ---
- arch/arm/configs/bcm2709_defconfig | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ arch/arm/configs/bcm2709_defconfig | 32 ++++++++++++++++++++++++++++--
+ 1 file changed, 30 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm/configs/bcm2709_defconfig b/arch/arm/configs/bcm2709_defconfig
 index 53557cc..aab2be8 100644
@@ -67,20 +67,22 @@ index 53557cc..aab2be8 100644
  CONFIG_CIFS=m
  CONFIG_CIFS_WEAK_PW_HASH=y
  CONFIG_CIFS_UPCALL=y
-@@ -1446,6 +1453,12 @@ CONFIG_NLS_KOI8_U=m
+@@ -1445,8 +1452,12 @@ CONFIG_NLS_KOI8_R=m
+ CONFIG_NLS_KOI8_U=m
  CONFIG_DLM=m
  CONFIG_SECURITY=y
- CONFIG_SECURITY_APPARMOR=y
+-CONFIG_SECURITY_APPARMOR=y
+-CONFIG_LSM=""
 +CONFIG_SECURITY_NETWORK=y
 +CONFIG_SECURITY_PATH=y
 +CONFIG_SECURITY_SELINUX=y
 +CONFIG_SECURITY_SELINUX_BOOTPARAM=y
 +CONFIG_SECURITY_SELINUX_DISABLE=y
 +CONFIG_SECURITY_SELINUX_CHECKREQPROT_VALUE=1
- CONFIG_LSM=""
  CONFIG_CRYPTO_USER=m
  CONFIG_CRYPTO_CHACHA20POLY1305=m
-@@ -1479,3 +1492,20 @@ CONFIG_FUNCTION_PROFILER=y
+ CONFIG_CRYPTO_XCBC=m
+@@ -1479,3 +1490,20 @@ CONFIG_FUNCTION_PROFILER=y
  CONFIG_KGDB=y
  CONFIG_KGDB_KDB=y
  CONFIG_KDB_KEYBOARD=y
