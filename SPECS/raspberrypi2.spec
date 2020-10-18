@@ -1,5 +1,5 @@
-%global commit_firmware_long a490197f0672d948860b2b807884ae65eabc4d4f
-%global commit_linux_long 65caf603f3b1c43f4c92939f7fbb7149e054f486
+%global commit_firmware_long b0f9870274333af93ecc5e779619bf51c092364d
+%global commit_linux_long edc21a35b9b7b427716564c3b744ed2a89fcd19a
 
 ExclusiveArch: aarch64 armv7hl
 
@@ -32,7 +32,7 @@ ExclusiveArch: aarch64 armv7hl
 %define extra_version 1
 
 %define kversion 5.4
-%define kfullversion %{kversion}.65
+%define kfullversion %{kversion}.72
 
 Name:           raspberrypi2
 Version:        %{kfullversion}
@@ -284,6 +284,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Sun Oct 18 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.72
+- Update to version v5.4.72
+
 * Sat Sep 12 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.65
 - Update to version v5.4.65
 - Build using devtoolset-8
