@@ -29,7 +29,7 @@ ExclusiveArch: aarch64 armv7hl
 %define local_version v7
 %define bcmmodel 2709
 %endif
-%define extra_version 1
+%define extra_version 1.1
 
 %define kversion 5.4
 %define kfullversion %{kversion}.72
@@ -66,7 +66,14 @@ Patch100:       bcm2709_selinux_config.patch
 Patch101:       bcm2711_selinux_config.patch
 
 #Wireguard
-Patch800: wireguard.patch
+Patch800:       wireguard.patch
+
+# These Patches are included in kernel 5.4.81 and 5.10.RC6
+# Do not forget to remove them
+# Patch900 needed for Patch901 to aply clean
+# Fixes Kernel OOPS using zram-swap on RPI 8G Model
+Patch900:       always_have_io_remap_pfn_range_pgprot_decrypted.patch
+Patch901:       define_MAX_POSSIBLE_PHYSMEM_BITS_where_needed.patch
 
 %description
 Specific kernel and bootcode for Raspberry Pi
@@ -136,6 +143,12 @@ git add .
 git commit -a -q -m "baseline"
 xzcat %{SOURCE2} | patch -p1 -F1 -s
 git commit -a -q -m "%{kfullversion}"
+
+# Patch 900 and 9001 are included in kernel 5.4.81 and 5.10.RC6
+# Do not forget to remove them
+git am %{PATCH900}
+git am %{PATCH901}
+
 git am %{SOURCE3}
 
 git am %{PATCH100}
@@ -284,6 +297,9 @@ cp $(ls -1d /usr/share/%{name}-kernel/*-*/|sort -V|tail -1)/boot/overlays/README
 %doc /boot/LICENCE.broadcom
 
 %changelog
+* Thu Dec 17 2020 Mark Verlinde <mark.verlinde@gmail.com> - 5.4.72-1.1
+- Test Build: Fix Kernel OOPS using zram-swap on RPI 8G Model
+
 * Sun Oct 18 2020 Pablo Greco <pgreco@centosproject.org> - 5.4.72
 - Update to version v5.4.72
 
